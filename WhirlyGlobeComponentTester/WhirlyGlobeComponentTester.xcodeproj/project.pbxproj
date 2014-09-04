@@ -1,0 +1,508 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		76888B0A6F0940A29D86C2C3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73C0038387F44FE887F79006 /* libPods.a */; };
+		C08F6F3919B79DBF00BCEAB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F6F3819B79DBF00BCEAB2 /* AppDelegate.swift */; };
+		C08F6F4019B79DBF00BCEAB2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C08F6F3F19B79DBF00BCEAB2 /* Images.xcassets */; };
+		C08F6F4C19B79DBF00BCEAB2 /* WhirlyGlobeComponentTesterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F6F4B19B79DBF00BCEAB2 /* WhirlyGlobeComponentTesterTests.swift */; };
+		C08F6F5D19B79E3300BCEAB2 /* AnimatedSphere.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F6F5519B79E3300BCEAB2 /* AnimatedSphere.swift */; };
+		C08F6F5E19B79E3300BCEAB2 /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F6F5719B79E3300BCEAB2 /* ConfigViewController.swift */; };
+		C08F6F5F19B79E3300BCEAB2 /* ConfigViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C08F6F5819B79E3300BCEAB2 /* ConfigViewController.xib */; };
+		C08F6F6019B79E3300BCEAB2 /* StartupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F6F5919B79E3300BCEAB2 /* StartupViewController.swift */; };
+		C08F6F6119B79E3300BCEAB2 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F6F5A19B79E3300BCEAB2 /* TestViewController.swift */; };
+		C08F6F6219B79E3300BCEAB2 /* WeatherShader.m in Sources */ = {isa = PBXBuildFile; fileRef = C08F6F5C19B79E3300BCEAB2 /* WeatherShader.m */; };
+		C08F6F6619B79E4D00BCEAB2 /* WhirlyGlobeViewController+Swift.m in Sources */ = {isa = PBXBuildFile; fileRef = C08F6F6519B79E4D00BCEAB2 /* WhirlyGlobeViewController+Swift.m */; };
+		C08F6F6F19B7ADA000BCEAB2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C08F6F6E19B7ADA000BCEAB2 /* CoreLocation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C08F6F4619B79DBF00BCEAB2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C08F6F2B19B79DBF00BCEAB2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C08F6F3219B79DBF00BCEAB2;
+			remoteInfo = WhirlyGlobeComponentTester;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		688F071916984232ADA60B97 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = ../Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		73C0038387F44FE887F79006 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C08F6F3319B79DBF00BCEAB2 /* WhirlyGlobeComponentTester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhirlyGlobeComponentTester.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C08F6F3719B79DBF00BCEAB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C08F6F3819B79DBF00BCEAB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C08F6F3F19B79DBF00BCEAB2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C08F6F4519B79DBF00BCEAB2 /* WhirlyGlobeComponentTesterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhirlyGlobeComponentTesterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C08F6F4A19B79DBF00BCEAB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C08F6F4B19B79DBF00BCEAB2 /* WhirlyGlobeComponentTesterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhirlyGlobeComponentTesterTests.swift; sourceTree = "<group>"; };
+		C08F6F5519B79E3300BCEAB2 /* AnimatedSphere.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedSphere.swift; sourceTree = "<group>"; };
+		C08F6F5619B79E3300BCEAB2 /* ConfigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigViewController.h; sourceTree = "<group>"; };
+		C08F6F5719B79E3300BCEAB2 /* ConfigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
+		C08F6F5819B79E3300BCEAB2 /* ConfigViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfigViewController.xib; sourceTree = "<group>"; };
+		C08F6F5919B79E3300BCEAB2 /* StartupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartupViewController.swift; sourceTree = "<group>"; };
+		C08F6F5A19B79E3300BCEAB2 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		C08F6F5B19B79E3300BCEAB2 /* WeatherShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherShader.h; sourceTree = "<group>"; };
+		C08F6F5C19B79E3300BCEAB2 /* WeatherShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherShader.m; sourceTree = "<group>"; };
+		C08F6F6319B79E4300BCEAB2 /* WhirlyGlobeComponentTester-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WhirlyGlobeComponentTester-Bridging-Header.h"; sourceTree = "<group>"; };
+		C08F6F6419B79E4D00BCEAB2 /* WhirlyGlobeViewController+Swift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WhirlyGlobeViewController+Swift.h"; sourceTree = "<group>"; };
+		C08F6F6519B79E4D00BCEAB2 /* WhirlyGlobeViewController+Swift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WhirlyGlobeViewController+Swift.m"; sourceTree = "<group>"; };
+		C08F6F6719B79F1300BCEAB2 /* WhirlyGlobeComponentTester-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WhirlyGlobeComponentTester-Prefix.pch"; sourceTree = "<group>"; };
+		C08F6F6E19B7ADA000BCEAB2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C08F6F3019B79DBF00BCEAB2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76888B0A6F0940A29D86C2C3 /* libPods.a in Frameworks */,
+				C08F6F6F19B7ADA000BCEAB2 /* CoreLocation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C08F6F4219B79DBF00BCEAB2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8ECE6C4DA09B4EB88F14838F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C08F6F6E19B7ADA000BCEAB2 /* CoreLocation.framework */,
+				73C0038387F44FE887F79006 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C08F6F2A19B79DBF00BCEAB2 = {
+			isa = PBXGroup;
+			children = (
+				C08F6F3519B79DBF00BCEAB2 /* WhirlyGlobeComponentTester */,
+				C08F6F4819B79DBF00BCEAB2 /* WhirlyGlobeComponentTesterTests */,
+				C08F6F3419B79DBF00BCEAB2 /* Products */,
+				688F071916984232ADA60B97 /* Pods.xcconfig */,
+				8ECE6C4DA09B4EB88F14838F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C08F6F3419B79DBF00BCEAB2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C08F6F3319B79DBF00BCEAB2 /* WhirlyGlobeComponentTester.app */,
+				C08F6F4519B79DBF00BCEAB2 /* WhirlyGlobeComponentTesterTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C08F6F3519B79DBF00BCEAB2 /* WhirlyGlobeComponentTester */ = {
+			isa = PBXGroup;
+			children = (
+				C08F6F3819B79DBF00BCEAB2 /* AppDelegate.swift */,
+				C08F6F5619B79E3300BCEAB2 /* ConfigViewController.h */,
+				C08F6F5719B79E3300BCEAB2 /* ConfigViewController.swift */,
+				C08F6F5819B79E3300BCEAB2 /* ConfigViewController.xib */,
+				C08F6F5919B79E3300BCEAB2 /* StartupViewController.swift */,
+				C08F6F5519B79E3300BCEAB2 /* AnimatedSphere.swift */,
+				C08F6F5B19B79E3300BCEAB2 /* WeatherShader.h */,
+				C08F6F5C19B79E3300BCEAB2 /* WeatherShader.m */,
+				C08F6F5A19B79E3300BCEAB2 /* TestViewController.swift */,
+				C08F6F6419B79E4D00BCEAB2 /* WhirlyGlobeViewController+Swift.h */,
+				C08F6F6519B79E4D00BCEAB2 /* WhirlyGlobeViewController+Swift.m */,
+				C08F6F3F19B79DBF00BCEAB2 /* Images.xcassets */,
+				C08F6F3619B79DBF00BCEAB2 /* Supporting Files */,
+			);
+			path = WhirlyGlobeComponentTester;
+			sourceTree = "<group>";
+		};
+		C08F6F3619B79DBF00BCEAB2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C08F6F6319B79E4300BCEAB2 /* WhirlyGlobeComponentTester-Bridging-Header.h */,
+				C08F6F3719B79DBF00BCEAB2 /* Info.plist */,
+				C08F6F6719B79F1300BCEAB2 /* WhirlyGlobeComponentTester-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C08F6F4819B79DBF00BCEAB2 /* WhirlyGlobeComponentTesterTests */ = {
+			isa = PBXGroup;
+			children = (
+				C08F6F4B19B79DBF00BCEAB2 /* WhirlyGlobeComponentTesterTests.swift */,
+				C08F6F4919B79DBF00BCEAB2 /* Supporting Files */,
+			);
+			path = WhirlyGlobeComponentTesterTests;
+			sourceTree = "<group>";
+		};
+		C08F6F4919B79DBF00BCEAB2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C08F6F4A19B79DBF00BCEAB2 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C08F6F3219B79DBF00BCEAB2 /* WhirlyGlobeComponentTester */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C08F6F4F19B79DBF00BCEAB2 /* Build configuration list for PBXNativeTarget "WhirlyGlobeComponentTester" */;
+			buildPhases = (
+				B33DE660A97946F78A06CEAA /* Check Pods Manifest.lock */,
+				C08F6F2F19B79DBF00BCEAB2 /* Sources */,
+				C08F6F3019B79DBF00BCEAB2 /* Frameworks */,
+				C08F6F3119B79DBF00BCEAB2 /* Resources */,
+				10E3D8AACC0547F09D6D3F0A /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WhirlyGlobeComponentTester;
+			productName = WhirlyGlobeComponentTester;
+			productReference = C08F6F3319B79DBF00BCEAB2 /* WhirlyGlobeComponentTester.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C08F6F4419B79DBF00BCEAB2 /* WhirlyGlobeComponentTesterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C08F6F5219B79DBF00BCEAB2 /* Build configuration list for PBXNativeTarget "WhirlyGlobeComponentTesterTests" */;
+			buildPhases = (
+				C08F6F4119B79DBF00BCEAB2 /* Sources */,
+				C08F6F4219B79DBF00BCEAB2 /* Frameworks */,
+				C08F6F4319B79DBF00BCEAB2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C08F6F4719B79DBF00BCEAB2 /* PBXTargetDependency */,
+			);
+			name = WhirlyGlobeComponentTesterTests;
+			productName = WhirlyGlobeComponentTesterTests;
+			productReference = C08F6F4519B79DBF00BCEAB2 /* WhirlyGlobeComponentTesterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C08F6F2B19B79DBF00BCEAB2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Moreira Consulting, Inc.";
+				TargetAttributes = {
+					C08F6F3219B79DBF00BCEAB2 = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					C08F6F4419B79DBF00BCEAB2 = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = C08F6F3219B79DBF00BCEAB2;
+					};
+				};
+			};
+			buildConfigurationList = C08F6F2E19B79DBF00BCEAB2 /* Build configuration list for PBXProject "WhirlyGlobeComponentTester" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C08F6F2A19B79DBF00BCEAB2;
+			productRefGroup = C08F6F3419B79DBF00BCEAB2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C08F6F3219B79DBF00BCEAB2 /* WhirlyGlobeComponentTester */,
+				C08F6F4419B79DBF00BCEAB2 /* WhirlyGlobeComponentTesterTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C08F6F3119B79DBF00BCEAB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C08F6F5F19B79E3300BCEAB2 /* ConfigViewController.xib in Resources */,
+				C08F6F4019B79DBF00BCEAB2 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C08F6F4319B79DBF00BCEAB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		10E3D8AACC0547F09D6D3F0A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B33DE660A97946F78A06CEAA /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C08F6F2F19B79DBF00BCEAB2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C08F6F6119B79E3300BCEAB2 /* TestViewController.swift in Sources */,
+				C08F6F6019B79E3300BCEAB2 /* StartupViewController.swift in Sources */,
+				C08F6F6619B79E4D00BCEAB2 /* WhirlyGlobeViewController+Swift.m in Sources */,
+				C08F6F3919B79DBF00BCEAB2 /* AppDelegate.swift in Sources */,
+				C08F6F6219B79E3300BCEAB2 /* WeatherShader.m in Sources */,
+				C08F6F5D19B79E3300BCEAB2 /* AnimatedSphere.swift in Sources */,
+				C08F6F5E19B79E3300BCEAB2 /* ConfigViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C08F6F4119B79DBF00BCEAB2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C08F6F4C19B79DBF00BCEAB2 /* WhirlyGlobeComponentTesterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C08F6F4719B79DBF00BCEAB2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C08F6F3219B79DBF00BCEAB2 /* WhirlyGlobeComponentTester */;
+			targetProxy = C08F6F4619B79DBF00BCEAB2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		C08F6F4D19B79DBF00BCEAB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "$(inherited)";
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C08F6F4E19B79DBF00BCEAB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_CFLAGS = "$(inherited)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C08F6F5019B79DBF00BCEAB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 688F071916984232ADA60B97 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libstdc++";
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WhirlyGlobeComponentTester/WhirlyGlobeComponentTester-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = WhirlyGlobeComponentTester/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_CFLAGS = "$(inherited)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WhirlyGlobeComponentTester/WhirlyGlobeComponentTester-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		C08F6F5119B79DBF00BCEAB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 688F071916984232ADA60B97 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libstdc++";
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WhirlyGlobeComponentTester/WhirlyGlobeComponentTester-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = WhirlyGlobeComponentTester/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_CFLAGS = "$(inherited)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WhirlyGlobeComponentTester/WhirlyGlobeComponentTester-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		C08F6F5319B79DBF00BCEAB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = WhirlyGlobeComponentTesterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WhirlyGlobeComponentTester.app/WhirlyGlobeComponentTester";
+			};
+			name = Debug;
+		};
+		C08F6F5419B79DBF00BCEAB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = WhirlyGlobeComponentTesterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WhirlyGlobeComponentTester.app/WhirlyGlobeComponentTester";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C08F6F2E19B79DBF00BCEAB2 /* Build configuration list for PBXProject "WhirlyGlobeComponentTester" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C08F6F4D19B79DBF00BCEAB2 /* Debug */,
+				C08F6F4E19B79DBF00BCEAB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C08F6F4F19B79DBF00BCEAB2 /* Build configuration list for PBXNativeTarget "WhirlyGlobeComponentTester" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C08F6F5019B79DBF00BCEAB2 /* Debug */,
+				C08F6F5119B79DBF00BCEAB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C08F6F5219B79DBF00BCEAB2 /* Build configuration list for PBXNativeTarget "WhirlyGlobeComponentTesterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C08F6F5319B79DBF00BCEAB2 /* Debug */,
+				C08F6F5419B79DBF00BCEAB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C08F6F2B19B79DBF00BCEAB2 /* Project object */;
+}
