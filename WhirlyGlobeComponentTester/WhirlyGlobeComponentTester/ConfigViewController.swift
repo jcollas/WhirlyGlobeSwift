@@ -54,7 +54,10 @@ class ConfigViewController : UIViewController, UITableViewDataSource, UITableVie
         
         for cs in values {
             if (cs.sectionName == section) {
-                return cs.rows[row]!
+                var csRow = cs.rows[row]
+                if (csRow != nil) {
+                    return csRow!
+                }
             }
         }
         

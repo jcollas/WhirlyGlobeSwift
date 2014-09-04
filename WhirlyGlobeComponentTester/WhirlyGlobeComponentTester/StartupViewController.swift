@@ -3,7 +3,7 @@
 //  SwiftTest
 //
 //  Created by Juan J. Collas on 8/27/2014.
-//  Copyright (c) 2014 Moreira Consulting, Inc. All rights reserved.
+//  Copyright (c) 2014 mousebird consulting. All rights reserved.
 //
 
 import UIKit

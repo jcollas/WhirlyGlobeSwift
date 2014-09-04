@@ -82,7 +82,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
     private var baseLayer : MaplyViewControllerLayer?
     
     // Overlay layers
-    private var ovlLayers : Dictionary<String, MaplyViewControllerLayer>
+    private var ovlLayers : Dictionary<String, MaplyViewControllerLayer> = [:]
     
     // These represent a group of objects we've added to the globe.
     // This is how we track them for removal
@@ -132,20 +132,20 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
     
     private var perfMode : PerformanceMode = .Low
     
-    internal var startupMapType : MapType
+    private var startupMapType : MapType = .Globe
     
     init(mapType: MapType) {
 
-        self.startupMapType = mapType
+        startupMapType = mapType
         ovlLayers = [:]
         
-        super.init()
+        super.init(nibName: nil, bundle: nil)
     }
 
     override init(nibName nibNameOrNil: String!, bundle: NSBundle!) {
         
-        self.startupMapType = .Globe
-        ovlLayers = [:]
+//        self.startupMapType = .Globe
+//        ovlLayers = [:]
 
         super.init(nibName: nibName, bundle: bundle)
     }
