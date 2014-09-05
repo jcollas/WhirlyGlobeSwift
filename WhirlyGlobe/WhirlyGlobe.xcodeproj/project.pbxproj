@@ -69,7 +69,6 @@
 		C08F6F8C19B8F8DC00BCEAB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C08F6F8D19B8F8DC00BCEAB2 /* WhirlyGlobeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WhirlyGlobeTests.m; sourceTree = "<group>"; };
 		C08F6F9719B8FA7D00BCEAB2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		C08F6F9919B8FAD300BCEAB2 /* WhirlyGlobe.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = WhirlyGlobe.playground; sourceTree = "<group>"; };
 		C08F718519B901F300BCEAB2 /* MaplyActiveObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyActiveObject.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyActiveObject.h"; sourceTree = "<group>"; };
 		C08F718719B901F300BCEAB2 /* MaplyAnimationTestTileSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyAnimationTestTileSource.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyAnimationTestTileSource.h"; sourceTree = "<group>"; };
 		C08F718819B901F300BCEAB2 /* MaplyAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyAnnotation.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyAnnotation.h"; sourceTree = "<group>"; };
@@ -150,7 +149,6 @@
 		C08F6F7419B8F8DC00BCEAB2 = {
 			isa = PBXGroup;
 			children = (
-				C08F6F9919B8FAD300BCEAB2 /* WhirlyGlobe.playground */,
 				C08F6F8019B8F8DC00BCEAB2 /* WhirlyGlobe */,
 				C08F6F8A19B8F8DC00BCEAB2 /* WhirlyGlobeTests */,
 				C08F6F7F19B8F8DC00BCEAB2 /* Products */,
