@@ -3,8 +3,8 @@
 //
 
 #import "ConfigViewController.h"
+//#import "WhirlyGlobe.h"
 #import "WeatherShader.h"
-#import "WhirlyGlobeComponent.h"
+//#import "WhirlyGlobeComponent.h"
 #import "AFHTTPRequestOperation.h"
 #import "DDXML.h"
-#import "WhirlyGlobeViewController+Swift.h"

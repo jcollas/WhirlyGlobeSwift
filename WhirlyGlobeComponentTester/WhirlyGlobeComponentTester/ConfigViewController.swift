@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 mousebird consulting. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum ConfigOptions : Int {
     case All
@@ -34,15 +34,12 @@ class ConfigSection {
 class ConfigViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // Dictionary reflecting the current values from the table
-    var values : Array<ConfigSection>
+    var values : Array<ConfigSection> = []
     
     // What we'll display in terms of user options
-    var configOptions : ConfigOptions
+    var configOptions : ConfigOptions = .All
     
     override init(nibName nibNameOrNil: String!, bundle: NSBundle!) {
-        values = []
-        configOptions = .All
-        
         super.init(nibName: nibNameOrNil, bundle: bundle)
     }
     

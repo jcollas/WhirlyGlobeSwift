@@ -19,7 +19,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import <MaplyComponent.h>
+#import <WhirlyGlobe/WhirlyGlobe.h>
 
 /// Used to set up an interpolation shader for weather
 @interface WeatherShader : NSObject

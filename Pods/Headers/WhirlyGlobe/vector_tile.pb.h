@@ -1,0 +1,1 @@
+../../WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/vector_tile.pb.h

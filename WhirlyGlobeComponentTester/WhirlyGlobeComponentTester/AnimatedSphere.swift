@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 mousebird consulting. All rights reserved.
 //
 
-import UIKit
+import WhirlyGlobe
 
 class AnimatedSphere : MaplyActiveObject {
     var start : NSTimeInterval

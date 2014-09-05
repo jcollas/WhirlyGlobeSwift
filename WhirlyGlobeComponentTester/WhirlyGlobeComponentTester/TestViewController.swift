@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WhirlyGlobe
 
 enum MapType : Int {
     case Globe
@@ -187,8 +188,6 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
     
         // Configuration controller for turning features on and off
         configViewC = ConfigViewController(nibName: "ConfigViewController", bundle: nil)
-
-        configViewC!.configOptions = .All
     
         // Create an empty globe or map controller
         zoomLimit = 0
@@ -631,7 +630,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
         // Look for some labels
         var labels : Array<MaplyScreenLabel> = []
         for road in vecObj.splitVectors() as Array<MaplyVectorObject> {
-            var middle : MaplyCoordinate = MaplyCoordinate(x: 0.0, y: 0.0)
+            var middle = MaplyCoordinate(x: 0.0, y: 0.0)
             var rot : Double = 0.0
 
             // Note: We should get this from the view controller
@@ -653,7 +652,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             }
         }
 
-        var labelObj : MaplyComponentObject = baseViewC!.addScreenLabels(labels, desc:
+        var labelObj = baseViewC!.addScreenLabels(labels, desc:
                                     [ kMaplyTextOutlineSize: 1.0,
                                         kMaplyTextOutlineColor: UIColor.blackColor(),
                                         kMaplyFont: UIFont.systemFontOfSize(18.0) ] )
@@ -1517,7 +1516,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
         //    }
         baseViewC!.clearAnnotations()
         
-        var loc : MaplyCoordinate = MaplyCoordinate(x: 0.0, y: 0.0)
+        var loc = MaplyCoordinate(x: 0.0, y: 0.0)
         var title : String?
         var subTitle : String?
         var offset = CGPointZero
@@ -1604,7 +1603,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
     }
     
     // User didn't select anything, but did tap
-    func globeViewController(viewC: WhirlyGlobeViewController, didTapAt coord: WGCoordinate) {
+    func globeViewController(viewC: WhirlyGlobeViewController, didTapAt coord: MaplyCoordinate) {
         // Just clear the selection
         baseViewC!.clearAnnotations()
         

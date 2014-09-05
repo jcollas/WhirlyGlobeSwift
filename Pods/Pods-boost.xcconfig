@@ -1,0 +1,1 @@
+PODS_BOOST_HEADER_SEARCH_PATHS = "${PODS_ROOT}/boost" "${PODS_ROOT}/boost" "${PODS_ROOT}/boost" "${PODS_ROOT}/boost" "${PODS_ROOT}/boost"

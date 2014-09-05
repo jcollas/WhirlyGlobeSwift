@@ -130,5 +130,4 @@ static const char *fragmentShaderTriMultiTex =
     return shaderName;
 }
 
-
 @end
