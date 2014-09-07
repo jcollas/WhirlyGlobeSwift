@@ -9,9 +9,30 @@
 import UIKit
 
 enum ConfigOptions : Int {
-    case All
-    case Terrain
-    case Flat
+    case All, Terrain, Flat
+}
+
+enum MaplyTestCategory : Int {
+    case BaseLayers, OverlayLayers, Objects, Animation, Gestures, Internals
+    
+    func description () -> String {
+        switch self {
+        case BaseLayers:
+            return "Base Layers"
+        case OverlayLayers:
+            return "Overlay Layers"
+        case Objects:
+            return "Maply Objects"
+        case Animation:
+            return "Animation"
+        case Gestures:
+            return "Gestures"
+        case Internals:
+            return "Internals"
+        default:
+            return "Unknown"
+        }
+    }
 }
 
 class ConfigSection {

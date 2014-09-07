@@ -52,23 +52,7 @@ class StartupViewController: UIViewController, UITableViewDataSource, UITableVie
         var cell = UITableViewCell(style:.Default, reuseIdentifier:nil)
         var mapType = MapType.fromRaw(indexPath.row)!
         
-        switch mapType {
-        case .Globe:
-            cell.textLabel!.text = "Globe (3D)"
-            
-        case .GlobeWithElevation:
-            cell.textLabel!.text = "Globe w/ Elevation (3D)"
-            
-        case .Map2D:
-            cell.textLabel!.text = "Map (2D)"
-            
-        case .Map3D:
-            cell.textLabel!.text = "Map (3D)"
-            
-        default:
-            cell.textLabel!.text = "Unknown"
-        }
-        
+        cell.textLabel!.text = mapType.description()
         cell.textLabel!.textColor = UIColor.whiteColor()
         cell.backgroundColor = UIColor.grayColor()
         

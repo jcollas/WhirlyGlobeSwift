@@ -10,11 +10,22 @@ import UIKit
 import WhirlyGlobe
 
 enum MapType : Int {
-    case Globe
-    case GlobeWithElevation
-    case Map3D
-    case Map2D
-    case NumTypes
+    case Globe, GlobeWithElevation, Map3D, Map2D, NumTypes
+    
+    func description () -> String {
+        switch self {
+        case Globe:
+            return "Globe (3D)"
+        case GlobeWithElevation:
+            return "Globe w/ Elevation (3D)"
+        case Map3D:
+            return "Map (3D)"
+        case Map2D:
+            return "Map (2D)"
+        default:
+            return "Unknown"
+        }
+    }
 }
 
 struct LocationInfo {
@@ -58,8 +69,7 @@ let locations = [
 
 // High performance vs. low performance devices
 enum PerformanceMode {
-    case High
-    case Low
+    case High, Low
 }
 
 class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, MaplyViewControllerDelegate,UIPopoverControllerDelegate {
@@ -105,7 +115,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
 
     private var animSphere : MaplyActiveObject?
 
-    private var loftPolyDict : Dictionary<String, MaplyComponentObject>?
+    private var loftPolyDict : Dictionary<String, MaplyComponentObject> = [:]
     
     // A source of elevation data, if we're in that mode
     private var elevSource : NSObject?
@@ -121,11 +131,11 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
     private var zoomLimit : Int32 = 0
     private var requireElev : Bool = false
     private var imageWaitLoad : Bool = false
-    private var maxLayerTiles : Int32 = 0
+    private var maxLayerTiles : Int32 = 256
     
     // Label test
     private var _labelAnimationTimer : NSTimer?
-    private var trafficLabels : Dictionary<Int, MaplyComponentObject>?
+    private var trafficLabels : Dictionary<Int, MaplyComponentObject> = [:]
     
     // Dashed lines used in wide vector test
     private var dashedLineTex : MaplyTexture?
@@ -138,15 +148,11 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
     init(mapType: MapType) {
 
         startupMapType = mapType
-        ovlLayers = [:]
         
         super.init(nibName: nil, bundle: nil)
     }
 
     override init(nibName nibNameOrNil: String!, bundle: NSBundle!) {
-        
-//        self.startupMapType = .Globe
-//        ovlLayers = [:]
 
         super.init(nibName: nibName, bundle: bundle)
     }
@@ -159,9 +165,9 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
         NSObject.cancelPreviousPerformRequestsWithTarget(self)
         
         // This should release the globe view
-        if (baseViewC != nil) {
-            self.baseViewC!.view.removeFromSuperview()
-            self.baseViewC!.removeFromParentViewController()
+        if let viewC = baseViewC {
+            viewC.view.removeFromSuperview()
+            viewC.removeFromParentViewController()
 
             self.baseViewC = nil
             self.mapViewC = nil
@@ -173,8 +179,6 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
         super.viewDidLoad()
         
         // What sort of hardware are we on?
-        perfMode = .Low
-
         if (UIScreen.mainScreen().scale > 1.0) {
             // Retina devices tend to be better, except for
             perfMode = .High
@@ -183,17 +187,11 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
         #if arch(i386) && os(iOS)
             perfMode = .High
         #endif
-
-        loftPolyDict = [:]
     
         // Configuration controller for turning features on and off
         configViewC = ConfigViewController(nibName: "ConfigViewController", bundle: nil)
     
         // Create an empty globe or map controller
-        zoomLimit = 0
-        requireElev = false
-        maxLayerTiles = 256
-        
         switch startupMapType {
         case .Globe, .GlobeWithElevation:
             globeViewC = WhirlyGlobeViewController()
@@ -305,9 +303,9 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
         NSLog("anim callback")
         var trafficLabelCompObj : MaplyComponentObject?
     
-        for (key, trafficLabelObj) in trafficLabels! {
+        for (key, trafficLabelObj) in trafficLabels {
             mapViewC!.removeObject(trafficLabelObj)
-            trafficLabels![key] = nil
+            trafficLabels[key] = nil
         }
     
         labelDesc = [ kMaplyMinVis: 0.0, kMaplyMaxVis: 1.0, kMaplyFade: 0.3, kMaplyJustify: "left", kMaplyDrawPriority: 50 ]
@@ -326,7 +324,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             label.color = UIColor.whiteColor()
     
             trafficLabelCompObj = mapViewC!.addScreenLabels([label], desc:labelDesc)
-            trafficLabels![i] = trafficLabelCompObj
+            trafficLabels[i] = trafficLabelCompObj
         }
     
         _labelAnimationTimer = NSTimer.scheduledTimerWithTimeInterval(1.25, target: self, selector:"labelAnimationCallback", userInfo:nil, repeats:false)
@@ -400,9 +398,9 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
         super.didReceiveMemoryWarning()
     
         // This should release the globe view
-        if (baseViewC != nil) {
-            baseViewC!.view.removeFromSuperview()
-            baseViewC!.removeFromParentViewController()
+        if let viewC = baseViewC {
+            viewC.view.removeFromSuperview()
+            viewC.removeFromParentViewController()
             baseViewC = nil
         }
     }
@@ -775,13 +773,14 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
     }
     
     // Number of markers to whip up for the large test case
-    let NumMegaMarkers = 40000
+    let NumMegaMarkers : Int = 40000
     
     // Make up a large number of markers and add them
     func addMegaMarkers() {
 
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             let image : UIImage = UIImage(named:"map_pin.png")
+            
             var markers : Array<MaplyScreenMarker> = []
             for ii in 0...self.NumMegaMarkers {
                 var marker : MaplyScreenMarker = MaplyScreenMarker()
@@ -1093,7 +1092,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
         vectorDesc = [ kMaplyColor: vecColor,
         kMaplyVecWidth: vecWidth,
         kMaplyFade: 1.0,
-        kMaplySelectable: true  ]
+        kMaplySelectable: true ]
     }
     
     // Reload testing
@@ -1143,8 +1142,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
                     var tileSources : Array<MaplyRemoteTileInfo> = []
                     for ii in 0...5 {
                         var theURL : String = "http://a.tiles.mapbox.com/v3/mousebird.precip-example-layer\(ii)/"
-                        var precipTileSource =
-                        MaplyRemoteTileInfo(baseURL:theURL, ext:"png", minZoom:0, maxZoom:6)
+                        var precipTileSource = MaplyRemoteTileInfo(baseURL:theURL, ext:"png", minZoom:0, maxZoom:6)
                         precipTileSource.cacheDir = "\(cacheDir)/forecast_io_weather_layer\(ii)/"
                         tileSources.append(precipTileSource)
                     }
@@ -1408,8 +1406,8 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
         
         if (configViewC!.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestLoftedPoly)) {
         } else {
-            if (loftPolyDict!.count > 0) {
-                for value in loftPolyDict!.values {
+            if (loftPolyDict.count > 0) {
+                for value in loftPolyDict.values {
                     baseViewC!.removeObject(value)
                 }
                 loftPolyDict = [:]
@@ -1440,10 +1438,10 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
         
         baseViewC!.performanceOutput = configViewC!.valueForSection(kMaplyTestCategoryInternal, row:kMaplyTestPerf)
         
-        if (globeViewC != nil) {
-            globeViewC!.keepNorthUp = configViewC!.valueForSection(kMaplyTestCategoryGestures, row:kMaplyTestNorthUp)
-            globeViewC!.pinchGesture = configViewC!.valueForSection(kMaplyTestCategoryGestures, row:kMaplyTestPinch)
-            globeViewC!.rotateGesture = configViewC!.valueForSection(kMaplyTestCategoryGestures, row:kMaplyTestRotate)
+        if let viewC = globeViewC {
+            viewC.keepNorthUp = configViewC!.valueForSection(kMaplyTestCategoryGestures, row:kMaplyTestNorthUp)
+            viewC.pinchGesture = configViewC!.valueForSection(kMaplyTestCategoryGestures, row:kMaplyTestPinch)
+            viewC.rotateGesture = configViewC!.valueForSection(kMaplyTestCategoryGestures, row:kMaplyTestRotate)
         } else {
             if(configViewC!.valueForSection(kMaplyTestCategoryGestures, row:kMaplyTestNorthUp)) {
                 mapViewC!.heading = 0.0
@@ -1523,57 +1521,50 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
         
         switch selectedObject {
 
-        case is MaplyMarker:
-            var marker = (selectedObject as MaplyMarker)
+        case let marker as MaplyMarker:
             loc = marker.loc
             title = (marker.userObject as String)
             subTitle = "Marker"
 
-        case is MaplyScreenMarker:
-            var screenMarker = (selectedObject as MaplyScreenMarker)
+        case let screenMarker as MaplyScreenMarker:
             loc = screenMarker.loc
             title = (screenMarker.userObject as String)
             subTitle = "Screen Marker"
             offset = CGPoint(x:0.0, y:-8.0)
 
-        case is MaplyLabel:
-            var label = (selectedObject as MaplyLabel)
+        case let label as MaplyLabel:
             loc = label.loc
             title = (label.userObject as String)
             subTitle = "Label"
 
-        case is MaplyScreenLabel:
-            var screenLabel = (selectedObject as MaplyScreenLabel)
+        case let screenLabel as MaplyScreenLabel:
             loc = screenLabel.loc
             title = (screenLabel.userObject as String)
             subTitle = "Screen Label"
             offset = CGPoint(x:0.0, y:-6.0)
 
-        case is MaplyVectorObject:
-            var vecObj = (selectedObject as MaplyVectorObject)
+        case let vecObj as MaplyVectorObject:
             if (vecObj.centroid(&loc)) {
                 var name : String = (vecObj.userObject as String)
                 title = name
                 subTitle = "Vector"
                 if (configViewC!.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestLoftedPoly)) {
                     // See if there already is one
-                    if (loftPolyDict![name] == nil) {
+                    if (loftPolyDict[name] == nil) {
                         var compObj = baseViewC!.addLoftedPolys([vecObj], key:nil, cache:nil, desc:[ kMaplyColor: UIColor(red:1.0, green:0.0, blue:0.0, alpha:0.25), kMaplyLoftedPolyHeight: 0.05, kMaplyFade: 0.5 ])
                         if (compObj != nil) {
-                            loftPolyDict![name] = compObj
+                            loftPolyDict[name] = compObj
                         }
                     }
                 }
             }
 
-        case is MaplyShapeSphere:
-            var sphere = (selectedObject as MaplyShapeSphere)
+        case let sphere as MaplyShapeSphere:
             loc = sphere.center
             title = "Shape"
             subTitle = "Sphere"
 
-        case is MaplyShapeCylinder:
-            var cyl = (selectedObject as MaplyShapeCylinder)
+        case let cyl as MaplyShapeCylinder:
             loc = cyl.baseCenter
             title = "Shape"
             subTitle = "Cylinder"
