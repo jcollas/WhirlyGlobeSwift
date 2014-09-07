@@ -310,7 +310,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
     
         labelDesc = [ kMaplyMinVis: 0.0, kMaplyMaxVis: 1.0, kMaplyFade: 0.3, kMaplyJustify: "left", kMaplyDrawPriority: 50 ]
 
-        for i in 0...50 {
+        for i in 0..<50 {
             var label : MaplyScreenLabel = MaplyScreenLabel()
     
             label.loc = MaplyCoordinateMakeWithDegrees(
@@ -780,7 +780,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             let image : UIImage = UIImage(named:"map_pin.png")
 
             var markers : Array<MaplyScreenMarker> = []
-            for ii in 0...self.NumMegaMarkers {
+            for ii in 0..<self.NumMegaMarkers {
                 var marker : MaplyScreenMarker = MaplyScreenMarker()
                 marker.image = image
                 marker.size = CGSize(width:40, height:40)
