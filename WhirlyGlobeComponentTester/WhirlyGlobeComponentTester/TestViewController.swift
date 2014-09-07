@@ -717,16 +717,14 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             var ii = 0
             for name in names {
                 if (ii % stride == 0) {
-                    var fileName = NSBundle.mainBundle().pathForResource(name, ofType:"geojson")
-                    if (fileName != nil) {
-                        var jsonData : NSData? = NSData(contentsOfFile:fileName!)
+                    if let fileName = NSBundle.mainBundle().pathForResource(name, ofType:"geojson") {
+                        var jsonData : NSData? = NSData(contentsOfFile:fileName)
                         if (jsonData != nil) {
                             var wgVecObj = MaplyVectorObject(fromGeoJSON:jsonData!)
-                            var vecAttrs : Dictionary? = wgVecObj.attributes
                             var compObj : MaplyComponentObject? = nil
 
-                            if vecAttrs != nil {
-                                var vecName: AnyObject? = vecAttrs!["ADMIN"]
+                            if let vecAttrs = wgVecObj.attributes {
+                                var vecName: AnyObject? = vecAttrs["ADMIN"]
                                 wgVecObj.userObject = vecName as NSObject
                                 compObj = self.baseViewC!.addVectors([wgVecObj], desc:self.vectorDesc)
                                 var screenLabel = MaplyScreenLabel()
@@ -780,7 +778,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
 
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             let image : UIImage = UIImage(named:"map_pin.png")
-            
+
             var markers : Array<MaplyScreenMarker> = []
             for ii in 0...self.NumMegaMarkers {
                 var marker : MaplyScreenMarker = MaplyScreenMarker()
@@ -1140,7 +1138,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
                 case kMaplyTestForecastIO:
                     // Collect up the various precipitation sources
                     var tileSources : Array<MaplyRemoteTileInfo> = []
-                    for ii in 0...5 {
+                    for ii in 0...4 {
                         var theURL : String = "http://a.tiles.mapbox.com/v3/mousebird.precip-example-layer\(ii)/"
                         var precipTileSource = MaplyRemoteTileInfo(baseURL:theURL, ext:"png", minZoom:0, maxZoom:6)
                         precipTileSource.cacheDir = "\(cacheDir)/forecast_io_weather_layer\(ii)/"
@@ -1156,7 +1154,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
                     precipLayer.numSimultaneousFetches = 4
                     precipLayer.handleEdges = false
                     precipLayer.coverPoles = false
-                    precipLayer.shaderProgramName = WeatherShader.setupWeatherShader(baseViewC)
+                    precipLayer.shaderProgramName = WeatherShader.setupWeatherShader(baseViewC!)
                     baseViewC!.addLayer(precipLayer)
                     layer = precipLayer
                     ovlLayers[layerName] = layer

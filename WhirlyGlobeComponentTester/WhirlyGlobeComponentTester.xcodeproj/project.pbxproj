@@ -16,7 +16,7 @@
 		C08F6F5F19B79E3300BCEAB2 /* ConfigViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C08F6F5819B79E3300BCEAB2 /* ConfigViewController.xib */; };
 		C08F6F6019B79E3300BCEAB2 /* StartupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F6F5919B79E3300BCEAB2 /* StartupViewController.swift */; };
 		C08F6F6119B79E3300BCEAB2 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F6F5A19B79E3300BCEAB2 /* TestViewController.swift */; };
-		C08F6F6219B79E3300BCEAB2 /* WeatherShader.m in Sources */ = {isa = PBXBuildFile; fileRef = C08F6F5C19B79E3300BCEAB2 /* WeatherShader.m */; };
+		C0DB297719BC806600ACB71E /* WeatherShader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DB297619BC806600ACB71E /* WeatherShader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,10 +45,9 @@
 		C08F6F5819B79E3300BCEAB2 /* ConfigViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfigViewController.xib; sourceTree = "<group>"; };
 		C08F6F5919B79E3300BCEAB2 /* StartupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartupViewController.swift; sourceTree = "<group>"; };
 		C08F6F5A19B79E3300BCEAB2 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
-		C08F6F5B19B79E3300BCEAB2 /* WeatherShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherShader.h; sourceTree = "<group>"; };
-		C08F6F5C19B79E3300BCEAB2 /* WeatherShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherShader.m; sourceTree = "<group>"; };
 		C08F6F6319B79E4300BCEAB2 /* WhirlyGlobeComponentTester-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WhirlyGlobeComponentTester-Bridging-Header.h"; sourceTree = "<group>"; };
 		C0DB296F19BA5C7500ACB71E /* WhirlyGlobe.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = WhirlyGlobe.playground; sourceTree = "<group>"; };
+		C0DB297619BC806600ACB71E /* WeatherShader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherShader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,8 +107,7 @@
 				C08F6F5819B79E3300BCEAB2 /* ConfigViewController.xib */,
 				C08F6F5919B79E3300BCEAB2 /* StartupViewController.swift */,
 				C08F6F5519B79E3300BCEAB2 /* AnimatedSphere.swift */,
-				C08F6F5B19B79E3300BCEAB2 /* WeatherShader.h */,
-				C08F6F5C19B79E3300BCEAB2 /* WeatherShader.m */,
+				C0DB297619BC806600ACB71E /* WeatherShader.swift */,
 				C08F6F5A19B79E3300BCEAB2 /* TestViewController.swift */,
 				C08F6F3F19B79DBF00BCEAB2 /* Images.xcassets */,
 				C08F6F3619B79DBF00BCEAB2 /* Supporting Files */,
@@ -280,7 +278,7 @@
 				C08F6F6119B79E3300BCEAB2 /* TestViewController.swift in Sources */,
 				C08F6F6019B79E3300BCEAB2 /* StartupViewController.swift in Sources */,
 				C08F6F3919B79DBF00BCEAB2 /* AppDelegate.swift in Sources */,
-				C08F6F6219B79E3300BCEAB2 /* WeatherShader.m in Sources */,
+				C0DB297719BC806600ACB71E /* WeatherShader.swift in Sources */,
 				C08F6F5D19B79E3300BCEAB2 /* AnimatedSphere.swift in Sources */,
 				C08F6F5E19B79E3300BCEAB2 /* ConfigViewController.swift in Sources */,
 			);
