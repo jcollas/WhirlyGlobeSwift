@@ -34,6 +34,8 @@ class StartupViewController: UIViewController, UITableViewDataSource, UITableVie
         self.tableView!.reloadData()
     }
     
+    // MARK: UITableViewDataSource delegate methods
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -47,12 +49,14 @@ class StartupViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String! {
         return nil
     }
+    
+    // MARK: UITableViewDelegate methods
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = UITableViewCell(style:.Default, reuseIdentifier:nil)
         var mapType = MapType.fromRaw(indexPath.row)!
         
-        cell.textLabel!.text = mapType.description()
+        cell.textLabel!.text = mapType.description
         cell.textLabel!.textColor = UIColor.whiteColor()
         cell.backgroundColor = UIColor.grayColor()
         

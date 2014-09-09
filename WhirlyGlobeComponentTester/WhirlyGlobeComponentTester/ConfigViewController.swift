@@ -12,10 +12,10 @@ enum ConfigOptions : Int {
     case All, Terrain, Flat
 }
 
-enum MaplyTestCategory : Int {
+enum MaplyTestCategory : Int, Printable {
     case BaseLayers, OverlayLayers, Objects, Animation, Gestures, Internals
     
-    func description () -> String {
+    var description: String {
         switch self {
         case BaseLayers:
             return "Base Layers"
