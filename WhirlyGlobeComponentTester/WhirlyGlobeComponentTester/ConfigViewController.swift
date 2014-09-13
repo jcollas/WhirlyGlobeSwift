@@ -35,24 +35,24 @@ enum MaplyTestCategory : Int, Printable {
     }
 }
 
-class ConfigSection {
-    // Section name (as dispalyed to user)
-    var sectionName : String
-    
-    // Entries (name,boolean) within the section
-    var rows : Dictionary<String, Bool>
-    
-    // If set, user can only select one of the options
-    var singleSelect : Bool
-    
-    init(sectionName: String, rows: Dictionary<String, Bool>, singleSelect: Bool) {
-        self.sectionName = sectionName
-        self.rows = rows
-        self.singleSelect = singleSelect
-    }
-}
-
 class ConfigViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    class ConfigSection {
+        // Section name (as dispalyed to user)
+        var sectionName : String
+        
+        // Entries (name,boolean) within the section
+        var rows : Dictionary<String, Bool>
+        
+        // If set, user can only select one of the options
+        var singleSelect : Bool
+        
+        init(sectionName: String, rows: Dictionary<String, Bool>, singleSelect: Bool = false) {
+            self.sectionName = sectionName
+            self.rows = rows
+            self.singleSelect = singleSelect
+        }
+    }
     
     // Dictionary reflecting the current values from the table
     var values : Array<ConfigSection> = []
@@ -114,7 +114,7 @@ class ConfigViewController : UIViewController, UITableViewDataSource, UITableVie
                     kMaplyTestForecastIO: false,
                     kMaplyTestMapboxStreets: false,
                     //                  kMaplyMapzenVectors: false
-                    ], singleSelect: false))
+                    ]))
             newValues.append(
                     ConfigSection(sectionName: kMaplyTestCategoryObjects, rows: [ kMaplyTestLabel2D: false,
                         kMaplyTestLabel3D: false,
@@ -128,10 +128,9 @@ class ConfigViewController : UIViewController, UITableViewDataSource, UITableVie
                         kMaplyTestLoftedPoly: false,
                         kMaplyTestMegaMarkers: false,
                         kMaplyTestLatLon: false,
-                        kMaplyTestRoads: false ],
-                        singleSelect:false))
+                        kMaplyTestRoads: false ]))
             newValues.append(
-                    ConfigSection(sectionName: kMaplyTestCategoryAnimation, rows: [ kMaplyTestAnimateSphere: false ], singleSelect: false))
+                    ConfigSection(sectionName: kMaplyTestCategoryAnimation, rows: [ kMaplyTestAnimateSphere: false ]))
             
         case .Terrain:
             true
@@ -143,7 +142,7 @@ class ConfigViewController : UIViewController, UITableViewDataSource, UITableVie
                     kMaplyTestForecastIO: false,
                     kMaplyTestMapboxStreets: false,
     //              kMaplyMapzenVectors: false
-                    ], singleSelect: false))
+                    ]))
             newValues.append(
                     ConfigSection(sectionName: kMaplyTestCategoryObjects, rows: [ kMaplyTestLabel2D: false,
                         kMaplyTestLabel3D: false,
@@ -153,18 +152,18 @@ class ConfigViewController : UIViewController, UITableViewDataSource, UITableVie
                         kMaplyTestCountry: false,
                         kMaplyTestMegaMarkers: false,
                         kMaplyTestLatLon: false,
-                        kMaplyTestRoads: false ], singleSelect: false))
+                        kMaplyTestRoads: false ]))
         }
         
         newValues.append(
             ConfigSection(sectionName: kMaplyTestCategoryGestures, rows: [ kMaplyTestNorthUp: false,
                 kMaplyTestPinch: true,
-                kMaplyTestRotate: true ], singleSelect: false) )
+                kMaplyTestRotate: true ]) )
         
         newValues.append(
             ConfigSection(sectionName: kMaplyTestCategoryInternal, rows: [ kMaplyTestCulling: false,
                 kMaplyTestPerf: false,
-                kMaplyTestWaitLoad: false ], singleSelect: false) )
+                kMaplyTestWaitLoad: false ]) )
         
         values = newValues;
     }

@@ -1241,10 +1241,10 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
 
         imageWaitLoad = configViewC!.valueForSection(kMaplyTestCategoryInternal, row:kMaplyTestWaitLoad)
         
-        var baseSection = configViewC!.values[0] as ConfigSection
+        var baseSection = configViewC!.values[0] as ConfigViewController.ConfigSection
         setupBaseLayer(baseSection.rows)
         if (configViewC!.values.count > 1) {
-            var setupSection = configViewC!.values[1] as ConfigSection
+            var setupSection = configViewC!.values[1] as ConfigViewController.ConfigSection
             setupOverlays(setupSection.rows)
         }
         
