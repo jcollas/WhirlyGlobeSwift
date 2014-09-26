@@ -1,1 +1,0 @@
-../../WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyBaseViewController.h

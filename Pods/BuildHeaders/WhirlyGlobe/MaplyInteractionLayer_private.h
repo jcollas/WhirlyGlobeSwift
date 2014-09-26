@@ -1,1 +1,0 @@
-../../WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/private/MaplyInteractionLayer_private.h

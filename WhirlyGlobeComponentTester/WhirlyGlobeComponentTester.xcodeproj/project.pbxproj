@@ -17,6 +17,7 @@
 		C08F6F6019B79E3300BCEAB2 /* StartupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F6F5919B79E3300BCEAB2 /* StartupViewController.swift */; };
 		C08F6F6119B79E3300BCEAB2 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F6F5A19B79E3300BCEAB2 /* TestViewController.swift */; };
 		C0DB297719BC806600ACB71E /* WeatherShader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DB297619BC806600ACB71E /* WeatherShader.swift */; };
+		DEFC06BBE337CE81A7EF4AEC /* libPods-WhirlyGlobeComponentTester.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE1434C0466E59AE1BF977F4 /* libPods-WhirlyGlobeComponentTester.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1C05D9A8E0FE48BFA3DF7F57 /* Pods-WhirlyGlobeComponentTester.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhirlyGlobeComponentTester.xcconfig"; path = "../Pods/Pods-WhirlyGlobeComponentTester.xcconfig"; sourceTree = "<group>"; };
+		A4B1575C8742941EEE7C83D6 /* Pods-WhirlyGlobeComponentTester.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhirlyGlobeComponentTester.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-WhirlyGlobeComponentTester/Pods-WhirlyGlobeComponentTester.debug.xcconfig"; sourceTree = "<group>"; };
+		BE1434C0466E59AE1BF977F4 /* libPods-WhirlyGlobeComponentTester.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WhirlyGlobeComponentTester.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C086A35E19BA14D500FC01DA /* WhirlyGlobe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = WhirlyGlobe.framework; path = "../WhirlyGlobe/build/Debug-iphoneos/WhirlyGlobe.framework"; sourceTree = "<group>"; };
 		C08F6F3319B79DBF00BCEAB2 /* WhirlyGlobeComponentTester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhirlyGlobeComponentTester.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C08F6F3719B79DBF00BCEAB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -48,6 +50,7 @@
 		C08F6F6319B79E4300BCEAB2 /* WhirlyGlobeComponentTester-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WhirlyGlobeComponentTester-Bridging-Header.h"; sourceTree = "<group>"; };
 		C0DB296F19BA5C7500ACB71E /* WhirlyGlobe.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = WhirlyGlobe.playground; sourceTree = "<group>"; };
 		C0DB297619BC806600ACB71E /* WeatherShader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherShader.swift; sourceTree = "<group>"; };
+		C11BB96BF72FAECA3EADCBB1 /* Pods-WhirlyGlobeComponentTester.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhirlyGlobeComponentTester.release.xcconfig"; path = "../Pods/Target Support Files/Pods-WhirlyGlobeComponentTester/Pods-WhirlyGlobeComponentTester.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +59,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C086A35F19BA14D500FC01DA /* WhirlyGlobe.framework in Frameworks */,
+				DEFC06BBE337CE81A7EF4AEC /* libPods-WhirlyGlobeComponentTester.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,10 +73,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F76CEEF3F302396D3A9B353 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A4B1575C8742941EEE7C83D6 /* Pods-WhirlyGlobeComponentTester.debug.xcconfig */,
+				C11BB96BF72FAECA3EADCBB1 /* Pods-WhirlyGlobeComponentTester.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		8ECE6C4DA09B4EB88F14838F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				C086A35E19BA14D500FC01DA /* WhirlyGlobe.framework */,
+				BE1434C0466E59AE1BF977F4 /* libPods-WhirlyGlobeComponentTester.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -85,7 +99,7 @@
 				C08F6F4819B79DBF00BCEAB2 /* WhirlyGlobeComponentTesterTests */,
 				C08F6F3419B79DBF00BCEAB2 /* Products */,
 				8ECE6C4DA09B4EB88F14838F /* Frameworks */,
-				1C05D9A8E0FE48BFA3DF7F57 /* Pods-WhirlyGlobeComponentTester.xcconfig */,
+				1F76CEEF3F302396D3A9B353 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -250,7 +264,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Pods-WhirlyGlobeComponentTester-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-WhirlyGlobeComponentTester/Pods-WhirlyGlobeComponentTester-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B33DE660A97946F78A06CEAA /* Check Pods Manifest.lock */ = {
@@ -386,7 +400,7 @@
 		};
 		C08F6F5019B79DBF00BCEAB2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1C05D9A8E0FE48BFA3DF7F57 /* Pods-WhirlyGlobeComponentTester.xcconfig */;
+			baseConfigurationReference = A4B1575C8742941EEE7C83D6 /* Pods-WhirlyGlobeComponentTester.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -411,10 +425,7 @@
 					"-isystem",
 					"${SRCROOT}/../Pods/Headers",
 				);
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-lc++",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INCLUDE_PATHS = "";
@@ -425,7 +436,7 @@
 		};
 		C08F6F5119B79DBF00BCEAB2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1C05D9A8E0FE48BFA3DF7F57 /* Pods-WhirlyGlobeComponentTester.xcconfig */;
+			baseConfigurationReference = C11BB96BF72FAECA3EADCBB1 /* Pods-WhirlyGlobeComponentTester.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -450,10 +461,7 @@
 					"-isystem",
 					"${SRCROOT}/../Pods/Headers",
 				);
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-lc++",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INCLUDE_PATHS = "";

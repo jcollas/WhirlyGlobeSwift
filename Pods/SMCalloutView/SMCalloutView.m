@@ -25,7 +25,7 @@
 #define SUBTITLE_TOP 28 // the top of the subtitle, when present
 #define SUBTITLE_HEIGHT 15 // subtitle height, fixed
 #define BETWEEN_ACCESSORIES_MARGIN 7 // margin between accessories when no title/subtitle is present
-#define CONTENT_VIEW_MARGIN 13 // margin around content view when present
+#define CONTENT_VIEW_MARGIN 12 // margin around content view when present
 #define ANCHOR_MARGIN 27 // the smallest possible distance from the edge of our control to the "tip" of the anchor, from either left or right
 #define ANCHOR_HEIGHT 13 // effective height of the anchor
 #define TOP_ANCHOR_MARGIN 13 // all the above measurements assume a bottom anchor! if we're pointing "up" we'll need to add this top margin to everything.
@@ -63,15 +63,23 @@ NSTimeInterval kSMCalloutViewRepositionDelayForUIScrollView = 1.0/3.0;
         self.backgroundColor = [UIColor clearColor];
         self.containerView = [UIButton new];
 
-        [self.containerView addTarget:self action:@selector(shouldHighlight) forControlEvents:UIControlEventTouchDown | UIControlEventTouchDragInside];
-        [self.containerView addTarget:self action:@selector(shouldNotHighlight) forControlEvents:UIControlEventTouchDragOutside | UIControlEventTouchCancel | UIControlEventTouchUpOutside | UIControlEventTouchUpInside];
+        [self.containerView addTarget:self action:@selector(highlightIfNecessary) forControlEvents:UIControlEventTouchDown | UIControlEventTouchDragInside];
+        [self.containerView addTarget:self action:@selector(unhighlightIfNecessary) forControlEvents:UIControlEventTouchDragOutside | UIControlEventTouchCancel | UIControlEventTouchUpOutside | UIControlEventTouchUpInside];
         [self.containerView addTarget:self action:@selector(calloutClicked) forControlEvents:UIControlEventTouchUpInside];
     }
     return self;
 }
 
-- (void)shouldHighlight { if ([self.delegate respondsToSelector:@selector(calloutViewClicked:)]) self.backgroundView.highlighted = YES; }
-- (void)shouldNotHighlight { if ([self.delegate respondsToSelector:@selector(calloutViewClicked:)]) self.backgroundView.highlighted = NO; }
+- (BOOL)supportsHighlighting {
+    if (![self.delegate respondsToSelector:@selector(calloutViewClicked:)])
+        return NO;
+    if ([self.delegate respondsToSelector:@selector(calloutViewShouldHighlight:)])
+        return [self.delegate calloutViewShouldHighlight:self];
+    return YES;
+}
+
+- (void)highlightIfNecessary { if (self.supportsHighlighting) self.backgroundView.highlighted = YES; }
+- (void)unhighlightIfNecessary { if (self.supportsHighlighting) self.backgroundView.highlighted = NO; }
 
 - (void)calloutClicked {
     if ([self.delegate respondsToSelector:@selector(calloutViewClicked:)])
@@ -143,32 +151,41 @@ NSTimeInterval kSMCalloutViewRepositionDelayForUIScrollView = 1.0/3.0;
     if (self.rightAccessoryView) [self.containerView addSubview:self.rightAccessoryView];
 }
 
-// margin around the left accessory: left,top,bottom. Accessories are centered vertically when shorter
+// Accessory margins. Accessories are centered vertically when shorter
 // than the callout, otherwise they grow from the upper corner.
-- (CGFloat)leftAccessoryMargin {
+
+- (CGFloat)leftAccessoryVerticalMargin {
     if (self.leftAccessoryView.$height < self.calloutContainerHeight)
         return roundf((self.calloutContainerHeight - self.leftAccessoryView.$height) / 2);
     else
         return 0;
 }
 
-- (CGFloat)rightAccessoryMargin {
+- (CGFloat)leftAccessoryHorizontalMargin {
+    return MIN(self.leftAccessoryVerticalMargin, TITLE_HMARGIN);
+}
+
+- (CGFloat)rightAccessoryVerticalMargin {
     if (self.rightAccessoryView.$height < self.calloutContainerHeight)
         return roundf((self.calloutContainerHeight - self.rightAccessoryView.$height) / 2);
     else
         return 0;
 }
 
+- (CGFloat)rightAccessoryHorizontalMargin {
+    return MIN(self.rightAccessoryVerticalMargin, TITLE_HMARGIN);
+}
+
 - (CGFloat)innerContentMarginLeft {
     if (self.leftAccessoryView)
-        return self.leftAccessoryMargin + self.leftAccessoryView.$width + TITLE_HMARGIN;
+        return self.leftAccessoryHorizontalMargin + self.leftAccessoryView.$width + TITLE_HMARGIN;
     else
         return TITLE_HMARGIN;
 }
 
 - (CGFloat)innerContentMarginRight {
     if (self.rightAccessoryView)
-        return self.rightAccessoryMargin + self.rightAccessoryView.$width + TITLE_HMARGIN;
+        return self.rightAccessoryHorizontalMargin + self.rightAccessoryView.$width + TITLE_HMARGIN;
     else
         return TITLE_HMARGIN;
 }
@@ -179,7 +196,7 @@ NSTimeInterval kSMCalloutViewRepositionDelayForUIScrollView = 1.0/3.0;
 
 - (CGFloat)calloutContainerHeight {
     if (self.contentView)
-        return self.contentView.$height + CONTENT_VIEW_MARGIN*2;
+        return self.contentView.$height + CONTENT_VIEW_MARGIN * 2;
     else if (self.subtitleView || self.subtitle.length > 0)
         return CALLOUT_SUB_DEFAULT_CONTAINER_HEIGHT;
     else
@@ -217,7 +234,7 @@ NSTimeInterval kSMCalloutViewRepositionDelayForUIScrollView = 1.0/3.0;
     else {
         // ok we have no title or subtitle to speak of. In this case, the system callout would actually not display
         // at all! But we can handle it.
-        preferredWidth = self.leftAccessoryView.$width + self.rightAccessoryView.$width + self.leftAccessoryMargin + self.rightAccessoryMargin;
+        preferredWidth = self.leftAccessoryView.$width + self.rightAccessoryView.$width + self.leftAccessoryHorizontalMargin + self.rightAccessoryHorizontalMargin;
         
         if (self.leftAccessoryView && self.rightAccessoryView)
             preferredWidth += BETWEEN_ACCESSORIES_MARGIN;
@@ -510,15 +527,15 @@ NSTimeInterval kSMCalloutViewRepositionDelayForUIScrollView = 1.0/3.0;
     self.subtitleViewOrDefault.$y = SUBTITLE_TOP + dy;
     self.subtitleViewOrDefault.$width = self.titleViewOrDefault.$width;
     
-    self.leftAccessoryView.$x = self.leftAccessoryMargin;
-    self.leftAccessoryView.$y = self.leftAccessoryMargin + dy;
+    self.leftAccessoryView.$x = self.leftAccessoryHorizontalMargin;
+    self.leftAccessoryView.$y = self.leftAccessoryVerticalMargin + dy;
     
-    self.rightAccessoryView.$x = self.$width-self.rightAccessoryMargin-self.rightAccessoryView.$width;
-    self.rightAccessoryView.$y = self.rightAccessoryMargin + dy;
+    self.rightAccessoryView.$x = self.$width-self.rightAccessoryHorizontalMargin-self.rightAccessoryView.$width;
+    self.rightAccessoryView.$y = self.rightAccessoryVerticalMargin + dy;
     
     if (self.contentView) {
         self.contentView.$x = self.innerContentMarginLeft;
-        self.contentView.$y = TITLE_TOP + dy;
+        self.contentView.$y = CONTENT_VIEW_MARGIN + dy;
     }
 }
 
@@ -732,8 +749,11 @@ static UIImage *blackArrowImage = nil, *whiteArrowImage = nil, *grayArrowImage =
 }
 
 + (UIImage *)embeddedImageNamed:(NSString *)name {
-    if ([UIScreen mainScreen].scale == 2)
+    CGFloat screenScale = [UIScreen mainScreen].scale;
+    if (screenScale > 1.0) {
         name = [name stringByAppendingString:@"$2x"];
+        screenScale = 2.0;
+    }
     
     SEL selector = NSSelectorFromString(name);
     
@@ -749,7 +769,7 @@ static UIImage *blackArrowImage = nil, *whiteArrowImage = nil, *grayArrowImage =
     #pragma clang diagnostic pop
     
     UIImage *rawImage = [UIImage imageWithData:[self dataWithBase64EncodedString:base64String]];
-    return [UIImage imageWithCGImage:rawImage.CGImage scale:[UIScreen mainScreen].scale orientation:UIImageOrientationUp];
+    return [UIImage imageWithCGImage:rawImage.CGImage scale:screenScale orientation:UIImageOrientationUp];
 }
 
 + (NSString *)CalloutArrow { return @"iVBORw0KGgoAAAANSUhEUgAAACcAAAANCAYAAAAqlHdlAAAAHGlET1QAAAACAAAAAAAAAAcAAAAoAAAABwAAAAYAAADJEgYpIwAAAJVJREFUOBFiYIAAdn5+fkFOTkE5Dg5eW05O3lJOTr6zQPyfDhhoD28pxF5BOZA7gE5ih7oLN8XJyR8MdNwrGjkQaC5/MG7biZDh4OBXBDruLpUdeBdkLhHWE1bCzs6nAnTcUyo58DnIPMK2kqAC6DALIP5JoQNB+i1IsJZ4pcBEm0iJ40D6ibeNDJVAx00k04ETSbUOAAAA//+SwicfAAAAe0lEQVRjYCAdMHNy8u7l5OT7Tzzm3Qu0hpl0q8jQwcPDIwp02B0iHXeHl5dXhAxryNfCzc2tC3TcJwIO/ARSR74tFOjk4uL1BzruHw4H/gPJU2A85Vq5uPjTgY77g+bAPyBxyk2nggkcHPxOnJz8B4AOfAGiQXwqGMsAACGK1kPPMHNBAAAAAElFTkSuQmCC"; }

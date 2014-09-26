@@ -1,1 +1,0 @@
-../../../../glues/source/libnurbs/nurbtess/sampleMonoPoly.h

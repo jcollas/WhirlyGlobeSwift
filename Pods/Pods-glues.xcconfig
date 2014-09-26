@@ -1,1 +1,0 @@
-PODS_GLUES_OTHER_LDFLAGS = -lc++ -framework OpenGLES

@@ -1,1 +1,0 @@
-../../../glues/source/libtess/mesh.h
