@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C00120D119E47A3400868F90 /* WhirlyGlobeComponentTester-Bridging-Header.m in Sources */ = {isa = PBXBuildFile; fileRef = C00120D019E47A3400868F90 /* WhirlyGlobeComponentTester-Bridging-Header.m */; };
 		C086A35F19BA14D500FC01DA /* WhirlyGlobe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C086A35E19BA14D500FC01DA /* WhirlyGlobe.framework */; };
 		C08F6F3919B79DBF00BCEAB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F6F3819B79DBF00BCEAB2 /* AppDelegate.swift */; };
 		C08F6F4019B79DBF00BCEAB2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C08F6F3F19B79DBF00BCEAB2 /* Images.xcassets */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		A4B1575C8742941EEE7C83D6 /* Pods-WhirlyGlobeComponentTester.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhirlyGlobeComponentTester.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-WhirlyGlobeComponentTester/Pods-WhirlyGlobeComponentTester.debug.xcconfig"; sourceTree = "<group>"; };
 		BE1434C0466E59AE1BF977F4 /* libPods-WhirlyGlobeComponentTester.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WhirlyGlobeComponentTester.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C00120D019E47A3400868F90 /* WhirlyGlobeComponentTester-Bridging-Header.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WhirlyGlobeComponentTester-Bridging-Header.m"; sourceTree = "<group>"; };
 		C086A35E19BA14D500FC01DA /* WhirlyGlobe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = WhirlyGlobe.framework; path = "../WhirlyGlobe/build/Debug-iphoneos/WhirlyGlobe.framework"; sourceTree = "<group>"; };
 		C08F6F3319B79DBF00BCEAB2 /* WhirlyGlobeComponentTester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhirlyGlobeComponentTester.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C08F6F3719B79DBF00BCEAB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -123,6 +125,8 @@
 				C08F6F5519B79E3300BCEAB2 /* AnimatedSphere.swift */,
 				C0DB297619BC806600ACB71E /* WeatherShader.swift */,
 				C08F6F5A19B79E3300BCEAB2 /* TestViewController.swift */,
+				C08F6F6319B79E4300BCEAB2 /* WhirlyGlobeComponentTester-Bridging-Header.h */,
+				C00120D019E47A3400868F90 /* WhirlyGlobeComponentTester-Bridging-Header.m */,
 				C08F6F3F19B79DBF00BCEAB2 /* Images.xcassets */,
 				C08F6F3619B79DBF00BCEAB2 /* Supporting Files */,
 			);
@@ -132,7 +136,6 @@
 		C08F6F3619B79DBF00BCEAB2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C08F6F6319B79E4300BCEAB2 /* WhirlyGlobeComponentTester-Bridging-Header.h */,
 				C08F6F3719B79DBF00BCEAB2 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -294,6 +297,7 @@
 				C08F6F3919B79DBF00BCEAB2 /* AppDelegate.swift in Sources */,
 				C0DB297719BC806600ACB71E /* WeatherShader.swift in Sources */,
 				C08F6F5D19B79E3300BCEAB2 /* AnimatedSphere.swift in Sources */,
+				C00120D119E47A3400868F90 /* WhirlyGlobeComponentTester-Bridging-Header.m in Sources */,
 				C08F6F5E19B79E3300BCEAB2 /* ConfigViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

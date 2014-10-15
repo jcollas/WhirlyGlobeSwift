@@ -43,7 +43,7 @@ class StartupViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let nums : MapType = .NumTypes
         
-        return nums.toRaw()
+        return nums.rawValue
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String! {
@@ -53,8 +53,8 @@ class StartupViewController: UIViewController, UITableViewDataSource, UITableVie
     // MARK: UITableViewDelegate methods
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = UITableViewCell(style:.Default, reuseIdentifier:nil)
-        var mapType = MapType.fromRaw(indexPath.row)!
+        var cell = UITableViewCell(style:.Default, reuseIdentifier:nil)!
+        var mapType = MapType(rawValue:indexPath.row)!
         
         cell.textLabel!.text = mapType.description
         cell.textLabel!.textColor = UIColor.whiteColor()
@@ -64,7 +64,7 @@ class StartupViewController: UIViewController, UITableViewDataSource, UITableVie
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var viewC = TestViewController(mapType: MapType.fromRaw(indexPath.row)!)
+        var viewC = TestViewController(mapType: MapType(rawValue: indexPath.row)!)
         self.navigationController!.pushViewController(viewC, animated: true)
     }
 }

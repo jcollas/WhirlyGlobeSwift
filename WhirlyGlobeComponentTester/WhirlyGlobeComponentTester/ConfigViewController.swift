@@ -221,7 +221,7 @@ class ConfigViewController : UIViewController, UITableViewDataSource, UITableVie
         var cs = values[indexPath.section]
         
         var arr = sorted(cs.rows.keys)
-        var cell = UITableViewCell(style:.Default, reuseIdentifier:nil)
+        var cell = UITableViewCell(style:.Default, reuseIdentifier:nil)!
         var key = arr[indexPath.row]
         cell.textLabel!.text = key
         

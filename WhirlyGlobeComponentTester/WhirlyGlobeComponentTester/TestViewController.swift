@@ -75,7 +75,7 @@ enum PerformanceMode {
 class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, MaplyViewControllerDelegate,UIPopoverControllerDelegate {
 
     /// This is the base class shared between the MaplyViewController and the WhirlyGlobeViewController
-    var baseViewC: MaplyBaseViewController?
+    var baseViewC: MaplyBaseViewController!
     
     /// If we're displaying a globe, this is set
     var globeViewC: WhirlyGlobeViewController?
@@ -86,7 +86,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
     var popControl: UIPopoverController?
 
     // The configuration view comes up when the user taps outside the globe
-    private var configViewC: ConfigViewController?
+    private var configViewC: ConfigViewController!
     
     // Base layer
     private var baseLayerName: String!
@@ -154,7 +154,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
 
     override init(nibName nibNameOrNil: String!, bundle: NSBundle!) {
 
-        super.init(nibName: nibName, bundle: bundle)
+        super.init(nibName: nibNameOrNil, bundle: bundle)
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -209,7 +209,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
 
         case .Map2D:
             mapViewC = MaplyViewController(asFlatMap: ())
-            configViewC!.configOptions = .Flat
+            configViewC.configOptions = .Flat
             mapViewC!.doubleTapZoomGesture = true
             mapViewC!.twoFingerTapGesture = true
             mapViewC!.viewWrap = true
@@ -222,26 +222,26 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             true
         }
 
-        view.addSubview(baseViewC!.view)
-        baseViewC!.view.frame = view.bounds
-        addChildViewController(baseViewC!)
+        view.addSubview(baseViewC.view)
+        baseViewC.view.frame = view.bounds
+        addChildViewController(baseViewC)
     
         // Note: Debugging
         //    labelExercise()
     
         if (perfMode == .Low) {
-            baseViewC!.frameInterval = 3 // 20fps
-            baseViewC!.threadPerLayer = false
+            baseViewC.frameInterval = 3 // 20fps
+            baseViewC.threadPerLayer = false
         } else {
-            baseViewC!.frameInterval = 2 // 30fps
-            baseViewC!.threadPerLayer = true
+            baseViewC.frameInterval = 2 // 30fps
+            baseViewC.threadPerLayer = true
         }
     
         // Set the background color for the globe
         if (globeViewC != nil) {
-            baseViewC!.clearColor = UIColor.blackColor()
+            baseViewC.clearColor = UIColor.blackColor()
         } else {
-            baseViewC!.clearColor = UIColor.whiteColor()
+            baseViewC.clearColor = UIColor.whiteColor()
         }
 
         if (globeViewC != nil) {
@@ -265,17 +265,17 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             elevSource = MaplyElevationDatabase(name: "world_web_mercator")
             zoomLimit = (elevSource as MaplyElevationSourceDelegate).maxZoom()
             requireElev = true
-            baseViewC!.elevDelegate = elevSource
+            baseViewC.elevDelegate = elevSource
     
             // Don't forget to turn on the z buffer permanently
-            baseViewC!.setHints([ kMaplyRenderHintZBuffer: true ])
+            baseViewC.setHints([ kMaplyRenderHintZBuffer: true ])
     
             // Turn off most of the options for globe mode
-            configViewC!.configOptions = .Terrain
+            configViewC.configOptions = .Terrain
         }
     
         // Force the view to load so we can get the default switch values
-        var loadedView = configViewC!.view
+        var loadedView = configViewC.view
     
         // Maximum number of objects for the layout engine to display
         //    [baseViewC setMaxLayoutObjects:1000]
@@ -332,24 +332,25 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
     
     // Try to fetch the given WMS layer
     func fetchWMSLayer(baseURL: String, layerName: String, styleName: String?, cacheDir: String, overlayName: String) {
-
-        var capabilitiesURL = MaplyWMSCapabilities.CapabilitiesURLFor(baseURL)
-    
-        var operation = AFHTTPRequestOperation(request:NSURLRequest(URL:NSURL(string:capabilitiesURL)))
-
-        operation.responseSerializer = AFXMLParserResponseSerializer()
         
-        operation.setCompletionBlockWithSuccess(
-            { (op: AFHTTPRequestOperation!, responseObject: AnyObject!) in
-                self.startWMSLayer(baseURL, xml:responseObject as DDXMLDocument, layerName:layerName, styleName:styleName, cacheDir:cacheDir, overlayName:overlayName)
-                return
-            }, failure:{ (operation: AFHTTPRequestOperation!, error: NSError!) in
-                // Sometimes this works anyway
-                //        if (![self startWMSLayerBaseURL:baseURL xml:XMLDocument layer:layerName style:styleName cacheDir:thisCacheDir ovlName:ovlName])
-                //            NSLog("Failed to get capabilities from WMS server: %",capabilitiesURL);
-        })
-    
-        operation.start()
+        var capabilitiesURL = MaplyWMSCapabilities.CapabilitiesURLFor(baseURL)
+        if let url = NSURL(string:capabilitiesURL) {
+            var operation = AFHTTPRequestOperation(request:NSURLRequest(URL:url))
+            
+            operation.responseSerializer = AFXMLParserResponseSerializer.sharedSerializer()
+            
+            operation.setCompletionBlockWithSuccess(
+                { (op: AFHTTPRequestOperation!, responseObject: AnyObject!) in
+                    self.startWMSLayer(baseURL, xml:responseObject as DDXMLDocument, layerName:layerName, styleName:styleName, cacheDir:cacheDir, overlayName:overlayName)
+                    return
+                }, failure:{ (operation: AFHTTPRequestOperation!, error: NSError!) in
+                    // Sometimes this works anyway
+                    //        if (![self startWMSLayerBaseURL:baseURL xml:XMLDocument layer:layerName style:styleName cacheDir:thisCacheDir ovlName:ovlName])
+                    //            NSLog("Failed to get capabilities from WMS server: %",capabilitiesURL);
+            })
+            
+            operation.start()
+        }
     }
     
     // Try to start the layer, given the capabilities
@@ -384,7 +385,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             imageLayer.handleEdges = true
             imageLayer.requireElev = requireElev
             imageLayer.waitLoad = imageWaitLoad
-            baseViewC!.addLayer(imageLayer)
+            baseViewC.addLayer(imageLayer)
     
             if (overlayName != nil) {
                 ovlLayers[overlayName!] = imageLayer
@@ -437,7 +438,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
     // Add screen (2D) markers at all our locations
     func addScreenMarkers(locations: [LocationInfo], len: Int, stride: Int, offset: Int) {
         var size: CGSize = CGSize(width: 40, height: 40)
-        let pinImage: UIImage = UIImage(named: "map_pin")
+        let pinImage = UIImage(named: "map_pin")!
         var markers: [MaplyScreenMarker] = []
 
         for var ii = offset; ii < len; ii += stride {
@@ -451,13 +452,13 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             markers.append(marker)
         }
     
-        screenMarkersObj = baseViewC!.addScreenMarkers(markers, desc:[kMaplyMinVis: 0.0, kMaplyMaxVis: 1.0, kMaplyFade: 1.0])
+        screenMarkersObj = baseViewC.addScreenMarkers(markers, desc:[kMaplyMinVis: 0.0, kMaplyMaxVis: 1.0, kMaplyFade: 1.0])
     }
     
     // Add 3D markers
     func addMarkers(locations: [LocationInfo], len: Int, stride: Int, offset: Int) {
         let size: CGSize = CGSize(width:0.05, height:0.05)
-        let startImage: UIImage = UIImage(named:"Star")
+        let startImage = UIImage(named:"Star")!
         var markers: [MaplyScreenMarker] = []
 
         for var ii = offset; ii < len; ii += stride {
@@ -470,7 +471,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             markers.append(marker)
         }
     
-        markersObj = baseViewC!.addMarkers(markers, desc:nil)
+        markersObj = baseViewC.addMarkers(markers, desc:nil)
     }
     
     // Add screen (2D) labels
@@ -487,7 +488,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             screenLabels.append(label)
         }
         
-        screenLabelsObj = baseViewC!.addScreenLabels(screenLabels, desc:screenLabelDesc)
+        screenLabelsObj = baseViewC.addScreenLabels(screenLabels, desc:screenLabelDesc)
     }
     
     // Add 3D labels
@@ -505,7 +506,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             labels.append(label)
         }
         
-        labelsObj = baseViewC!.addLabels(labels, desc:labelDesc)
+        labelsObj = baseViewC.addLabels(labels, desc:labelDesc)
     }
     
     // Add cylinders
@@ -522,7 +523,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             cyls.append(cyl)
         }
         
-        shapeCylObj = baseViewC!.addShapes(cyls, desc:desc)
+        shapeCylObj = baseViewC.addShapes(cyls, desc:desc)
     }
     
     // Add spheres
@@ -538,7 +539,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             spheres.append(sphere)
         }
         
-        shapeSphereObj = baseViewC!.addShapes(spheres, desc:desc)
+        shapeSphereObj = baseViewC.addShapes(spheres, desc:desc)
     }
     
     // Add spheres
@@ -560,7 +561,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             circles.append(greatCircle)
         }
         
-        greatCircleObj = baseViewC!.addShapes(circles, desc:desc)
+        greatCircleObj = baseViewC.addShapes(circles, desc:desc)
     }
     
     func addLines(lonDelta:Float, latDelta:Float, color:UIColor) {
@@ -587,21 +588,21 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             vectors.append(vec)
         }
         
-        latLonObj = baseViewC!.addVectors(vectors, desc:desc)
+        latLonObj = baseViewC.addVectors(vectors, desc:desc)
     }
     
     func addWideVectors(vecObj:MaplyVectorObject) -> [MaplyComponentObject] {
         let color: UIColor = UIColor.blueColor()
         let fade: Float = 0.25
         
-        var lines: MaplyComponentObject = baseViewC!.addVectors([vecObj], desc:[ kMaplyColor: color,
+        var lines: MaplyComponentObject = baseViewC.addVectors([vecObj], desc:[ kMaplyColor: color,
             kMaplyVecWidth: 4.0,
             kMaplyFade: fade,
             kMaplyVecCentered: true,
             kMaplyMaxVis: 10.0,
             kMaplyMinVis: 0.00032424763776361942 ] )
         
-        var screenLines: MaplyComponentObject = baseViewC!.addWideVectors([vecObj], desc:[ kMaplyColor: UIColor.redColor(),
+        var screenLines: MaplyComponentObject = baseViewC.addWideVectors([vecObj], desc:[ kMaplyColor: UIColor.redColor(),
             kMaplyFade: fade,
             kMaplyVecWidth: 4.0,
             kMaplyVecTexture: dashedLineTex!,
@@ -612,7 +613,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             kMaplyMaxVis: 0.00032424763776361942,
             kMaplyMinVis: 0.00011049506429117173 ] )
         
-        var realLines: MaplyComponentObject = baseViewC!.addWideVectors([vecObj], desc:[ kMaplyColor: color,
+        var realLines: MaplyComponentObject = baseViewC.addWideVectors([vecObj], desc:[ kMaplyColor: color,
             kMaplyFade: fade,
             kMaplyVecTexture: dashedLineTex!,
             // 8m in display coordinates
@@ -650,7 +651,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             }
         }
 
-        var labelObj = baseViewC!.addScreenLabels(labels, desc:
+        var labelObj = baseViewC.addScreenLabels(labels, desc:
                                     [ kMaplyTextOutlineSize: 1.0,
                                         kMaplyTextOutlineColor: UIColor.blackColor(),
                                         kMaplyFont: UIFont.systemFontOfSize(18.0) ] )
@@ -665,14 +666,14 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             lineTexBuilder.setPattern([4, 4])
             lineTexBuilder.opacityFunc = MaplyOpacitySin2
             var dashedLineImage = lineTexBuilder.makeImage()
-            dashedLineTex = baseViewC!.addTexture(dashedLineImage, imageFormat:MaplyImageIntRGBA, wrapFlags:MaplyImageWrapY, mode:MaplyThreadAny)
+            dashedLineTex = baseViewC.addTexture(dashedLineImage, imageFormat:MaplyImageIntRGBA, wrapFlags:MaplyImageWrapY, mode:MaplyThreadAny)
         }
         if (filledLineTex == nil) {
             var lineTexBuilder = MaplyLinearTextureBuilder(size:CGSize(width:8, height:32))
             lineTexBuilder.setPattern([32])
             lineTexBuilder.opacityFunc = MaplyOpacitySin2
             var lineImage = lineTexBuilder.makeImage()
-            filledLineTex = baseViewC!.addTexture(lineImage, imageFormat:MaplyImageIntRGBA, wrapFlags:MaplyImageWrapY, mode:MaplyThreadAny)
+            filledLineTex = baseViewC.addTexture(lineImage, imageFormat:MaplyImageIntRGBA, wrapFlags:MaplyImageWrapY, mode:MaplyThreadAny)
         }
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
@@ -688,7 +689,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
     }
     
     func addStickers(locations:[LocationInfo], len:Int, stride:Int, offset:Int, desc:[String: AnyObject]) {
-        let startImage: UIImage = UIImage(named:"Smiley_Face_Avatar_by_PixelTwist")
+        let startImage = UIImage(named:"Smiley_Face_Avatar_by_PixelTwist")!
         
         var stickers: [MaplySticker] = []
         for var ii=offset; ii<len; ii+=stride {
@@ -704,7 +705,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             stickers.append(sticker)
         }
         
-        stickersObj = baseViewC!.addStickers(stickers, desc:desc)
+        stickersObj = baseViewC.addStickers(stickers, desc:desc)
     }
     
     // Add country outlines.  Pass in the names of the geoJSON files
@@ -726,7 +727,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
                             if let vecAttrs = wgVecObj.attributes {
                                 var vecName: AnyObject? = vecAttrs["ADMIN"]
                                 wgVecObj.userObject = vecName as NSObject
-                                compObj = self.baseViewC!.addVectors([wgVecObj], desc:self.vectorDesc)
+                                compObj = self.baseViewC.addVectors([wgVecObj], desc:self.vectorDesc)
                                 var screenLabel = MaplyScreenLabel()
                                 
                                 // Add a label right in the middle
@@ -755,7 +756,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             // Note: You could lose track of the objects if you turn the countries on/off quickly
             dispatch_async(dispatch_get_main_queue()) {
                 // Toss in all the labels at once, more efficient
-                var autoLabelObj = self.baseViewC!.addScreenLabels(locAutoLabels, desc:
+                var autoLabelObj = self.baseViewC.addScreenLabels(locAutoLabels, desc:
                 [ kMaplyTextColor: UIColor(red:0.85, green:0.85, blue:0.85, alpha:1.0),
                 kMaplyFont: UIFont.systemFontOfSize(24.0),
                 kMaplyTextOutlineColor: UIColor.blackColor(),
@@ -777,7 +778,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
     func addMegaMarkers() {
 
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-            let image: UIImage = UIImage(named:"map_pin.png")
+            let image = UIImage(named:"map_pin.png")!
             
             var markers: [MaplyScreenMarker] = []
             for ii in 0..<self.NumMegaMarkers {
@@ -790,7 +791,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             }
 
             dispatch_async(dispatch_get_main_queue()) {
-                self.megaMarkersObj = self.baseViewC!.addScreenMarkers(markers, desc:nil)
+                self.megaMarkersObj = self.baseViewC.addScreenMarkers(markers, desc:nil)
             }
         }
     }
@@ -798,7 +799,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
     // Create an animated sphere
     func addAnimatedSphere() {
         var animSphere = AnimatedSphere(period:20.0, radius:0.01, color:UIColor.orangeColor(), viewC:baseViewC)
-        baseViewC!.addActiveObject(animSphere)
+        baseViewC.addActiveObject(animSphere)
     }
     
     // Set this to reload the base layer ever so often.  Purely for testing
@@ -825,7 +826,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
         // Tear down the old layer
         if (baseLayer != nil) {
             baseLayerName = nil
-            baseViewC!.removeLayer(baseLayer)
+            baseViewC.removeLayer(baseLayer)
             baseLayer = nil
         }
 
@@ -864,7 +865,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             layer.waitLoad = imageWaitLoad
             layer.drawPriority = 0
             layer.singleLevelLoading = (startupMapType == .Map2D)
-            baseViewC!.addLayer(layer)
+            baseViewC.addLayer(layer)
             
             labelColor = UIColor.blackColor()
             labelBackColor = UIColor.whiteColor()
@@ -903,7 +904,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             var layer = MaplyQuadImageTilesLayer(coordSystem:tileSource.coordSys, tileSource:tileSource)
             layer.handleEdges = true
             layer.requireElev = requireElev
-            baseViewC!.addLayer(layer)
+            baseViewC.addLayer(layer)
             layer.drawPriority = 0
             layer.waitLoad = imageWaitLoad
             layer.singleLevelLoading = (startupMapType == .Map2D)
@@ -933,7 +934,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             layer.waitLoad = imageWaitLoad
             layer.maxTiles = maxLayerTiles
             layer.singleLevelLoading = (startupMapType == .Map2D)
-            baseViewC!.addLayer(layer)
+            baseViewC.addLayer(layer)
             layer.drawPriority = 0
             baseLayer = layer
             screenLabelColor = UIColor.whiteColor()
@@ -992,7 +993,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             layer.maxTiles = 512
             layer.singleLevelLoading = (startupMapType == .Map2D)
             layer.color = UIColor(white:1.0, alpha:0.75)
-            baseViewC!.addLayer(layer)
+            baseViewC.addLayer(layer)
             layer.drawPriority = 0
             baseLayer = layer
 
@@ -1008,7 +1009,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             var layer = MaplyQuadPagingLayer(coordSystem:tileSource.coordSys, delegate:tileSource)
             layer.importance = 128*128
             layer.singleLevelLoading = (startupMapType == .Map2D)
-            baseViewC!.addLayer(layer)
+            baseViewC.addLayer(layer)
             layer.drawPriority = 0
             baseLayer = layer
 
@@ -1029,7 +1030,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             // We'll cycle through at 1s per layer
             layer.animationPeriod = 4.0
             layer.singleLevelLoading = (startupMapType == .Map2D)
-            baseViewC!.addLayer(layer)
+            baseViewC.addLayer(layer)
             layer.drawPriority = 0
             baseLayer = layer
 
@@ -1040,42 +1041,43 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
         
         // If we're fetching one of the JSON tile specs, kick that off
         if (jsonTileSpec != nil) {
-            var request = NSURLRequest(URL:NSURL(string:jsonTileSpec!))
-            
-            var operation = AFHTTPRequestOperation(request:request)
-            operation.responseSerializer = AFJSONResponseSerializer()
-
-            operation.setCompletionBlockWithSuccess(
-            { ( op: AFHTTPRequestOperation!, responseObject: AnyObject!) in
-                // Add a quad earth paging layer based on the tile spec we just fetched
-                var tileSource = MaplyRemoteTileSource(tilespec:responseObject as Dictionary)
-                tileSource.cacheDir = thisCacheDir
-                if (self.zoomLimit != 0 && self.zoomLimit < tileSource.maxZoom()) {
-                    tileSource.tileInfo.maxZoom = self.zoomLimit
-                }
-                var layer = MaplyQuadImageTilesLayer(coordSystem:tileSource.coordSys, tileSource:tileSource)
-                layer.handleEdges = true
-                layer.waitLoad = self.imageWaitLoad
-                layer.requireElev = self.requireElev
-                layer.maxTiles = self.maxLayerTiles
-                if (self.startupMapType == .Map2D) {
-                    layer.singleLevelLoading = true
-                    layer.multilLevelLoads = [-4, -2]
-                }
-                self.baseViewC!.addLayer(layer)
-                layer.drawPriority = 0
-                self.baseLayer = layer
+            if let url = NSURL(string:jsonTileSpec!) {
+                var request = NSURLRequest(URL:url)
                 
-//                #ifdef RELOADTEST
-//                [self performSelector:@selector(reloadLayer:) withObject:nil afterDelay:10.0];
-//                #endif
-            },
-            failure: { (operation: AFHTTPRequestOperation!, error: NSError!) in
-                NSLog("Failed to reach JSON tile spec at: %@", jsonTileSpec!)
+                var operation = AFHTTPRequestOperation(request:request)
+                operation.responseSerializer = AFJSONResponseSerializer.sharedSerializer()
+                
+                operation.setCompletionBlockWithSuccess(
+                    { ( op: AFHTTPRequestOperation!, responseObject: AnyObject!) in
+                        // Add a quad earth paging layer based on the tile spec we just fetched
+                        var tileSource = MaplyRemoteTileSource(tilespec:responseObject as Dictionary)
+                        tileSource.cacheDir = thisCacheDir
+                        if (self.zoomLimit != 0 && self.zoomLimit < tileSource.maxZoom()) {
+                            tileSource.tileInfo.maxZoom = self.zoomLimit
+                        }
+                        var layer = MaplyQuadImageTilesLayer(coordSystem:tileSource.coordSys, tileSource:tileSource)
+                        layer.handleEdges = true
+                        layer.waitLoad = self.imageWaitLoad
+                        layer.requireElev = self.requireElev
+                        layer.maxTiles = self.maxLayerTiles
+                        if (self.startupMapType == .Map2D) {
+                            layer.singleLevelLoading = true
+                            layer.multilLevelLoads = [-4, -2]
+                        }
+                        self.baseViewC.addLayer(layer)
+                        layer.drawPriority = 0
+                        self.baseLayer = layer
+                        
+                        //                #ifdef RELOADTEST
+                        //                [self performSelector:@selector(reloadLayer:) withObject:nil afterDelay:10.0];
+                        //                #endif
+                    },
+                    failure: { (operation: AFHTTPRequestOperation!, error: NSError!) in
+                        NSLog("Failed to reach JSON tile spec at: %@", jsonTileSpec!)
+                })
+                
+                operation.start()
             }
-            )
-            
-            operation.start()
         }
         
         // Set up some defaults for display
@@ -1132,7 +1134,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
                     weatherLayer.coverPoles = false
                     layer = weatherLayer
                     weatherLayer.handleEdges = false
-                    baseViewC!.addLayer(weatherLayer)
+                    baseViewC.addLayer(weatherLayer)
                     ovlLayers[layerName] = layer
 
                 case kMaplyTestForecastIO:
@@ -1154,8 +1156,8 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
                     precipLayer.numSimultaneousFetches = 4
                     precipLayer.handleEdges = false
                     precipLayer.coverPoles = false
-                    precipLayer.shaderProgramName = WeatherShader.setupWeatherShader(baseViewC!)
-                    baseViewC!.addLayer(precipLayer)
+                    precipLayer.shaderProgramName = WeatherShader.setupWeatherShader(baseViewC)
+                    baseViewC.addLayer(precipLayer)
                     layer = precipLayer
                     ovlLayers[layerName] = layer
 
@@ -1184,7 +1186,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
                                 pageLayer.importance = 1024*1024*2
                                 pageLayer.useTargetZoomLevel = true
                                 pageLayer.singleLevelLoading = true
-                                self.baseViewC!.addLayer(pageLayer)
+                                self.baseViewC.addLayer(pageLayer)
                                 self.ovlLayers[layerName] = pageLayer
                             },
                         failure:
@@ -1211,7 +1213,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
                             pageLayer.importance = 1024*1024
                             pageLayer.useTargetZoomLevel = true
                             pageLayer.singleLevelLoading = true
-                            self.baseViewC!.addLayer(pageLayer)
+                            self.baseViewC.addLayer(pageLayer)
                             self.ovlLayers[layerName] = pageLayer
                         },
                         failure: { ( error: NSError!) in
@@ -1224,7 +1226,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
                 }
             } else if (!isOn && layer != nil) {
                 // Get rid of the layer
-                baseViewC!.removeLayer(layer)
+                baseViewC.removeLayer(layer)
                 ovlLayers[layerName] = nil
             }
         }
@@ -1239,116 +1241,116 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
     // Look at the configuration controller and decide what to turn off or on
     func changeMapContents() {
 
-        imageWaitLoad = configViewC!.valueForSection(kMaplyTestCategoryInternal, row:kMaplyTestWaitLoad)
+        imageWaitLoad = configViewC.valueForSection(kMaplyTestCategoryInternal, row:kMaplyTestWaitLoad)
         
-        var baseSection = configViewC!.values[0] as ConfigViewController.ConfigSection
+        var baseSection = configViewC.values[0] as ConfigViewController.ConfigSection
         setupBaseLayer(baseSection.rows)
-        if (configViewC!.values.count > 1) {
-            var setupSection = configViewC!.values[1] as ConfigViewController.ConfigSection
+        if (configViewC.values.count > 1) {
+            var setupSection = configViewC.values[1] as ConfigViewController.ConfigSection
             setupOverlays(setupSection.rows)
         }
         
-        if (configViewC!.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestLabel2D)) {
+        if (configViewC.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestLabel2D)) {
             if (screenLabelsObj == nil) {
                 addScreenLabels(locations, len:locations.count, stride:4, offset:0)
             }
         } else {
             if (screenLabelsObj != nil) {
-                baseViewC!.removeObject(screenLabelsObj)
+                baseViewC.removeObject(screenLabelsObj)
                 screenLabelsObj = nil
             }
         }
         
-        if (configViewC!.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestLabel3D)) {
+        if (configViewC.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestLabel3D)) {
             if (labelsObj == nil) {
                 addLabels(locations, len:locations.count, stride:4, offset:1)
             }
         } else {
             if (labelsObj != nil) {
-                baseViewC!.removeObject(labelsObj)
+                baseViewC.removeObject(labelsObj)
                 labelsObj = nil
             }
         }
         
-        if (configViewC!.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestMarker2D)) {
+        if (configViewC.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestMarker2D)) {
             if (screenMarkersObj == nil) {
                 addScreenMarkers(locations, len:locations.count, stride:4, offset:2)
             }
         } else {
             if (screenMarkersObj != nil) {
-                baseViewC!.removeObject(screenMarkersObj)
+                baseViewC.removeObject(screenMarkersObj)
                 screenMarkersObj = nil
             }
         }
         
-        if (configViewC!.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestMarker3D)) {
+        if (configViewC.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestMarker3D)) {
             if (markersObj == nil) {
                 addMarkers(locations, len:locations.count, stride:4, offset:3)
             }
         } else {
             if (markersObj != nil) {
-                baseViewC!.removeObject(markersObj)
+                baseViewC.removeObject(markersObj)
                 markersObj = nil
             }
         }
         
-        if (configViewC!.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestSticker)) {
+        if (configViewC.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestSticker)) {
             if (stickersObj == nil) {
                 addStickers(locations, len:locations.count, stride:4, offset:2, desc:[ kMaplyFade: 1.0 ])
             }
         } else {
             if (stickersObj != nil) {
-                baseViewC!.removeObject(stickersObj)
+                baseViewC.removeObject(stickersObj)
                 stickersObj = nil
             }
         }
         
-        if (configViewC!.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestShapeCylinder)) {
+        if (configViewC.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestShapeCylinder)) {
             if (shapeCylObj == nil) {
                 addShapeCylinders(locations, len:locations.count, stride:4, offset:0, desc:[ kMaplyColor: UIColor(red:0.0, green:0.0, blue:1.0, alpha:0.8), kMaplyFade: 1.0 ])
             }
         } else {
             if (shapeCylObj != nil) {
-                baseViewC!.removeObject(shapeCylObj)
+                baseViewC.removeObject(shapeCylObj)
                 shapeCylObj = nil
             }
         }
         
-        if (configViewC!.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestShapeSphere))
+        if (configViewC.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestShapeSphere))
         {
             if (shapeSphereObj == nil) {
                 addShapeSpheres(locations, len:locations.count, stride:4, offset:1, desc:[ kMaplyColor: UIColor(red:1.0, green:0.0, blue:0.0, alpha:0.8), kMaplyFade: 1.0 ])
             }
         } else {
             if (shapeSphereObj != nil) {
-                baseViewC!.removeObject(shapeSphereObj)
+                baseViewC.removeObject(shapeSphereObj)
                 shapeSphereObj = nil
             }
         }
         
-        if (configViewC!.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestShapeGreatCircle)) {
+        if (configViewC.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestShapeGreatCircle)) {
             if (greatCircleObj == nil) {
                 addGreatCircles(locations, len:locations.count, stride:4, offset:2, desc:[ kMaplyColor: UIColor(red:1.0, green:0.1, blue:0.0, alpha:1.0), kMaplyFade: 1.0 ])
             }
         } else {
             if (greatCircleObj != nil) {
-                baseViewC!.removeObject(greatCircleObj)
+                baseViewC.removeObject(greatCircleObj)
                 greatCircleObj = nil
             }
         }
         
-        if (configViewC!.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestLatLon)) {
+        if (configViewC.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestLatLon)) {
             if (latLonObj == nil) {
                 addLines(20, latDelta:10, color:UIColor.blueColor())
             }
         } else {
             if (latLonObj != nil) {
-                baseViewC!.removeObject(latLonObj)
+                baseViewC.removeObject(latLonObj)
                 latLonObj = nil
             }
         }
         
-        if (configViewC!.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestRoads))
+        if (configViewC.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestRoads))
         {
             if (sfRoadsObjArray == nil)
             {
@@ -1363,12 +1365,12 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             }
         } else {
             if (sfRoadsObjArray != nil) {
-                baseViewC!.removeObjects(sfRoadsObjArray)
+                baseViewC.removeObjects(sfRoadsObjArray)
                 sfRoadsObjArray = nil
             }
         }
         
-        if (configViewC!.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestCountry)) {
+        if (configViewC.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestCountry)) {
             // Countries we have geoJSON for
             let countryArray = [
                 "ABW", "AFG", "AGO", "AIA", "ALA", "ALB", "AND", "ARE", "ARG", "ARM", "ASM", "ATA", "ATF", "ATG", "AUS", "AUT",
@@ -1393,75 +1395,75 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             }
         } else {
             if (vecObjects != nil) {
-                baseViewC!.removeObjects(vecObjects)
+                baseViewC.removeObjects(vecObjects)
                 vecObjects = nil
             }
             if (autoLabels != nil) {
-                baseViewC!.removeObject(autoLabels)
+                baseViewC.removeObject(autoLabels)
                 autoLabels = nil
             }
         }
         
-        if (configViewC!.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestLoftedPoly)) {
+        if (configViewC.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestLoftedPoly)) {
         } else {
             if (loftPolyDict.count > 0) {
                 for value in loftPolyDict.values {
-                    baseViewC!.removeObject(value)
+                    baseViewC.removeObject(value)
                 }
                 loftPolyDict = [:]
             }
         }
         
-        if (configViewC!.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestMegaMarkers)) {
+        if (configViewC.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestMegaMarkers)) {
             if (megaMarkersObj == nil) {
                 addMegaMarkers()
             }
         } else {
             if (megaMarkersObj != nil) {
-                baseViewC!.removeObject(megaMarkersObj)
+                baseViewC.removeObject(megaMarkersObj)
                 megaMarkersObj = nil
             }
         }
         
-        if (configViewC!.valueForSection(kMaplyTestCategoryAnimation, row:kMaplyTestAnimateSphere)) {
+        if (configViewC.valueForSection(kMaplyTestCategoryAnimation, row:kMaplyTestAnimateSphere)) {
             if (animSphere == nil) {
                 addAnimatedSphere()
             }
         } else {
             if (animSphere != nil) {
-                baseViewC!.removeActiveObject(animSphere)
+                baseViewC.removeActiveObject(animSphere)
                 animSphere = nil
             }
         }
         
-        baseViewC!.performanceOutput = configViewC!.valueForSection(kMaplyTestCategoryInternal, row:kMaplyTestPerf)
+        baseViewC.performanceOutput = configViewC.valueForSection(kMaplyTestCategoryInternal, row:kMaplyTestPerf)
         
         if let viewC = globeViewC {
-            viewC.keepNorthUp = configViewC!.valueForSection(kMaplyTestCategoryGestures, row:kMaplyTestNorthUp)
-            viewC.pinchGesture = configViewC!.valueForSection(kMaplyTestCategoryGestures, row:kMaplyTestPinch)
-            viewC.rotateGesture = configViewC!.valueForSection(kMaplyTestCategoryGestures, row:kMaplyTestRotate)
+            viewC.keepNorthUp = configViewC.valueForSection(kMaplyTestCategoryGestures, row:kMaplyTestNorthUp)
+            viewC.pinchGesture = configViewC.valueForSection(kMaplyTestCategoryGestures, row:kMaplyTestPinch)
+            viewC.rotateGesture = configViewC.valueForSection(kMaplyTestCategoryGestures, row:kMaplyTestRotate)
         } else {
-            if(configViewC!.valueForSection(kMaplyTestCategoryGestures, row:kMaplyTestNorthUp)) {
+            if(configViewC.valueForSection(kMaplyTestCategoryGestures, row:kMaplyTestNorthUp)) {
                 mapViewC!.heading = 0.0
             }
-            mapViewC!.pinchGesture = configViewC!.valueForSection(kMaplyTestCategoryGestures, row:kMaplyTestPinch)
-            mapViewC!.rotateGesture = configViewC!.valueForSection(kMaplyTestCategoryGestures, row:kMaplyTestRotate)
+            mapViewC!.pinchGesture = configViewC.valueForSection(kMaplyTestCategoryGestures, row:kMaplyTestPinch)
+            mapViewC!.rotateGesture = configViewC.valueForSection(kMaplyTestCategoryGestures, row:kMaplyTestRotate)
         }
         
         // Update rendering hints
-        baseViewC!.setHints([ kMaplyRenderHintCulling: configViewC!.valueForSection(kMaplyTestCategoryInternal, row:kMaplyTestCulling) ])
+        baseViewC.setHints([ kMaplyRenderHintCulling: configViewC.valueForSection(kMaplyTestCategoryInternal, row:kMaplyTestCulling) ])
     }
     
     func showConfig() {
         if (UIDevice.currentDevice().userInterfaceIdiom == .Pad) {
-            popControl = UIPopoverController(contentViewController:configViewC!)
+            popControl = UIPopoverController(contentViewController:configViewC)
             popControl!.delegate = self
             popControl!.setPopoverContentSize(CGSize(width:400.0, height:4.0/5.0*view.bounds.size.height), animated:false)
             popControl!.presentPopoverFromRect(CGRect(x:0, y:0, width:10, height:10), inView:view, permittedArrowDirections:.Up, animated:true)
         } else {
-            configViewC!.navigationItem.hidesBackButton = true
-            configViewC!.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem:.Done, target:self, action:"editDone")
-            navigationController!.pushViewController(configViewC!, animated:true)
+            configViewC.navigationItem.hidesBackButton = true
+            configViewC.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem:.Done, target:self, action:"editDone")
+            navigationController!.pushViewController(configViewC, animated:true)
         }
     }
     
@@ -1510,7 +1512,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
         //        [baseViewC removeViewTrackForView:selectedViewTrack.view];
         //        selectedViewTrack = nil;
         //    }
-        baseViewC!.clearAnnotations()
+        baseViewC.clearAnnotations()
         
         var loc = MaplyCoordinate(x: 0.0, y: 0.0)
         var title: String?
@@ -1537,7 +1539,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
 
         case let screenLabel as MaplyScreenLabel:
             loc = screenLabel.loc
-            title = (screenLabel.userObject as String)
+            title = (screenLabel.userObject as String)  // crash when userObject nil?
             subTitle = "Screen Label"
             offset = CGPoint(x:0.0, y:-6.0)
 
@@ -1546,10 +1548,10 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
                 var name: String = (vecObj.userObject as String)
                 title = name
                 subTitle = "Vector"
-                if (configViewC!.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestLoftedPoly)) {
+                if (configViewC.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestLoftedPoly)) {
                     // See if there already is one
                     if (loftPolyDict[name] == nil) {
-                        var compObj = baseViewC!.addLoftedPolys([vecObj], key:nil, cache:nil, desc:[ kMaplyColor: UIColor(red:1.0, green:0.0, blue:0.0, alpha:0.25), kMaplyLoftedPolyHeight: 0.05, kMaplyFade: 0.5 ])
+                        var compObj = baseViewC.addLoftedPolys([vecObj], key:nil, cache:nil, desc:[ kMaplyColor: UIColor(red:1.0, green:0.0, blue:0.0, alpha:0.25), kMaplyLoftedPolyHeight: 0.05, kMaplyFade: 0.5 ])
                         if (compObj != nil) {
                             loftPolyDict[name] = compObj
                         }
@@ -1581,8 +1583,8 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             var annotate = MaplyAnnotation()
             annotate.title = title
             annotate.subTitle = subTitle
-            baseViewC!.clearAnnotations()
-            baseViewC!.addAnnotation(annotate, forPoint:loc, offset:offset)
+            baseViewC.clearAnnotations()
+            baseViewC.addAnnotation(annotate, forPoint:loc, offset:offset)
         }
     }
     
@@ -1594,7 +1596,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
     // User didn't select anything, but did tap
     func globeViewController(viewC: WhirlyGlobeViewController, didTapAt coord: MaplyCoordinate) {
         // Just clear the selection
-        baseViewC!.clearAnnotations()
+        baseViewC.clearAnnotations()
         
         if (globeViewC != nil)
         {
@@ -1646,7 +1648,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
     
     func maplyViewController(viewC: MaplyViewController, didTapAt coord: MaplyCoordinate) {
         // Just clear the selection
-        baseViewC!.clearAnnotations()
+        baseViewC.clearAnnotations()
         //    if (selectedViewTrack)
         //    {
         //        [baseViewC removeViewTrackForView:selectedViewTrack.view];
