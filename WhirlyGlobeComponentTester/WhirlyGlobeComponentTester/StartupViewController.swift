@@ -53,7 +53,7 @@ class StartupViewController: UIViewController, UITableViewDataSource, UITableVie
     // MARK: UITableViewDelegate methods
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = UITableViewCell(style:.Default, reuseIdentifier:nil)!
+        var cell = UITableViewCell(style:.Default, reuseIdentifier:nil)
         var mapType = MapType(rawValue:indexPath.row)!
         
         cell.textLabel!.text = mapType.description

@@ -17,6 +17,9 @@
 		C08F6F5F19B79E3300BCEAB2 /* ConfigViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C08F6F5819B79E3300BCEAB2 /* ConfigViewController.xib */; };
 		C08F6F6019B79E3300BCEAB2 /* StartupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F6F5919B79E3300BCEAB2 /* StartupViewController.swift */; };
 		C08F6F6119B79E3300BCEAB2 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F6F5A19B79E3300BCEAB2 /* TestViewController.swift */; };
+		C0C14A441A5DFD63002CC6F7 /* map_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = C0C14A411A5DFD63002CC6F7 /* map_pin.png */; };
+		C0C14A451A5DFD63002CC6F7 /* Smiley_Face_Avatar_by_PixelTwist.png in Resources */ = {isa = PBXBuildFile; fileRef = C0C14A421A5DFD63002CC6F7 /* Smiley_Face_Avatar_by_PixelTwist.png */; };
+		C0C14A461A5DFD63002CC6F7 /* Star.png in Resources */ = {isa = PBXBuildFile; fileRef = C0C14A431A5DFD63002CC6F7 /* Star.png */; };
 		C0DB297719BC806600ACB71E /* WeatherShader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DB297619BC806600ACB71E /* WeatherShader.swift */; };
 		DEFC06BBE337CE81A7EF4AEC /* libPods-WhirlyGlobeComponentTester.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE1434C0466E59AE1BF977F4 /* libPods-WhirlyGlobeComponentTester.a */; };
 /* End PBXBuildFile section */
@@ -50,6 +53,9 @@
 		C08F6F5919B79E3300BCEAB2 /* StartupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartupViewController.swift; sourceTree = "<group>"; };
 		C08F6F5A19B79E3300BCEAB2 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		C08F6F6319B79E4300BCEAB2 /* WhirlyGlobeComponentTester-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WhirlyGlobeComponentTester-Bridging-Header.h"; sourceTree = "<group>"; };
+		C0C14A411A5DFD63002CC6F7 /* map_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_pin.png; sourceTree = "<group>"; };
+		C0C14A421A5DFD63002CC6F7 /* Smiley_Face_Avatar_by_PixelTwist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Smiley_Face_Avatar_by_PixelTwist.png; sourceTree = "<group>"; };
+		C0C14A431A5DFD63002CC6F7 /* Star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Star.png; sourceTree = "<group>"; };
 		C0DB296F19BA5C7500ACB71E /* WhirlyGlobe.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = WhirlyGlobe.playground; sourceTree = "<group>"; };
 		C0DB297619BC806600ACB71E /* WeatherShader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherShader.swift; sourceTree = "<group>"; };
 		C11BB96BF72FAECA3EADCBB1 /* Pods-WhirlyGlobeComponentTester.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhirlyGlobeComponentTester.release.xcconfig"; path = "../Pods/Target Support Files/Pods-WhirlyGlobeComponentTester/Pods-WhirlyGlobeComponentTester.release.xcconfig"; sourceTree = "<group>"; };
@@ -128,6 +134,7 @@
 				C08F6F6319B79E4300BCEAB2 /* WhirlyGlobeComponentTester-Bridging-Header.h */,
 				C00120D019E47A3400868F90 /* WhirlyGlobeComponentTester-Bridging-Header.m */,
 				C08F6F3F19B79DBF00BCEAB2 /* Images.xcassets */,
+				C0C14A471A5DFD6A002CC6F7 /* Resources */,
 				C08F6F3619B79DBF00BCEAB2 /* Supporting Files */,
 			);
 			path = WhirlyGlobeComponentTester;
@@ -156,6 +163,16 @@
 				C08F6F4A19B79DBF00BCEAB2 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C0C14A471A5DFD6A002CC6F7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C0C14A411A5DFD63002CC6F7 /* map_pin.png */,
+				C0C14A421A5DFD63002CC6F7 /* Smiley_Face_Avatar_by_PixelTwist.png */,
+				C0C14A431A5DFD63002CC6F7 /* Star.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,8 +257,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0C14A451A5DFD63002CC6F7 /* Smiley_Face_Avatar_by_PixelTwist.png in Resources */,
 				C08F6F5F19B79E3300BCEAB2 /* ConfigViewController.xib in Resources */,
+				C0C14A461A5DFD63002CC6F7 /* Star.png in Resources */,
 				C08F6F4019B79DBF00BCEAB2 /* Images.xcassets in Resources */,
+				C0C14A441A5DFD63002CC6F7 /* map_pin.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

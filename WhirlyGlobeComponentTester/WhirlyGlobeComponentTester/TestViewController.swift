@@ -433,123 +433,117 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
         dispatch_after(1, dispatch_get_main_queue()) {
             self.changeHeading(heading + 1.0/180.0*Float(M_PI))
         }
+        
     }
     
     // Add screen (2D) markers at all our locations
-    func addScreenMarkers(locations: [LocationInfo], len: Int, stride: Int, offset: Int) {
+    func addScreenMarkers(locations: [LocationInfo], len: Int, strider: Int, offset: Int) {
         var size: CGSize = CGSize(width: 40, height: 40)
-        let pinImage = UIImage(named: "map_pin")!
-        var markers: [MaplyScreenMarker] = []
+        let pinImage = UIImage(named: "map_pin")
 
-        for var ii = offset; ii < len; ii += stride {
-            var location: LocationInfo = locations[ii]
-            var marker: MaplyScreenMarker = MaplyScreenMarker()
-            marker.image = pinImage
+        var markers:[MaplyScreenMarker] = map( stride(from: offset, through: len - 1, by: strider) ) {
+            var location = locations[$0]
+            var marker = MaplyScreenMarker()
+            marker.image = pinImage!
             marker.loc = MaplyCoordinateMakeWithDegrees(location.lon,location.lat)
             marker.size = size
             marker.userObject = location.name
             marker.layoutImportance = MAXFLOAT
-            markers.append(marker)
+            return marker
         }
     
         screenMarkersObj = baseViewC.addScreenMarkers(markers, desc:[kMaplyMinVis: 0.0, kMaplyMaxVis: 1.0, kMaplyFade: 1.0])
     }
     
     // Add 3D markers
-    func addMarkers(locations: [LocationInfo], len: Int, stride: Int, offset: Int) {
+    func addMarkers(locations: [LocationInfo], len: Int, strider: Int, offset: Int) {
         let size: CGSize = CGSize(width:0.05, height:0.05)
-        let startImage = UIImage(named:"Star")!
-        var markers: [MaplyScreenMarker] = []
+        let startImage = UIImage(named:"Star")
 
-        for var ii = offset; ii < len; ii += stride {
-            var location: LocationInfo = locations[ii]
-            var marker: MaplyScreenMarker = MaplyScreenMarker()
-            marker.image = startImage
+        var markers:[MaplyScreenMarker] = map( stride(from: offset, through: len - 1, by: strider) ) {
+            var location = locations[$0]
+            var marker = MaplyScreenMarker()
+            marker.image = startImage!
             marker.loc = MaplyCoordinateMakeWithDegrees(location.lon,location.lat)
             marker.size = size
             marker.userObject = location.name
-            markers.append(marker)
+            return marker
         }
     
         markersObj = baseViewC.addMarkers(markers, desc:nil)
     }
     
     // Add screen (2D) labels
-    func addScreenLabels(locations:[LocationInfo], len:Int, stride:Int, offset:Int) {
-        var screenLabels: [MaplyScreenLabel] = []
+    func addScreenLabels(locations:[LocationInfo], len:Int, strider:Int, offset:Int) {
 
-        for var ii = offset; ii < len; ii += stride {
-            var location: LocationInfo = locations[ii]
-            var label: MaplyScreenLabel = MaplyScreenLabel()
+        var screenLabels:[MaplyScreenLabel] = map( stride(from: offset, through: len - 1, by: strider) ) {
+            var location = locations[$0]
+            var label = MaplyScreenLabel()
             label.loc = MaplyCoordinateMakeWithDegrees(location.lon,location.lat)
             label.text = location.name
             label.layoutImportance = 2.0
             label.userObject = location.name
-            screenLabels.append(label)
+            return label
         }
         
         screenLabelsObj = baseViewC.addScreenLabels(screenLabels, desc:screenLabelDesc)
     }
     
     // Add 3D labels
-    func addLabels(locations:[LocationInfo], len:Int, stride:Int, offset:Int) {
+    func addLabels(locations:[LocationInfo], len:Int, strider:Int, offset:Int) {
         var size: CGSize = CGSize(width:0, height:0.05)
-        var labels: [MaplyLabel] = []
 
-        for var ii = offset; ii < len; ii += stride {
-            var location: LocationInfo = locations[ii]
-            var label: MaplyLabel = MaplyLabel()
+        var labels:[MaplyLabel] = map( stride(from: offset, through: len - 1, by: strider) ) {
+            var location = locations[$0]
+            var label = MaplyLabel()
             label.loc = MaplyCoordinateMakeWithDegrees(location.lon,location.lat)
             label.size = size
             label.text = location.name
             label.userObject = location.name
-            labels.append(label)
+            return label
         }
         
         labelsObj = baseViewC.addLabels(labels, desc:labelDesc)
     }
     
     // Add cylinders
-    func addShapeCylinders(locations:[LocationInfo], len:Int, stride:Int, offset:Int, desc:[String: AnyObject]) {
-        var cyls: [MaplyShapeCylinder] = []
+    func addShapeCylinders(locations:[LocationInfo], len:Int, strider:Int, offset:Int, desc:[String: AnyObject]) {
 
-        for var ii = offset; ii < len; ii += stride {
-            var location: LocationInfo = locations[ii]
-            var cyl: MaplyShapeCylinder = MaplyShapeCylinder()
+        var cyls:[MaplyShapeCylinder] = map( stride(from: offset, through: len - 1, by: strider) ) {
+            var location = locations[$0]
+            var cyl = MaplyShapeCylinder()
             cyl.baseCenter = MaplyCoordinateMakeWithDegrees(location.lon, location.lat)
             cyl.radius = 0.01
             cyl.height = 0.06
             cyl.selectable = true
-            cyls.append(cyl)
+            return cyl
         }
         
         shapeCylObj = baseViewC.addShapes(cyls, desc:desc)
     }
     
     // Add spheres
-    func addShapeSpheres(locations:[LocationInfo], len:Int, stride:Int, offset:Int, desc:[String: AnyObject]) {
-        var spheres: [MaplyShapeSphere] = []
+    func addShapeSpheres(locations:[LocationInfo], len:Int, strider:Int, offset:Int, desc:[String: AnyObject]) {
 
-        for var ii = offset; ii < len; ii += stride {
-            var location: LocationInfo = locations[ii]
-            var sphere: MaplyShapeSphere = MaplyShapeSphere()
+        var spheres:[MaplyShapeSphere] = map( stride(from: offset, through: len - 1, by: strider) ) {
+            var location = locations[$0]
+            var sphere = MaplyShapeSphere()
             sphere.center = MaplyCoordinateMakeWithDegrees(location.lon, location.lat)
             sphere.radius = 0.04
             sphere.selectable = true
-            spheres.append(sphere)
+            return sphere
         }
         
         shapeSphereObj = baseViewC.addShapes(spheres, desc:desc)
     }
     
     // Add spheres
-    func addGreatCircles(locations:[LocationInfo], len:Int, stride:Int, offset:Int, desc:[String: AnyObject]) {
-        var circles: [MaplyShapeGreatCircle] = []
+    func addGreatCircles(locations:[LocationInfo], len:Int, strider:Int, offset:Int, desc:[String: AnyObject]) {
 
-        for var ii = offset; ii < len; ii += stride {
-            var loc0: LocationInfo = locations[ii]
-            var loc1: LocationInfo = locations[(ii+1)%len]
-            var greatCircle: MaplyShapeGreatCircle = MaplyShapeGreatCircle()
+        var circles:[MaplyShapeGreatCircle] = map( stride(from: offset, through: len - 1, by: strider) ) {
+            var loc0 = locations[$0]
+            var loc1 = locations[($0+1)%len]
+            var greatCircle = MaplyShapeGreatCircle()
 
             greatCircle.startPt = MaplyCoordinateMakeWithDegrees(loc0.lon, loc0.lat)
             greatCircle.endPt = MaplyCoordinateMakeWithDegrees(loc1.lon, loc1.lat)
@@ -558,7 +552,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             // This limits the height based on the length of the great circle
             var angle: Float = greatCircle.calcAngleBetween()
             greatCircle.height = Float(0.3 * Double(angle) / M_PI)
-            circles.append(greatCircle)
+            return greatCircle
         }
         
         greatCircleObj = baseViewC.addShapes(circles, desc:desc)
@@ -1073,7 +1067,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
                         //                #endif
                     },
                     failure: { (operation: AFHTTPRequestOperation!, error: NSError!) in
-                        NSLog("Failed to reach JSON tile spec at: %@", jsonTileSpec!)
+                        NSLog("Failed to reach JSON tile spec at: \(jsonTileSpec!)")
                 })
                 
                 operation.start()
@@ -1252,7 +1246,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
         
         if (configViewC.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestLabel2D)) {
             if (screenLabelsObj == nil) {
-                addScreenLabels(locations, len:locations.count, stride:4, offset:0)
+                addScreenLabels(locations, len:locations.count, strider:4, offset:0)
             }
         } else {
             if (screenLabelsObj != nil) {
@@ -1263,7 +1257,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
         
         if (configViewC.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestLabel3D)) {
             if (labelsObj == nil) {
-                addLabels(locations, len:locations.count, stride:4, offset:1)
+                addLabels(locations, len:locations.count, strider:4, offset:1)
             }
         } else {
             if (labelsObj != nil) {
@@ -1274,7 +1268,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
         
         if (configViewC.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestMarker2D)) {
             if (screenMarkersObj == nil) {
-                addScreenMarkers(locations, len:locations.count, stride:4, offset:2)
+                addScreenMarkers(locations, len:locations.count, strider:4, offset:2)
             }
         } else {
             if (screenMarkersObj != nil) {
@@ -1285,7 +1279,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
         
         if (configViewC.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestMarker3D)) {
             if (markersObj == nil) {
-                addMarkers(locations, len:locations.count, stride:4, offset:3)
+                addMarkers(locations, len:locations.count, strider:4, offset:3)
             }
         } else {
             if (markersObj != nil) {
@@ -1307,7 +1301,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
         
         if (configViewC.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestShapeCylinder)) {
             if (shapeCylObj == nil) {
-                addShapeCylinders(locations, len:locations.count, stride:4, offset:0, desc:[ kMaplyColor: UIColor(red:0.0, green:0.0, blue:1.0, alpha:0.8), kMaplyFade: 1.0 ])
+                addShapeCylinders(locations, len:locations.count, strider:4, offset:0, desc:[ kMaplyColor: UIColor(red:0.0, green:0.0, blue:1.0, alpha:0.8), kMaplyFade: 1.0 ])
             }
         } else {
             if (shapeCylObj != nil) {
@@ -1319,7 +1313,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
         if (configViewC.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestShapeSphere))
         {
             if (shapeSphereObj == nil) {
-                addShapeSpheres(locations, len:locations.count, stride:4, offset:1, desc:[ kMaplyColor: UIColor(red:1.0, green:0.0, blue:0.0, alpha:0.8), kMaplyFade: 1.0 ])
+                addShapeSpheres(locations, len:locations.count, strider:4, offset:1, desc:[ kMaplyColor: UIColor(red:1.0, green:0.0, blue:0.0, alpha:0.8), kMaplyFade: 1.0 ])
             }
         } else {
             if (shapeSphereObj != nil) {
@@ -1330,7 +1324,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
         
         if (configViewC.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestShapeGreatCircle)) {
             if (greatCircleObj == nil) {
-                addGreatCircles(locations, len:locations.count, stride:4, offset:2, desc:[ kMaplyColor: UIColor(red:1.0, green:0.1, blue:0.0, alpha:1.0), kMaplyFade: 1.0 ])
+                addGreatCircles(locations, len:locations.count, strider:4, offset:2, desc:[ kMaplyColor: UIColor(red:1.0, green:0.1, blue:0.0, alpha:1.0), kMaplyFade: 1.0 ])
             }
         } else {
             if (greatCircleObj != nil) {

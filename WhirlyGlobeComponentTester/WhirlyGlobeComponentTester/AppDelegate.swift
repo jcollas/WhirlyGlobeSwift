@@ -21,8 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         self.window!.backgroundColor = UIColor.whiteColor()
 
-        let startViewC : StartupViewController = StartupViewController()
-        let navC : UINavigationController = UINavigationController(rootViewController: startViewC)!
+        let startViewC = StartupViewController()
+        let navC = UINavigationController(rootViewController: startViewC)
 
         navC.navigationBar.barStyle = .Black;
         
