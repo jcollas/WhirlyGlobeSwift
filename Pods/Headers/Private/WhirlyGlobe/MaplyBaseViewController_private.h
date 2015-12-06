@@ -1,0 +1,1 @@
+../../../WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/private/MaplyBaseViewController_private.h

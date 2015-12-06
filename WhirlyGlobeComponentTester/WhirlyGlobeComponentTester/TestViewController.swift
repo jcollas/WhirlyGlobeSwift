@@ -9,7 +9,7 @@
 import UIKit
 import WhirlyGlobe
 
-enum MapType: Int, Printable {
+enum MapType: Int, CustomStringConvertible {
     case Globe, GlobeWithElevation, Map3D, Map2D, NumTypes
     
     var description: String {
@@ -72,7 +72,7 @@ enum PerformanceMode {
     case High, Low
 }
 
-class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, MaplyViewControllerDelegate,UIPopoverControllerDelegate {
+class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, MaplyViewControllerDelegate, UIPopoverControllerDelegate {
 
     /// This is the base class shared between the MaplyViewController and the WhirlyGlobeViewController
     var baseViewC: MaplyBaseViewController!
@@ -118,7 +118,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
     private var loftPolyDict: [String: MaplyComponentObject] = [:]
     
     // A source of elevation data, if we're in that mode
-    private var elevSource: NSObject?
+    private var elevSource: MaplyElevationSourceDelegate?
     
     // The view we're using to track a selected object
     //    MaplyViewTracker *selectedViewTrack;
@@ -263,9 +263,11 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
     
             // An elevation source.  This one just makes up sine waves to get some data in there
             elevSource = MaplyElevationDatabase(name: "world_web_mercator")
-            zoomLimit = (elevSource as MaplyElevationSourceDelegate).maxZoom()
-            requireElev = true
-            baseViewC.elevDelegate = elevSource
+            if let elevSource = elevSource {
+                zoomLimit = elevSource.maxZoom()
+                requireElev = true
+// TODO                baseViewC.elevDelegate = elevSource as? NSObject
+            }
     
             // Don't forget to turn on the z buffer permanently
             baseViewC.setHints([ kMaplyRenderHintZBuffer: true ])
@@ -275,7 +277,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
         }
     
         // Force the view to load so we can get the default switch values
-        var loadedView = configViewC.view
+        _ = configViewC.view
     
         // Maximum number of objects for the layout engine to display
         //    [baseViewC setMaxLayoutObjects:1000]
@@ -311,7 +313,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
         labelDesc = [ kMaplyMinVis: 0.0, kMaplyMaxVis: 1.0, kMaplyFade: 0.3, kMaplyJustify: "left", kMaplyDrawPriority: 50 ]
 
         for i in 0..<50 {
-            var label: MaplyScreenLabel = MaplyScreenLabel()
+            let label = MaplyScreenLabel()
     
             label.loc = MaplyCoordinateMakeWithDegrees(
                     -100.0 + 0.25 * (Float(arc4random())/0x100000000),
@@ -333,15 +335,15 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
     // Try to fetch the given WMS layer
     func fetchWMSLayer(baseURL: String, layerName: String, styleName: String?, cacheDir: String, overlayName: String) {
         
-        var capabilitiesURL = MaplyWMSCapabilities.CapabilitiesURLFor(baseURL)
+        let capabilitiesURL = MaplyWMSCapabilities.CapabilitiesURLFor(baseURL)
         if let url = NSURL(string:capabilitiesURL) {
-            var operation = AFHTTPRequestOperation(request:NSURLRequest(URL:url))
+            let operation = AFHTTPRequestOperation(request:NSURLRequest(URL:url))
             
             operation.responseSerializer = AFXMLParserResponseSerializer.sharedSerializer()
             
             operation.setCompletionBlockWithSuccess(
                 { (op: AFHTTPRequestOperation!, responseObject: AnyObject!) in
-                    self.startWMSLayer(baseURL, xml:responseObject as DDXMLDocument, layerName:layerName, styleName:styleName, cacheDir:cacheDir, overlayName:overlayName)
+                    self.startWMSLayer(baseURL, xml:responseObject as! DDXMLDocument, layerName:layerName, styleName:styleName, cacheDir:cacheDir, overlayName:overlayName)
                     return
                 }, failure:{ (operation: AFHTTPRequestOperation!, error: NSError!) in
                     // Sometimes this works anyway
@@ -357,10 +359,10 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
     func startWMSLayer(baseURL: String, xml: DDXMLDocument, layerName:String, styleName:String?, cacheDir: String, overlayName: String?) -> Bool {
 
         // See what the service can provide
-        var cap: MaplyWMSCapabilities = MaplyWMSCapabilities(XML: xml)
-        var layer: MaplyWMSLayer? = cap.findLayer(layerName)
-        var coordSys: MaplyCoordinateSystem? = layer!.buildCoordSystem()
-        var style: MaplyWMSStyle? = layer!.findStyle(styleName)
+        let cap: MaplyWMSCapabilities = MaplyWMSCapabilities(XML: xml)
+        let layer: MaplyWMSLayer? = cap.findLayer(layerName)
+        let coordSys: MaplyCoordinateSystem? = layer!.buildCoordSystem()
+        let style: MaplyWMSStyle? = layer!.findStyle(styleName)
 
         if (layer == nil) {
             NSLog("Couldn't find layer %@ in WMS response.",layerName)
@@ -374,12 +376,12 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
         }
     
         if (layer != nil && coordSys != nil) {
-            var tileSource: MaplyWMSTileSource = MaplyWMSTileSource(baseURL: baseURL, capabilities: cap, layer: layer, style:style, coordSys:coordSys, minZoom:0, maxZoom:16, tileSize:256)
+            let tileSource = MaplyWMSTileSource(baseURL: baseURL, capabilities: cap, layer: layer, style:style, coordSys:coordSys, minZoom:0, maxZoom:16, tileSize:256)
             
             tileSource.cacheDir = cacheDir
             tileSource.transparent = true
 
-            var imageLayer: MaplyQuadImageTilesLayer = MaplyQuadImageTilesLayer(coordSystem:coordSys, tileSource:tileSource)
+            let imageLayer = MaplyQuadImageTilesLayer(coordSystem:coordSys, tileSource:tileSource)
 
             imageLayer.coverPoles = false
             imageLayer.handleEdges = true
@@ -438,12 +440,12 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
     
     // Add screen (2D) markers at all our locations
     func addScreenMarkers(locations: [LocationInfo], len: Int, strider: Int, offset: Int) {
-        var size: CGSize = CGSize(width: 40, height: 40)
+        let size = CGSize(width: 40, height: 40)
         let pinImage = UIImage(named: "map_pin")
 
-        var markers:[MaplyScreenMarker] = map( stride(from: offset, through: len - 1, by: strider) ) {
-            var location = locations[$0]
-            var marker = MaplyScreenMarker()
+        let markers: [MaplyScreenMarker] = offset.stride(through: len - 1, by: strider).map {
+            let location = locations[$0]
+            let marker = MaplyScreenMarker()
             marker.image = pinImage!
             marker.loc = MaplyCoordinateMakeWithDegrees(location.lon,location.lat)
             marker.size = size
@@ -457,12 +459,12 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
     
     // Add 3D markers
     func addMarkers(locations: [LocationInfo], len: Int, strider: Int, offset: Int) {
-        let size: CGSize = CGSize(width:0.05, height:0.05)
+        let size = CGSize(width:0.05, height:0.05)
         let startImage = UIImage(named:"Star")
 
-        var markers:[MaplyScreenMarker] = map( stride(from: offset, through: len - 1, by: strider) ) {
-            var location = locations[$0]
-            var marker = MaplyScreenMarker()
+        let markers: [MaplyScreenMarker] = offset.stride(through: len - 1, by: strider).map {
+            let location = locations[$0]
+            let marker = MaplyScreenMarker()
             marker.image = startImage!
             marker.loc = MaplyCoordinateMakeWithDegrees(location.lon,location.lat)
             marker.size = size
@@ -476,9 +478,9 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
     // Add screen (2D) labels
     func addScreenLabels(locations:[LocationInfo], len:Int, strider:Int, offset:Int) {
 
-        var screenLabels:[MaplyScreenLabel] = map( stride(from: offset, through: len - 1, by: strider) ) {
-            var location = locations[$0]
-            var label = MaplyScreenLabel()
+        let screenLabels: [MaplyScreenLabel] = offset.stride(through: len - 1, by: strider).map {
+            let location = locations[$0]
+            let label = MaplyScreenLabel()
             label.loc = MaplyCoordinateMakeWithDegrees(location.lon,location.lat)
             label.text = location.name
             label.layoutImportance = 2.0
@@ -491,11 +493,11 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
     
     // Add 3D labels
     func addLabels(locations:[LocationInfo], len:Int, strider:Int, offset:Int) {
-        var size: CGSize = CGSize(width:0, height:0.05)
+        let size = CGSize(width:0, height:0.05)
 
-        var labels:[MaplyLabel] = map( stride(from: offset, through: len - 1, by: strider) ) {
-            var location = locations[$0]
-            var label = MaplyLabel()
+        let labels: [MaplyLabel] = offset.stride(through: len - 1, by: strider).map {
+            let location = locations[$0]
+            let label = MaplyLabel()
             label.loc = MaplyCoordinateMakeWithDegrees(location.lon,location.lat)
             label.size = size
             label.text = location.name
@@ -509,9 +511,9 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
     // Add cylinders
     func addShapeCylinders(locations:[LocationInfo], len:Int, strider:Int, offset:Int, desc:[String: AnyObject]) {
 
-        var cyls:[MaplyShapeCylinder] = map( stride(from: offset, through: len - 1, by: strider) ) {
-            var location = locations[$0]
-            var cyl = MaplyShapeCylinder()
+        let cyls: [MaplyShapeCylinder] = offset.stride(through: len - 1, by: strider).map {
+            let location = locations[$0]
+            let cyl = MaplyShapeCylinder()
             cyl.baseCenter = MaplyCoordinateMakeWithDegrees(location.lon, location.lat)
             cyl.radius = 0.01
             cyl.height = 0.06
@@ -525,9 +527,9 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
     // Add spheres
     func addShapeSpheres(locations:[LocationInfo], len:Int, strider:Int, offset:Int, desc:[String: AnyObject]) {
 
-        var spheres:[MaplyShapeSphere] = map( stride(from: offset, through: len - 1, by: strider) ) {
-            var location = locations[$0]
-            var sphere = MaplyShapeSphere()
+        let spheres:[MaplyShapeSphere] = offset.stride(through: len - 1, by: strider).map {
+            let location = locations[$0]
+            let sphere = MaplyShapeSphere()
             sphere.center = MaplyCoordinateMakeWithDegrees(location.lon, location.lat)
             sphere.radius = 0.04
             sphere.selectable = true
@@ -540,17 +542,17 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
     // Add spheres
     func addGreatCircles(locations:[LocationInfo], len:Int, strider:Int, offset:Int, desc:[String: AnyObject]) {
 
-        var circles:[MaplyShapeGreatCircle] = map( stride(from: offset, through: len - 1, by: strider) ) {
-            var loc0 = locations[$0]
-            var loc1 = locations[($0+1)%len]
-            var greatCircle = MaplyShapeGreatCircle()
+        let circles:[MaplyShapeGreatCircle] = offset.stride(through: len - 1, by: strider).map {
+            let loc0 = locations[$0]
+            let loc1 = locations[($0+1)%len]
+            let greatCircle = MaplyShapeGreatCircle()
 
             greatCircle.startPt = MaplyCoordinateMakeWithDegrees(loc0.lon, loc0.lat)
             greatCircle.endPt = MaplyCoordinateMakeWithDegrees(loc1.lon, loc1.lat)
             greatCircle.lineWidth = 6.0
 
             // This limits the height based on the length of the great circle
-            var angle: Float = greatCircle.calcAngleBetween()
+            let angle: Float = greatCircle.calcAngleBetween()
             greatCircle.height = Float(0.3 * Double(angle) / M_PI)
             return greatCircle
         }
@@ -568,7 +570,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
                            MaplyCoordinateMakeWithDegrees(lon, 0),
                            MaplyCoordinateMakeWithDegrees(lon, +90) ]
             
-            var vec = MaplyVectorObject(lineString:&coords, numCoords:3, attributes:nil)
+            let vec = MaplyVectorObject(lineString:&coords, numCoords:3, attributes:nil)
             vectors.append(vec)
         }
         // Latitude lines
@@ -578,7 +580,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
                            MaplyCoordinateMakeWithDegrees(0, lat),
                            MaplyCoordinateMakeWithDegrees(90, lat),
                            MaplyCoordinateMakeWithDegrees(+180, lat) ]
-            var vec: MaplyVectorObject = MaplyVectorObject(lineString:&coords, numCoords:5, attributes:nil)
+            let vec: MaplyVectorObject = MaplyVectorObject(lineString:&coords, numCoords:5, attributes:nil)
             vectors.append(vec)
         }
         
@@ -589,14 +591,14 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
         let color: UIColor = UIColor.blueColor()
         let fade: Float = 0.25
         
-        var lines: MaplyComponentObject = baseViewC.addVectors([vecObj], desc:[ kMaplyColor: color,
+        let lines: MaplyComponentObject = baseViewC.addVectors([vecObj], desc:[ kMaplyColor: color,
             kMaplyVecWidth: 4.0,
             kMaplyFade: fade,
             kMaplyVecCentered: true,
             kMaplyMaxVis: 10.0,
             kMaplyMinVis: 0.00032424763776361942 ] )
         
-        var screenLines: MaplyComponentObject = baseViewC.addWideVectors([vecObj], desc:[ kMaplyColor: UIColor.redColor(),
+        let screenLines: MaplyComponentObject = baseViewC.addWideVectors([vecObj], desc:[ kMaplyColor: UIColor.redColor(),
             kMaplyFade: fade,
             kMaplyVecWidth: 4.0,
             kMaplyVecTexture: dashedLineTex!,
@@ -607,7 +609,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             kMaplyMaxVis: 0.00032424763776361942,
             kMaplyMinVis: 0.00011049506429117173 ] )
         
-        var realLines: MaplyComponentObject = baseViewC.addWideVectors([vecObj], desc:[ kMaplyColor: color,
+        let realLines: MaplyComponentObject = baseViewC.addWideVectors([vecObj], desc:[ kMaplyColor: color,
             kMaplyFade: fade,
             kMaplyVecTexture: dashedLineTex!,
             // 8m in display coordinates
@@ -622,7 +624,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
         
         // Look for some labels
         var labels: [MaplyScreenLabel] = []
-        for road in vecObj.splitVectors() as [MaplyVectorObject] {
+        for road in vecObj.splitVectors() as! [MaplyVectorObject] {
             var middle = MaplyCoordinate(x: 0.0, y: 0.0)
             var rot: Double = 0.0
 
@@ -630,11 +632,11 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             let coordSys: MaplyCoordinateSystem = MaplySphericalMercator(webStandard:())
             road.linearMiddle(&middle, rot:&rot, displayCoordSys:coordSys)
             
-            var roadAttributes = road.attributes
-            var name = roadAttributes["FULLNAME"] as String?
+            let roadAttributes = road.attributes
+            let name = roadAttributes["FULLNAME"] as? String
             
             if (name != nil) {
-                var label: MaplyScreenLabel = MaplyScreenLabel()
+                let label: MaplyScreenLabel = MaplyScreenLabel()
                 label.loc = middle
                 label.text = name
                 label.layoutImportance = 1.0
@@ -645,7 +647,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             }
         }
 
-        var labelObj = baseViewC.addScreenLabels(labels, desc:
+        let labelObj = baseViewC.addScreenLabels(labels, desc:
                                     [ kMaplyTextOutlineSize: 1.0,
                                         kMaplyTextOutlineColor: UIColor.blackColor(),
                                         kMaplyFont: UIFont.systemFontOfSize(18.0) ] )
@@ -656,25 +658,25 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
     func addShapeFile(shapeFileName: String) {
         // Make the dashed line if it isn't already there
         if (dashedLineTex == nil) {
-            var lineTexBuilder = MaplyLinearTextureBuilder(size:CGSize(width:4, height:8))
+            let lineTexBuilder = MaplyLinearTextureBuilder(size:CGSize(width:4, height:8))
             lineTexBuilder.setPattern([4, 4])
             lineTexBuilder.opacityFunc = MaplyOpacitySin2
-            var dashedLineImage = lineTexBuilder.makeImage()
+            let dashedLineImage = lineTexBuilder.makeImage()
             dashedLineTex = baseViewC.addTexture(dashedLineImage, imageFormat:MaplyImageIntRGBA, wrapFlags:MaplyImageWrapY, mode:MaplyThreadAny)
         }
         if (filledLineTex == nil) {
-            var lineTexBuilder = MaplyLinearTextureBuilder(size:CGSize(width:8, height:32))
+            let lineTexBuilder = MaplyLinearTextureBuilder(size:CGSize(width:8, height:32))
             lineTexBuilder.setPattern([32])
             lineTexBuilder.opacityFunc = MaplyOpacitySin2
-            var lineImage = lineTexBuilder.makeImage()
+            let lineImage = lineTexBuilder.makeImage()
             filledLineTex = baseViewC.addTexture(lineImage, imageFormat:MaplyImageIntRGBA, wrapFlags:MaplyImageWrapY, mode:MaplyThreadAny)
         }
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             // Add the vectors at three different levels
-            var vecDb: MaplyVectorDatabase? = MaplyVectorDatabase(shape:shapeFileName)
+            let vecDb = MaplyVectorDatabase(shape:shapeFileName)
             if (vecDb != nil) {
-                var vecObj = vecDb!.fetchAllVectors()
+                let vecObj = vecDb!.fetchAllVectors()
                 if (vecObj != nil) {
                     self.sfRoadsObjArray = self.addWideVectors(vecObj!)
                 }
@@ -687,8 +689,8 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
         
         var stickers: [MaplySticker] = []
         for var ii=offset; ii<len; ii+=stride {
-            var location: LocationInfo = locations[ii]
-             var sticker: MaplySticker = MaplySticker()
+            let location = locations[ii]
+            let sticker = MaplySticker()
 
             // Stickers are sized in geographic (because they're for KML ground overlays).  Bleah.
             sticker.ll = MaplyCoordinateMakeWithDegrees(location.lon, location.lat)
@@ -713,23 +715,22 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             for name in names {
                 if (ii % stride == 0) {
                     if let fileName = NSBundle.mainBundle().pathForResource(name, ofType:"geojson") {
-                        var jsonData: NSData? = NSData(contentsOfFile:fileName)
-                        if (jsonData != nil) {
-                            var wgVecObj = MaplyVectorObject(fromGeoJSON:jsonData!)
+                        if let jsonData = NSData(contentsOfFile:fileName) {
+                            let wgVecObj = MaplyVectorObject(fromGeoJSON:jsonData)
                             var compObj: MaplyComponentObject? = nil
 
                             if let vecAttrs = wgVecObj.attributes {
-                                var vecName: AnyObject? = vecAttrs["ADMIN"]
-                                wgVecObj.userObject = vecName as NSObject
+                                let vecName: AnyObject? = vecAttrs["ADMIN"]
+                                wgVecObj.userObject = vecName as! NSObject
                                 compObj = self.baseViewC.addVectors([wgVecObj], desc:self.vectorDesc)
-                                var screenLabel = MaplyScreenLabel()
+                                let screenLabel = MaplyScreenLabel()
                                 
                                 // Add a label right in the middle
-                                var center: MaplyCoordinate = MaplyCoordinate(x: 0.0, y:0.0)
+                                var center = MaplyCoordinate(x: 0.0, y:0.0)
                                 if (wgVecObj.centroid(&center)) {
                                     screenLabel.loc = center
                                     screenLabel.layoutImportance = 1.0
-                                    screenLabel.text = vecName as String
+                                    screenLabel.text = vecName as! String
                                     screenLabel.userObject = screenLabel.text
                                     screenLabel.selectable = true
                                     if (screenLabel.text != nil) {
@@ -750,7 +751,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             // Note: You could lose track of the objects if you turn the countries on/off quickly
             dispatch_async(dispatch_get_main_queue()) {
                 // Toss in all the labels at once, more efficient
-                var autoLabelObj = self.baseViewC.addScreenLabels(locAutoLabels, desc:
+                let autoLabelObj = self.baseViewC.addScreenLabels(locAutoLabels, desc:
                 [ kMaplyTextColor: UIColor(red:0.85, green:0.85, blue:0.85, alpha:1.0),
                 kMaplyFont: UIFont.systemFontOfSize(24.0),
                 kMaplyTextOutlineColor: UIColor.blackColor(),
@@ -776,7 +777,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             
             var markers: [MaplyScreenMarker] = []
             for ii in 0..<self.NumMegaMarkers {
-                var marker: MaplyScreenMarker = MaplyScreenMarker()
+                let marker = MaplyScreenMarker()
                 marker.image = image
                 marker.size = CGSize(width:40, height:40)
                 marker.loc = MaplyCoordinateMakeWithDegrees(Float(drand48())*360.0-180.0, Float(drand48())*140.0-70.0)
@@ -785,14 +786,14 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             }
 
             dispatch_async(dispatch_get_main_queue()) {
-                self.megaMarkersObj = self.baseViewC.addScreenMarkers(markers, desc:nil)
+                self.megaMarkersObj = self.baseViewC.addScreenMarkers(markers, desc: nil)
             }
         }
     }
     
     // Create an animated sphere
     func addAnimatedSphere() {
-        var animSphere = AnimatedSphere(period:20.0, radius:0.01, color:UIColor.orangeColor(), viewC:baseViewC)
+        let animSphere = AnimatedSphere(period: 20.0, radius: 0.01, color: UIColor.orangeColor(), viewC: baseViewC)
         baseViewC.addActiveObject(animSphere)
     }
     
@@ -805,8 +806,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
         // Figure out which one we're supposed to display
         var newBaseLayerName: String? = nil
         for (key, value) in baseSettings {
-            if (value as Bool)
-            {
+            if let boolValue = value as? Bool {
                 newBaseLayerName = key as? String
                 break
             }
@@ -827,7 +827,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
         baseLayerName = newBaseLayerName
         
         // For network paging layers, where we'll store temp files
-        let cacheDir = NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true)[0] as String
+        let cacheDir = NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true).first!
         
         // We'll pick default colors for the labels
         var screenLabelColor = UIColor.whiteColor()
@@ -850,8 +850,8 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
         case kMaplyTestGeographyClass:
             title = "Geography Class - MBTiles Local"
             // This is the Geography Class MBTiles data set from MapBox
-            var tileSource = MaplyMBTileSource(MBTiles:"geography-class_medres")
-            var layer = MaplyQuadImageTilesLayer(coordSystem:tileSource.coordSys, tileSource:tileSource)
+            let tileSource = MaplyMBTileSource(MBTiles:"geography-class_medres")
+            let layer = MaplyQuadImageTilesLayer(coordSystem:tileSource.coordSys, tileSource:tileSource)
             baseLayer = layer
             layer.handleEdges = (globeViewC != nil)
             layer.coverPoles = (globeViewC != nil)
@@ -873,9 +873,10 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             title = "Blue Marble Single Res"
             if (globeViewC != nil) {
                 // This is the static image set, included with the app, built with ImageChopper
-                var layer = globeViewC!.addSphericalEarthLayerWithImageSetName("lowres_wtb_info")
-                baseLayer = layer
-                layer.drawPriority = 0
+                // TODO
+//                var layer = globeViewC?.addSphericalEarthLayerWithImageSetName("lowres_wtb_info")
+//                baseLayer = layer
+//                layer.drawPriority = 0
                 screenLabelColor = UIColor.whiteColor()
                 screenLabelBackColor = UIColor.whiteColor()
                 labelColor = UIColor.blackColor()
@@ -888,14 +889,14 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             title = "Stamen Water Color - Remote"
             // These are the Stamen Watercolor tiles.
             // They're beautiful, but the server isn't so great.
-            var thisCacheDir = "\(cacheDir)/stamentiles/"
+            let thisCacheDir = "\(cacheDir)/stamentiles/"
             var maxZoom: Int32 = 10
             if (zoomLimit != 0 && zoomLimit < maxZoom) {
                 maxZoom = zoomLimit
             }
-            var tileSource = MaplyRemoteTileSource(baseURL:"http://tile.stamen.com/watercolor/", ext:"png", minZoom:0, maxZoom:maxZoom)
+            let tileSource = MaplyRemoteTileSource(baseURL:"http://tile.stamen.com/watercolor/", ext:"png", minZoom:0, maxZoom:maxZoom)
             tileSource.cacheDir = thisCacheDir
-            var layer = MaplyQuadImageTilesLayer(coordSystem:tileSource.coordSys, tileSource:tileSource)
+            let layer = MaplyQuadImageTilesLayer(coordSystem:tileSource.coordSys, tileSource:tileSource)
             layer.handleEdges = true
             layer.requireElev = requireElev
             baseViewC.addLayer(layer)
@@ -913,15 +914,15 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
         case kMaplyTestOSM:
             title = "OpenStreetMap - Remote"
             // This points to the OpenStreetMap tile set hosted by MapQuest (I think)
-            var thisCacheDir = "\(cacheDir)/osmtiles/"
+            let thisCacheDir = "\(cacheDir)/osmtiles/"
             var maxZoom: Int32 = 18
             if (zoomLimit != 0 && zoomLimit < maxZoom) {
                 maxZoom = zoomLimit
             }
 
-            var tileSource = MaplyRemoteTileSource(baseURL:"http://otile1.mqcdn.com/tiles/1.0.0/osm/", ext:"png", minZoom:0, maxZoom:maxZoom)
+            let tileSource = MaplyRemoteTileSource(baseURL:"http://otile1.mqcdn.com/tiles/1.0.0/osm/", ext:"png", minZoom:0, maxZoom:maxZoom)
             tileSource.cacheDir = thisCacheDir
-            var layer = MaplyQuadImageTilesLayer(coordSystem:tileSource.coordSys, tileSource:tileSource)
+            let layer = MaplyQuadImageTilesLayer(coordSystem:tileSource.coordSys, tileSource:tileSource)
             layer.drawPriority = 0
             layer.handleEdges = true
             layer.requireElev = requireElev
@@ -979,9 +980,9 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             labelBackColor = UIColor.whiteColor()
             vecColor = UIColor.blackColor()
             vecWidth = 4.0
-            var tileSource = MaplyAnimationTestTileSource(coordSys:MaplySphericalMercator(webStandard:()), minZoom:0, maxZoom:21, depth:1)
+            let tileSource = MaplyAnimationTestTileSource(coordSys:MaplySphericalMercator(webStandard:()), minZoom:0, maxZoom:21, depth:1)
             tileSource.pixelsPerSide = 128
-            var layer = MaplyQuadImageTilesLayer(coordSystem:tileSource.coordSys, tileSource:tileSource)
+            let layer = MaplyQuadImageTilesLayer(coordSystem:tileSource.coordSys, tileSource:tileSource)
             layer.waitLoad = imageWaitLoad
             layer.requireElev = requireElev
             layer.maxTiles = 512
@@ -999,8 +1000,8 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             labelBackColor = UIColor.whiteColor()
             vecColor = UIColor.blackColor()
             vecWidth = 4.0
-            var tileSource = MaplyPagingVectorTestTileSource(coordSys:MaplySphericalMercator(webStandard:()), minZoom:0, maxZoom:10)
-            var layer = MaplyQuadPagingLayer(coordSystem:tileSource.coordSys, delegate:tileSource)
+            let tileSource = MaplyPagingVectorTestTileSource(coordSys:MaplySphericalMercator(webStandard:()), minZoom:0, maxZoom:10)
+            let layer = MaplyQuadPagingLayer(coordSystem:tileSource.coordSys, delegate:tileSource)
             layer.importance = 128*128
             layer.singleLevelLoading = (startupMapType == .Map2D)
             baseViewC.addLayer(layer)
@@ -1015,9 +1016,9 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             labelBackColor = UIColor.whiteColor()
             vecColor = UIColor.blackColor()
             vecWidth = 4.0
-            var tileSource = MaplyAnimationTestTileSource(coordSys:MaplySphericalMercator(webStandard:()), minZoom:0, maxZoom:17, depth:4)
+            let tileSource = MaplyAnimationTestTileSource(coordSys:MaplySphericalMercator(webStandard:()), minZoom:0, maxZoom:17, depth:4)
             tileSource.pixelsPerSide = 128
-            var layer = MaplyQuadImageTilesLayer(coordSystem:tileSource.coordSys, tileSource:tileSource)
+            let layer = MaplyQuadImageTilesLayer(coordSystem:tileSource.coordSys, tileSource:tileSource)
             layer.waitLoad = imageWaitLoad
             layer.requireElev = requireElev
             layer.imageDepth = 4
@@ -1036,20 +1037,20 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
         // If we're fetching one of the JSON tile specs, kick that off
         if (jsonTileSpec != nil) {
             if let url = NSURL(string:jsonTileSpec!) {
-                var request = NSURLRequest(URL:url)
+                let request = NSURLRequest(URL:url)
                 
-                var operation = AFHTTPRequestOperation(request:request)
+                let operation = AFHTTPRequestOperation(request:request)
                 operation.responseSerializer = AFJSONResponseSerializer.sharedSerializer()
                 
                 operation.setCompletionBlockWithSuccess(
                     { ( op: AFHTTPRequestOperation!, responseObject: AnyObject!) in
                         // Add a quad earth paging layer based on the tile spec we just fetched
-                        var tileSource = MaplyRemoteTileSource(tilespec:responseObject as Dictionary)
+                        let tileSource = MaplyRemoteTileSource(tilespec:responseObject as! Dictionary)
                         tileSource.cacheDir = thisCacheDir
                         if (self.zoomLimit != 0 && self.zoomLimit < tileSource.maxZoom()) {
                             tileSource.tileInfo.maxZoom = self.zoomLimit
                         }
-                        var layer = MaplyQuadImageTilesLayer(coordSystem:tileSource.coordSys, tileSource:tileSource)
+                        let layer = MaplyQuadImageTilesLayer(coordSystem:tileSource.coordSys, tileSource:tileSource)
                         layer.handleEdges = true
                         layer.waitLoad = self.imageWaitLoad
                         layer.requireElev = self.requireElev
@@ -1092,7 +1093,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
     // Reload testing
     func reloadLayer(layer:MaplyQuadImageTilesLayer?) {
         if (baseLayer != nil && (baseLayer is MaplyQuadImageTilesLayer)) {
-            var layer: MaplyQuadImageTilesLayer = baseLayer as MaplyQuadImageTilesLayer
+            let layer = baseLayer as! MaplyQuadImageTilesLayer
             NSLog("Reloading layer")
             layer.reload()
             
@@ -1105,12 +1106,12 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
     // Run through the overlays the user wants turned on
     func setupOverlays(baseSettings:[NSObject: AnyObject]) {
         // For network paging layers, where we'll store temp files
-        var cacheDir = (NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true)[0] as String)
+        let cacheDir = NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true).first!
         var thisCacheDir: String? = nil
         
         for (layerNameObj, isOnObj) in baseSettings {
-            var layerName = layerNameObj as String
-            var isOn = isOnObj as Bool
+            let layerName = layerNameObj as! String
+            let isOn = isOnObj as! Bool
             var layer = ovlLayers[layerName]
             // Need to create the layer
             if (isOn && layer == nil) {
@@ -1121,10 +1122,10 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
                     fetchWMSLayer("http://raster.nationalmap.gov/ArcGIS/services/Orthoimagery/USGS_EDC_Ortho_NAIP/ImageServer/WMSServer", layerName:"0", styleName:nil, cacheDir:thisCacheDir!, overlayName:layerName)
 
                 case kMaplyTestOWM:
-                    var tileSource = MaplyRemoteTileSource(baseURL:"http://tile.openweathermap.org/map/precipitation/", ext:"png", minZoom:0, maxZoom:6)
+                    let tileSource = MaplyRemoteTileSource(baseURL: "http://tile.openweathermap.org/map/precipitation/", ext: "png", minZoom: 0, maxZoom: 6)
                     tileSource.cacheDir = "\(cacheDir)/openweathermap_precipitation/"
                     tileSource.tileInfo.cachedFileLifetime = 3 * 60 * 60 // invalidate OWM data after three hours
-                    var weatherLayer = MaplyQuadImageTilesLayer(coordSystem:tileSource.coordSys, tileSource:tileSource)
+                    let weatherLayer = MaplyQuadImageTilesLayer(coordSystem:tileSource.coordSys, tileSource:tileSource)
                     weatherLayer.coverPoles = false
                     layer = weatherLayer
                     weatherLayer.handleEdges = false
@@ -1135,14 +1136,14 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
                     // Collect up the various precipitation sources
                     var tileSources: [MaplyRemoteTileInfo] = []
                     for ii in 0...4 {
-                        var theURL: String = "http://a.tiles.mapbox.com/v3/mousebird.precip-example-layer\(ii)/"
-                        var precipTileSource = MaplyRemoteTileInfo(baseURL:theURL, ext:"png", minZoom:0, maxZoom:6)
+                        let theURL: String = "http://a.tiles.mapbox.com/v3/mousebird.precip-example-layer\(ii)/"
+                        let precipTileSource = MaplyRemoteTileInfo(baseURL:theURL, ext:"png", minZoom:0, maxZoom:6)
                         precipTileSource.cacheDir = "\(cacheDir)/forecast_io_weather_layer\(ii)/"
                         tileSources.append(precipTileSource)
                     }
-                    var precipTileSource = MaplyMultiplexTileSource(sources:tileSources)
+                    let precipTileSource = MaplyMultiplexTileSource(sources:tileSources)
                     // Create a precipitation layer that animates
-                    var precipLayer = MaplyQuadImageTilesLayer(coordSystem:precipTileSource.coordSys, tileSource:precipTileSource)
+                    let precipLayer = MaplyQuadImageTilesLayer(coordSystem:precipTileSource.coordSys, tileSource:precipTileSource)
                     precipLayer.imageDepth = UInt32(tileSources.count)
                     precipLayer.animationPeriod = 6.0
                     precipLayer.imageFormat = MaplyImageUByteRed
@@ -1169,12 +1170,12 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
                                 }
 
                                 // Note: These are set after the MapnikStyleSet has already been initialized
-                                var styleSet = vecTiles.styleDelegate as MapnikStyleSet
+                                let styleSet = vecTiles.styleDelegate as! MapnikStyleSet
                                 styleSet.tileStyleSettings.markerImportance = 10.0
                                 styleSet.tileStyleSettings.fontName = "Gill Sans"
                                 
                                 // Now for the paging layer itself
-                                var pageLayer = MaplyQuadPagingLayer(coordSystem:MaplySphericalMercator(webStandard:()), delegate:vecTiles)
+                                let pageLayer = MaplyQuadPagingLayer(coordSystem:MaplySphericalMercator(webStandard:()), delegate:vecTiles)
                                 pageLayer.numSimultaneousFetches = 6
                                 pageLayer.flipY = false
                                 pageLayer.importance = 1024*1024*2
@@ -1190,7 +1191,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
                     )
 
                 case kMaplyMapzenVectors:
-                    var thisCacheDir = "\(cacheDir)/mapzen-vectiles"
+                    let thisCacheDir = "\(cacheDir)/mapzen-vectiles"
 
                     MaplyMapnikVectorTiles.StartRemoteVectorTilesWithURL("http://vector.mapzen.com/osm/all/",
                         ext:"mapbox",
@@ -1201,7 +1202,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
                         viewC:baseViewC,
                         success: { (vecTiles: MaplyMapnikVectorTiles!) in
                             // Now for the paging layer itself
-                            var pageLayer = MaplyQuadPagingLayer(coordSystem:MaplySphericalMercator(webStandard:()), delegate:vecTiles)
+                            let pageLayer = MaplyQuadPagingLayer(coordSystem:MaplySphericalMercator(webStandard:()), delegate:vecTiles)
                             pageLayer.numSimultaneousFetches = 4
                             pageLayer.flipY = false
                             pageLayer.importance = 1024*1024
@@ -1227,8 +1228,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
         
         // Fill out the cache dir if there is one
         if (thisCacheDir != nil) {
-            var error: NSError? = nil
-            NSFileManager.defaultManager().createDirectoryAtPath(thisCacheDir!, withIntermediateDirectories:true, attributes:nil, error:&error)
+            try! NSFileManager.defaultManager().createDirectoryAtPath(thisCacheDir!, withIntermediateDirectories:true, attributes:nil)
         }
     }
     
@@ -1237,10 +1237,10 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
 
         imageWaitLoad = configViewC.valueForSection(kMaplyTestCategoryInternal, row:kMaplyTestWaitLoad)
         
-        var baseSection = configViewC.values[0] as ConfigViewController.ConfigSection
+        let baseSection = configViewC.values[0] as ConfigViewController.ConfigSection
         setupBaseLayer(baseSection.rows)
         if (configViewC.values.count > 1) {
-            var setupSection = configViewC.values[1] as ConfigViewController.ConfigSection
+            let setupSection = configViewC.values[1] as ConfigViewController.ConfigSection
             setupOverlays(setupSection.rows)
         }
         
@@ -1470,16 +1470,16 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
     
     // Build a simple selection view to draw over top of the globe
     func makeSelection(viewName: String) -> UIView {
-        var fontSize: CGFloat = 32.0
-        var marginX: CGFloat = 32.0
+        let fontSize: CGFloat = 32.0
+        let marginX: CGFloat = 32.0
         
         // Make a label and stick it in as a view to track
         // We put it in a top level view so we can center it
-        var topView = UIView(frame:CGRectZero)
+        let topView = UIView(frame:CGRectZero)
         // Start out hidden before the first placement.  The tracker will turn it on.
         topView.hidden = true
         topView.alpha = 0.8
-        var backView = UIView(frame:CGRectZero)
+        let backView = UIView(frame:CGRectZero)
         topView.addSubview(backView)
         topView.clipsToBounds = false
         let testLabel = UILabel(frame:CGRectZero)
@@ -1488,7 +1488,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
         testLabel.textColor = UIColor.whiteColor()
         testLabel.backgroundColor = UIColor.clearColor()
         testLabel.text = viewName
-        var textSize: CGSize = testLabel.text!.sizeWithAttributes([NSFontAttributeName: testLabel.font])
+        let textSize = testLabel.text!.sizeWithAttributes([NSFontAttributeName: testLabel.font])
         testLabel.frame = CGRect(x:CGFloat(marginX/2.0), y:0.0, width:(textSize.width), height:(textSize.height))
         testLabel.opaque = false
         backView.layer.cornerRadius = 5.0
@@ -1517,35 +1517,35 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
 
         case let marker as MaplyMarker:
             loc = marker.loc
-            title = (marker.userObject as String)
+            title = (marker.userObject as! String)
             subTitle = "Marker"
 
         case let screenMarker as MaplyScreenMarker:
             loc = screenMarker.loc
-            title = (screenMarker.userObject as String)
+            title = (screenMarker.userObject as! String)
             subTitle = "Screen Marker"
             offset = CGPoint(x:0.0, y:-8.0)
 
         case let label as MaplyLabel:
             loc = label.loc
-            title = (label.userObject as String)
+            title = (label.userObject as! String)
             subTitle = "Label"
 
         case let screenLabel as MaplyScreenLabel:
             loc = screenLabel.loc
-            title = (screenLabel.userObject as String)  // crash when userObject nil?
+            title = (screenLabel.userObject as! String)  // crash when userObject nil?
             subTitle = "Screen Label"
             offset = CGPoint(x:0.0, y:-6.0)
 
         case let vecObj as MaplyVectorObject:
             if (vecObj.centroid(&loc)) {
-                var name: String = (vecObj.userObject as String)
+                let name: String = (vecObj.userObject as! String)
                 title = name
                 subTitle = "Vector"
                 if (configViewC.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestLoftedPoly)) {
                     // See if there already is one
                     if (loftPolyDict[name] == nil) {
-                        var compObj = baseViewC.addLoftedPolys([vecObj], key:nil, cache:nil, desc:[ kMaplyColor: UIColor(red:1.0, green:0.0, blue:0.0, alpha:0.25), kMaplyLoftedPolyHeight: 0.05, kMaplyFade: 0.5 ])
+                        let compObj = baseViewC.addLoftedPolys([vecObj], key:nil, cache:nil, desc:[ kMaplyColor: UIColor(red:1.0, green:0.0, blue:0.0, alpha:0.25), kMaplyLoftedPolyHeight: 0.05, kMaplyFade: 0.5 ])
                         if (compObj != nil) {
                             loftPolyDict[name] = compObj
                         }
@@ -1574,7 +1574,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
         //    selectedViewTrack.view = [self makeSelectionView:msg];
         //    [baseViewC addViewTracker:selectedViewTrack];
         if (title != nil) {
-            var annotate = MaplyAnnotation()
+            let annotate = MaplyAnnotation()
             annotate.title = title
             annotate.subTitle = subTitle
             baseViewC.clearAnnotations()
@@ -1583,7 +1583,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
     }
     
     // User selected something
-    func globeViewController(viewC: WhirlyGlobeViewController, didSelect selectedObj: AnyObject) {
+    func globeViewController(viewC: WhirlyGlobeViewController!, didSelect selectedObj: NSObject!) {
         handleSelection(selectedObj)
     }
     
@@ -1660,7 +1660,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
     
     // MARK: Popover Delegate
     
-    func popoverControllerDidDismissPopover(popoverController: UIPopoverController!) {
+    func popoverControllerDidDismissPopover(popoverController: UIPopoverController) {
         changeMapContents()
     }
 

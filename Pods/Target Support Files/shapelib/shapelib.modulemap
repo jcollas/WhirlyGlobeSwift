@@ -1,0 +1,6 @@
+framework module shapelib {
+  umbrella header "shapelib-umbrella.h"
+
+  export *
+  module * { export * }
+}

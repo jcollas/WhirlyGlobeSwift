@@ -1,23 +1,23 @@
 PODS:
-  - AFNetworking (2.4.1):
-    - AFNetworking/NSURLConnection
-    - AFNetworking/NSURLSession
+  - AFNetworking (2.6.3):
+    - AFNetworking/NSURLConnection (= 2.6.3)
+    - AFNetworking/NSURLSession (= 2.6.3)
+    - AFNetworking/Reachability (= 2.6.3)
+    - AFNetworking/Security (= 2.6.3)
+    - AFNetworking/Serialization (= 2.6.3)
+    - AFNetworking/UIKit (= 2.6.3)
+  - AFNetworking/NSURLConnection (2.6.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-    - AFNetworking/UIKit
-  - AFNetworking/NSURLConnection (2.4.1):
+  - AFNetworking/NSURLSession (2.6.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.4.1):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.4.1)
-  - AFNetworking/Security (2.4.1)
-  - AFNetworking/Serialization (2.4.1)
-  - AFNetworking/UIKit (2.4.1):
+  - AFNetworking/Reachability (2.6.3)
+  - AFNetworking/Security (2.6.3)
+  - AFNetworking/Serialization (2.6.3)
+  - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - boost/math-includes (1.51.0a)
@@ -25,14 +25,14 @@ PODS:
   - boost/pointer_cast-includes (1.51.0a)
   - boost/preprocessor-includes (1.51.0a)
   - boost/shared_ptr-includes (1.51.0a)
-  - clipper (6.1.3a)
+  - clipper (6.2.0)
   - eigen (3.1.2):
     - boost/numeric-includes
     - boost/preprocessor-includes
-  - FMDB (2.4):
-    - FMDB/standard
-  - FMDB/common (2.4)
-  - FMDB/standard (2.4):
+  - FMDB (2.5):
+    - FMDB/standard (= 2.5)
+  - FMDB/common (2.5)
+  - FMDB/standard (2.5):
     - FMDB/common
   - glues (1.5)
   - GoogleProtobuf (2.5.0)
@@ -40,10 +40,10 @@ PODS:
   - libjson (7.6.1)
   - proj4 (4.8.0)
   - shapelib (1.3)
-  - SMCalloutView (2.0.3)
+  - SMCalloutView (2.1.2)
   - tinyxml (2.1.0)
   - WhirlyGlobe (2.3):
-    - WhirlyGlobe/MaplyComponent
+    - WhirlyGlobe/MaplyComponent (= 2.3)
   - WhirlyGlobe/Lib (2.3):
     - clipper
     - glues
@@ -60,7 +60,7 @@ PODS:
   - WhirlyGlobe/MaplyComponent (2.3):
     - AFNetworking
     - FMDB
-    - GoogleProtobuf
+    - GoogleProtobuf (= 2.5.0)
     - KissXML
     - SMCalloutView
     - WhirlyGlobe/Lib
@@ -74,20 +74,20 @@ DEPENDENCIES:
   - WhirlyGlobeResources
 
 SPEC CHECKSUMS:
-  AFNetworking: 0aabc6fae66d6e5d039eeb21c315843c7aae51ab
-  boost: 259e46adc3fc4526e7dc79bb02bb1d04c3a810e4
-  clipper: 39803b542c6530cdc572fa80b0702b3e006a534b
-  eigen: 50ab88548b0070c4d7e469d7054172ca608f927e
-  FMDB: 0b2fa25e5264ef177973c0cb8c02c711107979aa
-  glues: 2d57f50bf4dd863abac3957f99ba6a6f6bf030a3
-  GoogleProtobuf: cacd0953583a29d32c170a00a2aacf1456fe666c
-  KissXML: e537c38b18ede903ee6de45953a9bd86c131ebe9
-  libjson: e9635cbb883fb111dea5d6bbd1c4feceeff7584c
-  proj4: 9eaa37997f1b4f6037f6dedabd1657f27a4d41ed
-  shapelib: 622b987882111dd347fd30062319e896e8e74bed
-  SMCalloutView: f413edafcbead0d0a59066efa0708cdbca6dbfff
-  tinyxml: 1bd2e2f7795fd2e097bcbfa2ec451360523da7f8
-  WhirlyGlobe: db7c611fb166a50c07bc832282022c2a46585e02
-  WhirlyGlobeResources: 4a0360c938f341edf2f12ef6e3d82cbd0d89489a
+  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  boost: a2cf67afefef2716c8603b6abe5c5d7a4a15c3da
+  clipper: 8bfb1947afc2cc817b752e0e9a6fef27b11560e8
+  eigen: b6c0b0fc3fd5a54ac681bda76bebe11487bb12fa
+  FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
+  glues: f7d313786fbcb23018e2aa02417b00bd03d751b9
+  GoogleProtobuf: abd6b526cf5b21031c132617c1f5aac93b44d44d
+  KissXML: ce643413d618ad69886d0d43c3792b7dedfe476e
+  libjson: 1a065ca64704a5d1b51c3754268998942d57ac6f
+  proj4: 234525105d05a33b2ae9a90a6fe3935f7a246f7e
+  shapelib: 70f767e1e6484b824bd9986613afb66cb16e9df4
+  SMCalloutView: 4078d89b847731e514b1a919fed33b383a24a106
+  tinyxml: 41d718babd106ac5d39d4e98b43c835d3b9080d8
+  WhirlyGlobe: b8903464b0468482e2f78db159b21424cf645075
+  WhirlyGlobeResources: d7b3e929e828f958a8477ff6797f962fdb165472
 
-COCOAPODS: 0.34.1
+COCOAPODS: 0.39.0

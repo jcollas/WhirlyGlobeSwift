@@ -1,2202 +1,310 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>17417DC1C73E45D4B20D7E08</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/../Pods/Target Support Files/Pods/Pods-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>2C16EA6E1A724DDF85ED6460</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>4AFEFD49FF31A8A24BE54BE6</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods.release.xcconfig</string>
-			<key>path</key>
-			<string>../Pods/Target Support Files/Pods/Pods.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4BD411238D5E4B14AE44B493</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>893C56C2D8D943449EF55ED0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4BD411238D5E4B14AE44B493</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B7049538DC324268843305CC</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>C08F6F9719B8FA7D00BCEAB2</string>
-				<string>4BD411238D5E4B14AE44B493</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F6F7419B8F8DC00BCEAB2</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>C08F6F8019B8F8DC00BCEAB2</string>
-				<string>C08F6F8A19B8F8DC00BCEAB2</string>
-				<string>C08F6F7F19B8F8DC00BCEAB2</string>
-				<string>B7049538DC324268843305CC</string>
-				<string>F06257A7C2B17F59D911DCC2</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F6F7519B8F8DC00BCEAB2</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastUpgradeCheck</key>
-				<string>0600</string>
-				<key>ORGANIZATIONNAME</key>
-				<string>Moreira Consulting, Inc.</string>
-				<key>TargetAttributes</key>
-				<dict>
-					<key>C08F6F7D19B8F8DC00BCEAB2</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>6.0</string>
-					</dict>
-					<key>C08F6F8819B8F8DC00BCEAB2</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>6.0</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>C08F6F7819B8F8DC00BCEAB2</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-			</array>
-			<key>mainGroup</key>
-			<string>C08F6F7419B8F8DC00BCEAB2</string>
-			<key>productRefGroup</key>
-			<string>C08F6F7F19B8F8DC00BCEAB2</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>C08F6F7D19B8F8DC00BCEAB2</string>
-				<string>C08F6F8819B8F8DC00BCEAB2</string>
-			</array>
-		</dict>
-		<key>C08F6F7819B8F8DC00BCEAB2</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>C08F6F8F19B8F8DC00BCEAB2</string>
-				<string>C08F6F9019B8F8DC00BCEAB2</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>C08F6F7919B8F8DC00BCEAB2</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>C08F722919B9068A00BCEAB2</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>C08F6F7A19B8F8DC00BCEAB2</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>893C56C2D8D943449EF55ED0</string>
-				<string>C08F6F9819B8FA7D00BCEAB2</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>C08F6F7B19B8F8DC00BCEAB2</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>C08F6F8419B8F8DC00BCEAB2</string>
-				<string>C08F722819B9068A00BCEAB2</string>
-				<string>C08F71D619B901F300BCEAB2</string>
-				<string>C08F71D819B901F300BCEAB2</string>
-				<string>C08F71D919B901F300BCEAB2</string>
-				<string>C08F71DC19B901F300BCEAB2</string>
-				<string>C08F71DE19B901F300BCEAB2</string>
-				<string>C08F71E019B901F300BCEAB2</string>
-				<string>C08F71E219B901F300BCEAB2</string>
-				<string>C08F71E319B901F300BCEAB2</string>
-				<string>C08F71E519B901F300BCEAB2</string>
-				<string>C08F71E619B901F300BCEAB2</string>
-				<string>C08F71E819B901F300BCEAB2</string>
-				<string>C08F71E919B901F300BCEAB2</string>
-				<string>C08F71EA19B901F300BCEAB2</string>
-				<string>C08F71ED19B901F300BCEAB2</string>
-				<string>C08F71EE19B901F300BCEAB2</string>
-				<string>C08F71EF19B901F300BCEAB2</string>
-				<string>C08F71F019B901F300BCEAB2</string>
-				<string>C08F71F119B901F300BCEAB2</string>
-				<string>C08F71F219B901F300BCEAB2</string>
-				<string>C08F71F319B901F300BCEAB2</string>
-				<string>C08F71F419B901F300BCEAB2</string>
-				<string>C08F71F519B901F300BCEAB2</string>
-				<string>C08F71F719B901F300BCEAB2</string>
-				<string>C08F71F919B901F400BCEAB2</string>
-				<string>C08F71FB19B901F400BCEAB2</string>
-				<string>C08F71FC19B901F400BCEAB2</string>
-				<string>C08F71FD19B901F400BCEAB2</string>
-				<string>C08F71FF19B901F400BCEAB2</string>
-				<string>C08F720019B901F400BCEAB2</string>
-				<string>C08F720119B901F400BCEAB2</string>
-				<string>C08F720319B901F400BCEAB2</string>
-				<string>C08F720419B901F400BCEAB2</string>
-				<string>C08F720519B901F400BCEAB2</string>
-				<string>C08F720719B901F400BCEAB2</string>
-				<string>C08F720A19B901F400BCEAB2</string>
-				<string>C08F720D19B901F400BCEAB2</string>
-				<string>C08F720F19B901F400BCEAB2</string>
-				<string>C08F721019B901F400BCEAB2</string>
-				<string>C08F721119B901F500BCEAB2</string>
-				<string>C08F721419B901F500BCEAB2</string>
-				<string>C08F721519B901F500BCEAB2</string>
-				<string>C08F721819B901F500BCEAB2</string>
-				<string>C08F721E19B901F500BCEAB2</string>
-				<string>C08F722319B901F600BCEAB2</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>C08F6F7C19B8F8DC00BCEAB2</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>C08F6F7D19B8F8DC00BCEAB2</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>C08F6F9119B8F8DC00BCEAB2</string>
-			<key>buildPhases</key>
-			<array>
-				<string>2C16EA6E1A724DDF85ED6460</string>
-				<string>C08F6F7919B8F8DC00BCEAB2</string>
-				<string>C08F6F7A19B8F8DC00BCEAB2</string>
-				<string>C08F6F7B19B8F8DC00BCEAB2</string>
-				<string>C08F6F7C19B8F8DC00BCEAB2</string>
-				<string>17417DC1C73E45D4B20D7E08</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>WhirlyGlobe</string>
-			<key>productName</key>
-			<string>WhirlyGlobe</string>
-			<key>productReference</key>
-			<string>C08F6F7E19B8F8DC00BCEAB2</string>
-			<key>productType</key>
-			<string>com.apple.product-type.framework</string>
-		</dict>
-		<key>C08F6F7E19B8F8DC00BCEAB2</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>WhirlyGlobe.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>C08F6F7F19B8F8DC00BCEAB2</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>C08F6F7E19B8F8DC00BCEAB2</string>
-				<string>C08F6F8919B8F8DC00BCEAB2</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F6F8019B8F8DC00BCEAB2</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>C08F6F8319B8F8DC00BCEAB2</string>
-				<string>C08F722619B9068A00BCEAB2</string>
-				<string>C08F722719B9068A00BCEAB2</string>
-				<string>C08F718519B901F300BCEAB2</string>
-				<string>C08F718719B901F300BCEAB2</string>
-				<string>C08F718819B901F300BCEAB2</string>
-				<string>C08F718B19B901F300BCEAB2</string>
-				<string>C08F718D19B901F300BCEAB2</string>
-				<string>C08F718F19B901F300BCEAB2</string>
-				<string>C08F719119B901F300BCEAB2</string>
-				<string>C08F719219B901F300BCEAB2</string>
-				<string>C08F719419B901F300BCEAB2</string>
-				<string>C08F719519B901F300BCEAB2</string>
-				<string>C08F719719B901F300BCEAB2</string>
-				<string>C08F719819B901F300BCEAB2</string>
-				<string>C08F719919B901F300BCEAB2</string>
-				<string>C08F719C19B901F300BCEAB2</string>
-				<string>C08F719D19B901F300BCEAB2</string>
-				<string>C08F719E19B901F300BCEAB2</string>
-				<string>C08F719F19B901F300BCEAB2</string>
-				<string>C08F71A019B901F300BCEAB2</string>
-				<string>C08F71A119B901F300BCEAB2</string>
-				<string>C08F71A219B901F300BCEAB2</string>
-				<string>C08F71A319B901F300BCEAB2</string>
-				<string>C08F71A419B901F300BCEAB2</string>
-				<string>C08F71A619B901F300BCEAB2</string>
-				<string>C08F71A819B901F300BCEAB2</string>
-				<string>C08F71AA19B901F300BCEAB2</string>
-				<string>C08F71AB19B901F300BCEAB2</string>
-				<string>C08F71AC19B901F300BCEAB2</string>
-				<string>C08F71AE19B901F300BCEAB2</string>
-				<string>C08F71AF19B901F300BCEAB2</string>
-				<string>C08F71B019B901F300BCEAB2</string>
-				<string>C08F71B219B901F300BCEAB2</string>
-				<string>C08F71B319B901F300BCEAB2</string>
-				<string>C08F71B419B901F300BCEAB2</string>
-				<string>C08F71B619B901F300BCEAB2</string>
-				<string>C08F71B919B901F300BCEAB2</string>
-				<string>C08F71BC19B901F300BCEAB2</string>
-				<string>C08F71BE19B901F300BCEAB2</string>
-				<string>C08F71BF19B901F300BCEAB2</string>
-				<string>C08F71C019B901F300BCEAB2</string>
-				<string>C08F71C319B901F300BCEAB2</string>
-				<string>C08F71C419B901F300BCEAB2</string>
-				<string>C08F71C719B901F300BCEAB2</string>
-				<string>C08F71CD19B901F300BCEAB2</string>
-				<string>C08F71D219B901F300BCEAB2</string>
-				<string>C08F6F8119B8F8DC00BCEAB2</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>WhirlyGlobe</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F6F8119B8F8DC00BCEAB2</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>C08F6F8219B8F8DC00BCEAB2</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F6F8219B8F8DC00BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F6F8319B8F8DC00BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>WhirlyGlobe.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F6F8419B8F8DC00BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F6F8319B8F8DC00BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F6F8519B8F8DC00BCEAB2</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>C08F6F8E19B8F8DC00BCEAB2</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>C08F6F8619B8F8DC00BCEAB2</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>C08F6F8719B8F8DC00BCEAB2</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>C08F6F8819B8F8DC00BCEAB2</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>C08F6F9419B8F8DC00BCEAB2</string>
-			<key>buildPhases</key>
-			<array>
-				<string>C08F6F8519B8F8DC00BCEAB2</string>
-				<string>C08F6F8619B8F8DC00BCEAB2</string>
-				<string>C08F6F8719B8F8DC00BCEAB2</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>WhirlyGlobeTests</string>
-			<key>productName</key>
-			<string>WhirlyGlobeTests</string>
-			<key>productReference</key>
-			<string>C08F6F8919B8F8DC00BCEAB2</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle.unit-test</string>
-		</dict>
-		<key>C08F6F8919B8F8DC00BCEAB2</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>WhirlyGlobeTests.xctest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>C08F6F8A19B8F8DC00BCEAB2</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>C08F6F8D19B8F8DC00BCEAB2</string>
-				<string>C08F6F8B19B8F8DC00BCEAB2</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>WhirlyGlobeTests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F6F8B19B8F8DC00BCEAB2</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>C08F6F8C19B8F8DC00BCEAB2</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F6F8C19B8F8DC00BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F6F8D19B8F8DC00BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>WhirlyGlobeTests.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F6F8E19B8F8DC00BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F6F8D19B8F8DC00BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>C08F6F8F19B8F8DC00BCEAB2</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.0</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>OTHER_LDFLAGS</key>
-				<string>$(inherited)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>C08F6F9019B8F8DC00BCEAB2</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.0</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>OTHER_LDFLAGS</key>
-				<string>$(inherited)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>C08F6F9119B8F8DC00BCEAB2</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>C08F6F9219B8F8DC00BCEAB2</string>
-				<string>C08F6F9319B8F8DC00BCEAB2</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>C08F6F9219B8F8DC00BCEAB2</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>EFE7BCE240ADBE2E7260424E</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>compiler-default</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>compiler-default</string>
-				<key>HEADER_SEARCH_PATHS</key>
-				<string>$(inherited)</string>
-				<key>INFOPLIST_FILE</key>
-				<string>WhirlyGlobe/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>MODULE_NAME</key>
-				<string>WhirlyGlobe</string>
-				<key>OTHER_CFLAGS</key>
-				<string>$(inherited)</string>
-				<key>OTHER_LDFLAGS</key>
-				<string>$(inherited)</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>C08F6F9319B8F8DC00BCEAB2</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>4AFEFD49FF31A8A24BE54BE6</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>compiler-default</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>compiler-default</string>
-				<key>HEADER_SEARCH_PATHS</key>
-				<string>$(inherited)</string>
-				<key>INFOPLIST_FILE</key>
-				<string>WhirlyGlobe/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>MODULE_NAME</key>
-				<string>WhirlyGlobe</string>
-				<key>OTHER_CFLAGS</key>
-				<string>$(inherited)</string>
-				<key>OTHER_LDFLAGS</key>
-				<string>$(inherited)</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>C08F6F9419B8F8DC00BCEAB2</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>C08F6F9519B8F8DC00BCEAB2</string>
-				<string>C08F6F9619B8F8DC00BCEAB2</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>C08F6F9519B8F8DC00BCEAB2</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>INFOPLIST_FILE</key>
-				<string>WhirlyGlobeTests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>C08F6F9619B8F8DC00BCEAB2</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>INFOPLIST_FILE</key>
-				<string>WhirlyGlobeTests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>C08F6F9719B8FA7D00BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>CoreLocation.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/CoreLocation.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>C08F6F9819B8FA7D00BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F6F9719B8FA7D00BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>C08F718519B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplyActiveObject.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyActiveObject.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F718719B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplyAnimationTestTileSource.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyAnimationTestTileSource.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F718819B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplyAnnotation.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyAnnotation.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F718B19B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplyBaseViewController.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyBaseViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F718D19B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplyBillboard.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyBillboard.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F718F19B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplyComponentObject.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyComponentObject.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F719119B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplyCoordinate.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyCoordinate.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F719219B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplyCoordinateSystem.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyCoordinateSystem.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F719419B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplyElevationDatabase.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyElevationDatabase.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F719519B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplyElevationSource.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyElevationSource.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F719719B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplyGDALRetileSource.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyGDALRetileSource.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F719819B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplyIconManager.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyIconManager.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F719919B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplyImageTile.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyImageTile.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F719C19B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplyLabel.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyLabel.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F719D19B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplyLight.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyLight.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F719E19B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplyMBTileSource.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyMBTileSource.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F719F19B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplyMapnikVectorTiles.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyMapnikVectorTiles.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F71A019B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplyMarker.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyMarker.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F71A119B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplyMultiplexTileSource.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyMultiplexTileSource.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F71A219B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplyPagingVectorTestTileSource.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyPagingVectorTestTileSource.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F71A319B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplyQuadImageOfflineLayer.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyQuadImageOfflineLayer.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F71A419B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplyQuadImageTilesLayer.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyQuadImageTilesLayer.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F71A619B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplyQuadPagingLayer.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyQuadPagingLayer.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F71A819B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplyRemoteTileSource.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyRemoteTileSource.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F71AA19B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplyScreenLabel.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyScreenLabel.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F71AB19B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplyScreenMarker.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyScreenMarker.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F71AC19B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplyShader.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyShader.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F71AE19B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplyShape.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyShape.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F71AF19B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplySharedAttributes.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplySharedAttributes.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F71B019B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplySphericalQuadEarthWithTexGroup.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplySphericalQuadEarthWithTexGroup.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F71B219B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplySticker.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplySticker.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F71B319B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplyTexture.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyTexture.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F71B419B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplyTextureBuilder.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyTextureBuilder.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F71B619B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplyTileSource.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyTileSource.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F71B919B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplyVectorObject.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyVectorObject.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F71BC19B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplyVectorStyle.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyVectorStyle.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F71BE19B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplyVectorTiles.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyVectorTiles.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F71BF19B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplyViewController.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F71C019B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplyViewControllerLayer.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyViewControllerLayer.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F71C319B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplyViewTracker.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyViewTracker.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F71C419B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MaplyWMSTileSource.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyWMSTileSource.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F71C719B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>MapnikStyleSet.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MapnikStyleSet.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F71CD19B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>WGCoordinate.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/WGCoordinate.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F71D219B901F300BCEAB2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>WhirlyGlobeViewController.h</string>
-			<key>path</key>
-			<string>../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/WhirlyGlobeViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F71D619B901F300BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F718519B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F71D819B901F300BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F718719B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F71D919B901F300BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F718819B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F71DC19B901F300BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F718B19B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F71DE19B901F300BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F718D19B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F71E019B901F300BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F718F19B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F71E219B901F300BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F719119B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F71E319B901F300BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F719219B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F71E519B901F300BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F719419B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F71E619B901F300BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F719519B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F71E819B901F300BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F719719B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F71E919B901F300BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F719819B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F71EA19B901F300BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F719919B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F71ED19B901F300BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F719C19B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F71EE19B901F300BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F719D19B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F71EF19B901F300BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F719E19B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F71F019B901F300BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F719F19B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F71F119B901F300BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F71A019B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F71F219B901F300BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F71A119B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F71F319B901F300BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F71A219B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F71F419B901F300BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F71A319B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F71F519B901F300BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F71A419B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F71F719B901F300BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F71A619B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F71F919B901F400BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F71A819B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F71FB19B901F400BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F71AA19B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F71FC19B901F400BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F71AB19B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F71FD19B901F400BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F71AC19B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F71FF19B901F400BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F71AE19B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F720019B901F400BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F71AF19B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F720119B901F400BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F71B019B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F720319B901F400BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F71B219B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F720419B901F400BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F71B319B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F720519B901F400BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F71B419B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F720719B901F400BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F71B619B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F720A19B901F400BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F71B919B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F720D19B901F400BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F71BC19B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F720F19B901F400BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F71BE19B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F721019B901F400BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F71BF19B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F721119B901F500BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F71C019B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F721419B901F500BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F71C319B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F721519B901F500BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F71C419B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F721819B901F500BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F71C719B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F721E19B901F500BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F71CD19B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F722319B901F600BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F71D219B901F300BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F722619B9068A00BCEAB2</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>WhirlyGlobeViewController+Swift.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F722719B9068A00BCEAB2</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>WhirlyGlobeViewController+Swift.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C08F722819B9068A00BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F722619B9068A00BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C08F722919B9068A00BCEAB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C08F722719B9068A00BCEAB2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>EFE7BCE240ADBE2E7260424E</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods.debug.xcconfig</string>
-			<key>path</key>
-			<string>../Pods/Target Support Files/Pods/Pods.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F06257A7C2B17F59D911DCC2</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>EFE7BCE240ADBE2E7260424E</string>
-				<string>4AFEFD49FF31A8A24BE54BE6</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>C08F6F7519B8F8DC00BCEAB2</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXFileReference section */
+		44140C5BD9E9D1484C75D875 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AFEFD49FF31A8A24BE54BE6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		C08F6F8219B8F8DC00BCEAB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C08F6F8319B8F8DC00BCEAB2 /* WhirlyGlobe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WhirlyGlobe.h; sourceTree = "<group>"; };
+		C08F6F8C19B8F8DC00BCEAB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C08F6F8D19B8F8DC00BCEAB2 /* WhirlyGlobeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WhirlyGlobeTests.m; sourceTree = "<group>"; };
+		C08F6F9719B8FA7D00BCEAB2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		C08F718519B901F300BCEAB2 /* MaplyActiveObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyActiveObject.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyActiveObject.h"; sourceTree = "<group>"; };
+		C08F718719B901F300BCEAB2 /* MaplyAnimationTestTileSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyAnimationTestTileSource.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyAnimationTestTileSource.h"; sourceTree = "<group>"; };
+		C08F718819B901F300BCEAB2 /* MaplyAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyAnnotation.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyAnnotation.h"; sourceTree = "<group>"; };
+		C08F718B19B901F300BCEAB2 /* MaplyBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyBaseViewController.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyBaseViewController.h"; sourceTree = "<group>"; };
+		C08F718D19B901F300BCEAB2 /* MaplyBillboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyBillboard.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyBillboard.h"; sourceTree = "<group>"; };
+		C08F718F19B901F300BCEAB2 /* MaplyComponentObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyComponentObject.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyComponentObject.h"; sourceTree = "<group>"; };
+		C08F719119B901F300BCEAB2 /* MaplyCoordinate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyCoordinate.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyCoordinate.h"; sourceTree = "<group>"; };
+		C08F719219B901F300BCEAB2 /* MaplyCoordinateSystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyCoordinateSystem.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyCoordinateSystem.h"; sourceTree = "<group>"; };
+		C08F719419B901F300BCEAB2 /* MaplyElevationDatabase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyElevationDatabase.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyElevationDatabase.h"; sourceTree = "<group>"; };
+		C08F719519B901F300BCEAB2 /* MaplyElevationSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyElevationSource.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyElevationSource.h"; sourceTree = "<group>"; };
+		C08F719719B901F300BCEAB2 /* MaplyGDALRetileSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyGDALRetileSource.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyGDALRetileSource.h"; sourceTree = "<group>"; };
+		C08F719819B901F300BCEAB2 /* MaplyIconManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyIconManager.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyIconManager.h"; sourceTree = "<group>"; };
+		C08F719919B901F300BCEAB2 /* MaplyImageTile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyImageTile.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyImageTile.h"; sourceTree = "<group>"; };
+		C08F719C19B901F300BCEAB2 /* MaplyLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyLabel.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyLabel.h"; sourceTree = "<group>"; };
+		C08F719D19B901F300BCEAB2 /* MaplyLight.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyLight.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyLight.h"; sourceTree = "<group>"; };
+		C08F719E19B901F300BCEAB2 /* MaplyMBTileSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyMBTileSource.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyMBTileSource.h"; sourceTree = "<group>"; };
+		C08F719F19B901F300BCEAB2 /* MaplyMapnikVectorTiles.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyMapnikVectorTiles.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyMapnikVectorTiles.h"; sourceTree = "<group>"; };
+		C08F71A019B901F300BCEAB2 /* MaplyMarker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyMarker.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyMarker.h"; sourceTree = "<group>"; };
+		C08F71A119B901F300BCEAB2 /* MaplyMultiplexTileSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyMultiplexTileSource.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyMultiplexTileSource.h"; sourceTree = "<group>"; };
+		C08F71A219B901F300BCEAB2 /* MaplyPagingVectorTestTileSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyPagingVectorTestTileSource.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyPagingVectorTestTileSource.h"; sourceTree = "<group>"; };
+		C08F71A319B901F300BCEAB2 /* MaplyQuadImageOfflineLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyQuadImageOfflineLayer.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyQuadImageOfflineLayer.h"; sourceTree = "<group>"; };
+		C08F71A419B901F300BCEAB2 /* MaplyQuadImageTilesLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyQuadImageTilesLayer.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyQuadImageTilesLayer.h"; sourceTree = "<group>"; };
+		C08F71A619B901F300BCEAB2 /* MaplyQuadPagingLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyQuadPagingLayer.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyQuadPagingLayer.h"; sourceTree = "<group>"; };
+		C08F71A819B901F300BCEAB2 /* MaplyRemoteTileSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyRemoteTileSource.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyRemoteTileSource.h"; sourceTree = "<group>"; };
+		C08F71AA19B901F300BCEAB2 /* MaplyScreenLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyScreenLabel.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyScreenLabel.h"; sourceTree = "<group>"; };
+		C08F71AB19B901F300BCEAB2 /* MaplyScreenMarker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyScreenMarker.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyScreenMarker.h"; sourceTree = "<group>"; };
+		C08F71AC19B901F300BCEAB2 /* MaplyShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyShader.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyShader.h"; sourceTree = "<group>"; };
+		C08F71AE19B901F300BCEAB2 /* MaplyShape.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyShape.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyShape.h"; sourceTree = "<group>"; };
+		C08F71AF19B901F300BCEAB2 /* MaplySharedAttributes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplySharedAttributes.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplySharedAttributes.h"; sourceTree = "<group>"; };
+		C08F71B019B901F300BCEAB2 /* MaplySphericalQuadEarthWithTexGroup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplySphericalQuadEarthWithTexGroup.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplySphericalQuadEarthWithTexGroup.h"; sourceTree = "<group>"; };
+		C08F71B219B901F300BCEAB2 /* MaplySticker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplySticker.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplySticker.h"; sourceTree = "<group>"; };
+		C08F71B319B901F300BCEAB2 /* MaplyTexture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyTexture.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyTexture.h"; sourceTree = "<group>"; };
+		C08F71B419B901F300BCEAB2 /* MaplyTextureBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyTextureBuilder.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyTextureBuilder.h"; sourceTree = "<group>"; };
+		C08F71B619B901F300BCEAB2 /* MaplyTileSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyTileSource.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyTileSource.h"; sourceTree = "<group>"; };
+		C08F71B919B901F300BCEAB2 /* MaplyVectorObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyVectorObject.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyVectorObject.h"; sourceTree = "<group>"; };
+		C08F71BC19B901F300BCEAB2 /* MaplyVectorStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyVectorStyle.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyVectorStyle.h"; sourceTree = "<group>"; };
+		C08F71BE19B901F300BCEAB2 /* MaplyVectorTiles.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyVectorTiles.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyVectorTiles.h"; sourceTree = "<group>"; };
+		C08F71BF19B901F300BCEAB2 /* MaplyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyViewController.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyViewController.h"; sourceTree = "<group>"; };
+		C08F71C019B901F300BCEAB2 /* MaplyViewControllerLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyViewControllerLayer.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyViewControllerLayer.h"; sourceTree = "<group>"; };
+		C08F71C319B901F300BCEAB2 /* MaplyViewTracker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyViewTracker.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyViewTracker.h"; sourceTree = "<group>"; };
+		C08F71C419B901F300BCEAB2 /* MaplyWMSTileSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MaplyWMSTileSource.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyWMSTileSource.h"; sourceTree = "<group>"; };
+		C08F71C719B901F300BCEAB2 /* MapnikStyleSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MapnikStyleSet.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MapnikStyleSet.h"; sourceTree = "<group>"; };
+		C08F71CD19B901F300BCEAB2 /* WGCoordinate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WGCoordinate.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/WGCoordinate.h"; sourceTree = "<group>"; };
+		C08F71D219B901F300BCEAB2 /* WhirlyGlobeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WhirlyGlobeViewController.h; path = "../../Pods/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/WhirlyGlobeViewController.h"; sourceTree = "<group>"; };
+		C08F722619B9068A00BCEAB2 /* WhirlyGlobeViewController+Swift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WhirlyGlobeViewController+Swift.h"; sourceTree = "<group>"; };
+		C08F722719B9068A00BCEAB2 /* WhirlyGlobeViewController+Swift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WhirlyGlobeViewController+Swift.m"; sourceTree = "<group>"; };
+		EFE7BCE240ADBE2E7260424E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		B7049538DC324268843305CC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C08F6F9719B8FA7D00BCEAB2 /* CoreLocation.framework */,
+				44140C5BD9E9D1484C75D875 /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C08F6F7419B8F8DC00BCEAB2 = {
+			isa = PBXGroup;
+			children = (
+				C08F6F8019B8F8DC00BCEAB2 /* WhirlyGlobe */,
+				C08F6F8A19B8F8DC00BCEAB2 /* WhirlyGlobeTests */,
+				C08F6F7F19B8F8DC00BCEAB2 /* Products */,
+				B7049538DC324268843305CC /* Frameworks */,
+				F06257A7C2B17F59D911DCC2 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		C08F6F7F19B8F8DC00BCEAB2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C08F6F8019B8F8DC00BCEAB2 /* WhirlyGlobe */ = {
+			isa = PBXGroup;
+			children = (
+				C08F6F8319B8F8DC00BCEAB2 /* WhirlyGlobe.h */,
+				C08F722619B9068A00BCEAB2 /* WhirlyGlobeViewController+Swift.h */,
+				C08F722719B9068A00BCEAB2 /* WhirlyGlobeViewController+Swift.m */,
+				C08F718519B901F300BCEAB2 /* MaplyActiveObject.h */,
+				C08F718719B901F300BCEAB2 /* MaplyAnimationTestTileSource.h */,
+				C08F718819B901F300BCEAB2 /* MaplyAnnotation.h */,
+				C08F718B19B901F300BCEAB2 /* MaplyBaseViewController.h */,
+				C08F718D19B901F300BCEAB2 /* MaplyBillboard.h */,
+				C08F718F19B901F300BCEAB2 /* MaplyComponentObject.h */,
+				C08F719119B901F300BCEAB2 /* MaplyCoordinate.h */,
+				C08F719219B901F300BCEAB2 /* MaplyCoordinateSystem.h */,
+				C08F719419B901F300BCEAB2 /* MaplyElevationDatabase.h */,
+				C08F719519B901F300BCEAB2 /* MaplyElevationSource.h */,
+				C08F719719B901F300BCEAB2 /* MaplyGDALRetileSource.h */,
+				C08F719819B901F300BCEAB2 /* MaplyIconManager.h */,
+				C08F719919B901F300BCEAB2 /* MaplyImageTile.h */,
+				C08F719C19B901F300BCEAB2 /* MaplyLabel.h */,
+				C08F719D19B901F300BCEAB2 /* MaplyLight.h */,
+				C08F719E19B901F300BCEAB2 /* MaplyMBTileSource.h */,
+				C08F719F19B901F300BCEAB2 /* MaplyMapnikVectorTiles.h */,
+				C08F71A019B901F300BCEAB2 /* MaplyMarker.h */,
+				C08F71A119B901F300BCEAB2 /* MaplyMultiplexTileSource.h */,
+				C08F71A219B901F300BCEAB2 /* MaplyPagingVectorTestTileSource.h */,
+				C08F71A319B901F300BCEAB2 /* MaplyQuadImageOfflineLayer.h */,
+				C08F71A419B901F300BCEAB2 /* MaplyQuadImageTilesLayer.h */,
+				C08F71A619B901F300BCEAB2 /* MaplyQuadPagingLayer.h */,
+				C08F71A819B901F300BCEAB2 /* MaplyRemoteTileSource.h */,
+				C08F71AA19B901F300BCEAB2 /* MaplyScreenLabel.h */,
+				C08F71AB19B901F300BCEAB2 /* MaplyScreenMarker.h */,
+				C08F71AC19B901F300BCEAB2 /* MaplyShader.h */,
+				C08F71AE19B901F300BCEAB2 /* MaplyShape.h */,
+				C08F71AF19B901F300BCEAB2 /* MaplySharedAttributes.h */,
+				C08F71B019B901F300BCEAB2 /* MaplySphericalQuadEarthWithTexGroup.h */,
+				C08F71B219B901F300BCEAB2 /* MaplySticker.h */,
+				C08F71B319B901F300BCEAB2 /* MaplyTexture.h */,
+				C08F71B419B901F300BCEAB2 /* MaplyTextureBuilder.h */,
+				C08F71B619B901F300BCEAB2 /* MaplyTileSource.h */,
+				C08F71B919B901F300BCEAB2 /* MaplyVectorObject.h */,
+				C08F71BC19B901F300BCEAB2 /* MaplyVectorStyle.h */,
+				C08F71BE19B901F300BCEAB2 /* MaplyVectorTiles.h */,
+				C08F71BF19B901F300BCEAB2 /* MaplyViewController.h */,
+				C08F71C019B901F300BCEAB2 /* MaplyViewControllerLayer.h */,
+				C08F71C319B901F300BCEAB2 /* MaplyViewTracker.h */,
+				C08F71C419B901F300BCEAB2 /* MaplyWMSTileSource.h */,
+				C08F71C719B901F300BCEAB2 /* MapnikStyleSet.h */,
+				C08F71CD19B901F300BCEAB2 /* WGCoordinate.h */,
+				C08F71D219B901F300BCEAB2 /* WhirlyGlobeViewController.h */,
+				C08F6F8119B8F8DC00BCEAB2 /* Supporting Files */,
+			);
+			path = WhirlyGlobe;
+			sourceTree = "<group>";
+		};
+		C08F6F8119B8F8DC00BCEAB2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C08F6F8219B8F8DC00BCEAB2 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C08F6F8A19B8F8DC00BCEAB2 /* WhirlyGlobeTests */ = {
+			isa = PBXGroup;
+			children = (
+				C08F6F8D19B8F8DC00BCEAB2 /* WhirlyGlobeTests.m */,
+				C08F6F8B19B8F8DC00BCEAB2 /* Supporting Files */,
+			);
+			path = WhirlyGlobeTests;
+			sourceTree = "<group>";
+		};
+		C08F6F8B19B8F8DC00BCEAB2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C08F6F8C19B8F8DC00BCEAB2 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F06257A7C2B17F59D911DCC2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EFE7BCE240ADBE2E7260424E /* Pods.debug.xcconfig */,
+				4AFEFD49FF31A8A24BE54BE6 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXProject section */
+		C08F6F7519B8F8DC00BCEAB2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Moreira Consulting, Inc.";
+			};
+			buildConfigurationList = C08F6F7819B8F8DC00BCEAB2 /* Build configuration list for PBXProject "WhirlyGlobe" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C08F6F7419B8F8DC00BCEAB2;
+			productRefGroup = C08F6F7F19B8F8DC00BCEAB2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		C08F6F8F19B8F8DC00BCEAB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "$(inherited)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C08F6F9019B8F8DC00BCEAB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "$(inherited)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C08F6F7819B8F8DC00BCEAB2 /* Build configuration list for PBXProject "WhirlyGlobe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C08F6F8F19B8F8DC00BCEAB2 /* Debug */,
+				C08F6F9019B8F8DC00BCEAB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C08F6F7519B8F8DC00BCEAB2 /* Project object */;
+}

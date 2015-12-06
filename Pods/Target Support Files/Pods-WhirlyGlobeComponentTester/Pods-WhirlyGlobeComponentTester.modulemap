@@ -1,0 +1,6 @@
+framework module Pods_WhirlyGlobeComponentTester {
+  umbrella header "Pods-WhirlyGlobeComponentTester-umbrella.h"
+
+  export *
+  module * { export * }
+}

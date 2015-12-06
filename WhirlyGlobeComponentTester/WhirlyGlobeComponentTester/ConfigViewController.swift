@@ -12,7 +12,7 @@ enum ConfigOptions : Int {
     case All, Terrain, Flat
 }
 
-enum MaplyTestCategory : Int, Printable {
+enum MaplyTestCategory : Int, CustomStringConvertible {
     case BaseLayers, OverlayLayers, Objects, Animation, Gestures, Internals
     
     var description: String {
@@ -29,8 +29,6 @@ enum MaplyTestCategory : Int, Printable {
             return "Gestures"
         case Internals:
             return "Internals"
-        default:
-            return "Unknown"
         }
     }
 }
@@ -39,15 +37,15 @@ class ConfigViewController : UIViewController, UITableViewDataSource, UITableVie
     
     class ConfigSection {
         // Section name (as dispalyed to user)
-        var sectionName : String
+        var sectionName: String
         
         // Entries (name,boolean) within the section
-        var rows : Dictionary<String, Bool>
+        var rows: [String: Bool]
         
         // If set, user can only select one of the options
-        var singleSelect : Bool
+        var singleSelect: Bool
         
-        init(sectionName: String, rows: Dictionary<String, Bool>, singleSelect: Bool = false) {
+        init(sectionName: String, rows: [String: Bool], singleSelect: Bool = false) {
             self.sectionName = sectionName
             self.rows = rows
             self.singleSelect = singleSelect
@@ -55,10 +53,10 @@ class ConfigViewController : UIViewController, UITableViewDataSource, UITableVie
     }
     
     // Dictionary reflecting the current values from the table
-    var values : Array<ConfigSection> = []
+    var values: [ConfigSection] = []
     
     // What we'll display in terms of user options
-    var configOptions : ConfigOptions = .All
+    var configOptions: ConfigOptions = .All
     
     override init(nibName nibNameOrNil: String!, bundle: NSBundle!) {
         super.init(nibName: nibNameOrNil, bundle: bundle)
@@ -72,7 +70,7 @@ class ConfigViewController : UIViewController, UITableViewDataSource, UITableVie
         
         for cs in values {
             if (cs.sectionName == section) {
-                var csRow = cs.rows[row]
+                let csRow = cs.rows[row]
                 if (csRow != nil) {
                     return csRow!
                 }
@@ -86,7 +84,7 @@ class ConfigViewController : UIViewController, UITableViewDataSource, UITableVie
         super.viewDidLoad()
         
         // Do any additional setup after loading the view from its nib.
-        var newValues : Array<ConfigSection> = []
+        var newValues: [ConfigSection] = []
         
         newValues.append(
             ConfigSection(sectionName: kMaplyTestCategoryBaseLayers,
@@ -178,13 +176,13 @@ class ConfigViewController : UIViewController, UITableViewDataSource, UITableVie
         return values.count
     }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String! {
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
         if (section >= values.count) {
-            return ""
+            return nil
         }
         
-        var cs = values[section];
+        let cs = values[section];
         return cs.sectionName
     }
     
@@ -194,7 +192,7 @@ class ConfigViewController : UIViewController, UITableViewDataSource, UITableVie
             return 0
         }
         
-        var cs = values[section];
+        let cs = values[section];
         return cs.rows.count
         
     }
@@ -205,24 +203,24 @@ class ConfigViewController : UIViewController, UITableViewDataSource, UITableVie
             return
         }
         
-        var cs = values[indexPath.section]
+        let cs = values[indexPath.section]
         if (indexPath.row >= cs.rows.count) {
             return
         }
         
-        var arr = sorted(cs.rows.keys)
-        var key = arr[indexPath.row]
-        var selected : Bool = cs.rows[key]!
+        var arr = cs.rows.keys.sort { $0 < $1 }
+        let key = arr[indexPath.row]
+        let selected : Bool = cs.rows[key]!
         cell.backgroundColor = selected ? UIColor(red:0.75, green:0.75, blue:1.0, alpha:1.0) : UIColor.whiteColor()
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cs = values[indexPath.section]
+        let cs = values[indexPath.section]
         
-        var arr = sorted(cs.rows.keys)
-        var cell = UITableViewCell(style:.Default, reuseIdentifier:nil)
-        var key = arr[indexPath.row]
+        var arr = cs.rows.keys.sort { $0 < $1 }
+        let cell = UITableViewCell(style:.Default, reuseIdentifier:nil)
+        let key = arr[indexPath.row]
         cell.textLabel!.text = key
         
         return cell
@@ -231,18 +229,18 @@ class ConfigViewController : UIViewController, UITableViewDataSource, UITableVie
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         if (indexPath.section >= values.count) {
-            return;
+            return
         }
         
-        var cs = values[indexPath.section]
+        let cs = values[indexPath.section]
         if (indexPath.row >= cs.rows.count) {
-            return;
+            return
         }
         
-        var arr = sorted(cs.rows.keys)
-        var key = arr[indexPath.row]
+        var arr = cs.rows.keys.sort { $0 < $1 }
+        let key = arr[indexPath.row]
         
-        var selectState : Bool = cs.rows[key]!
+        let selectState : Bool = cs.rows[key]!
         if (cs.singleSelect) {
             // Turn everything else off and this one on
             if (!selectState) {

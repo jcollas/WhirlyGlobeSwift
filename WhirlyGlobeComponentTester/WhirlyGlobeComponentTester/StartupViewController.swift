@@ -10,18 +10,18 @@ import UIKit
 
 class StartupViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var tableView : UITableView?
+    var tableView : UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.tableView = UITableView(frame: self.view.bounds)
-        self.tableView!.delegate = self
-        self.tableView!.dataSource = self
-        self.tableView!.backgroundColor = UIColor.grayColor()
-        self.tableView!.separatorColor = UIColor.whiteColor()
-        self.tableView!.autoresizingMask = .FlexibleWidth | .FlexibleHeight
-        self.view.addSubview(tableView!)
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.backgroundColor = UIColor.grayColor()
+        self.tableView.separatorColor = UIColor.whiteColor()
+        self.tableView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        self.view.addSubview(tableView)
         self.view.autoresizesSubviews = true
     }
 
@@ -31,7 +31,7 @@ class StartupViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.tableView!.reloadData()
+        self.tableView.reloadData()
     }
     
     // MARK: UITableViewDataSource delegate methods
@@ -46,15 +46,15 @@ class StartupViewController: UIViewController, UITableViewDataSource, UITableVie
         return nums.rawValue
     }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String! {
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return nil
     }
     
     // MARK: UITableViewDelegate methods
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = UITableViewCell(style:.Default, reuseIdentifier:nil)
-        var mapType = MapType(rawValue:indexPath.row)!
+        let cell = UITableViewCell(style: .Default, reuseIdentifier: nil)
+        let mapType = MapType(rawValue:indexPath.row)!
         
         cell.textLabel!.text = mapType.description
         cell.textLabel!.textColor = UIColor.whiteColor()
@@ -64,7 +64,7 @@ class StartupViewController: UIViewController, UITableViewDataSource, UITableVie
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var viewC = TestViewController(mapType: MapType(rawValue: indexPath.row)!)
+        let viewC = TestViewController(mapType: MapType(rawValue: indexPath.row)!)
         self.navigationController!.pushViewController(viewC, animated: true)
     }
 }

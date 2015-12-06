@@ -34,26 +34,26 @@ class AnimatedSphere : MaplyActiveObject {
     func updateForFrame(frameInfo : AnyObject) {
         
         if (sphereObj != nil) {
-            self.viewC.removeObjects([sphereObj!], mode:MaplyThreadCurrent)
+            self.viewC?.removeObjects([sphereObj!], mode:MaplyThreadCurrent)
             sphereObj = nil
         }
 
         var t : Float = Float(CFAbsoluteTimeGetCurrent()-start)/period
         t -= Float(Int(t))
         
-        var center : MaplyCoordinate = MaplyCoordinateMakeWithDegrees(-180.0+Float(t)*360.0, 0.0)
+        let center = MaplyCoordinateMakeWithDegrees(-180.0+Float(t)*360.0, 0.0)
         
-        var sphere : MaplyShapeSphere = MaplyShapeSphere()
+        let sphere = MaplyShapeSphere()
         sphere.radius = radius
         sphere.center = center
         
         // Here's the trick, we must use MaplyThreadCurrent to make this happen right now
-        sphereObj = self.viewC.addShapes([sphere], desc:[ kMaplyColor: color ], mode:MaplyThreadCurrent)
+        sphereObj = self.viewC?.addShapes([sphere], desc:[ kMaplyColor: color ], mode:MaplyThreadCurrent)
     }
 
     func shutdown() {
         if (sphereObj != nil) {
-            self.viewC.removeObjects([sphereObj!], mode:MaplyThreadCurrent)
+            self.viewC?.removeObjects([sphereObj!], mode:MaplyThreadCurrent)
             sphereObj = nil;
         }
     }

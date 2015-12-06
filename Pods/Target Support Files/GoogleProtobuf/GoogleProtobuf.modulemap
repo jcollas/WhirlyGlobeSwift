@@ -1,0 +1,6 @@
+framework module GoogleProtobuf {
+  umbrella header "GoogleProtobuf-umbrella.h"
+
+  export *
+  module * { export * }
+}

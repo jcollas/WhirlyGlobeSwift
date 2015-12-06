@@ -1,0 +1,6 @@
+framework module tinyxml {
+  umbrella header "tinyxml-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,4 +1,4 @@
-prefix=/Users/jcollas/Desktop/WhirlyGlobeSwift/Pods/GoogleProtobuf
+prefix=/Users/jcollas/Library/Caches/CocoaPods/Pods/Release/GoogleProtobuf/2.5.0-abd6b
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include

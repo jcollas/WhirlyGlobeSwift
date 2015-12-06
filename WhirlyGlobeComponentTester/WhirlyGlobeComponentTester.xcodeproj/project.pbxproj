@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C00120D119E47A3400868F90 /* WhirlyGlobeComponentTester-Bridging-Header.m in Sources */ = {isa = PBXBuildFile; fileRef = C00120D019E47A3400868F90 /* WhirlyGlobeComponentTester-Bridging-Header.m */; };
+		06A48554786F421662624F5B /* Pods_WhirlyGlobeComponentTester.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E7132218EB39808997BDB65 /* Pods_WhirlyGlobeComponentTester.framework */; };
+		C07DF4301C13AE03001890CB /* WhirlyGlobeComponentTester-Bridging-Header.m in Sources */ = {isa = PBXBuildFile; fileRef = C00120D019E47A3400868F90 /* WhirlyGlobeComponentTester-Bridging-Header.m */; };
 		C086A35F19BA14D500FC01DA /* WhirlyGlobe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C086A35E19BA14D500FC01DA /* WhirlyGlobe.framework */; };
 		C08F6F3919B79DBF00BCEAB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F6F3819B79DBF00BCEAB2 /* AppDelegate.swift */; };
 		C08F6F4019B79DBF00BCEAB2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C08F6F3F19B79DBF00BCEAB2 /* Images.xcassets */; };
@@ -17,11 +18,7 @@
 		C08F6F5F19B79E3300BCEAB2 /* ConfigViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C08F6F5819B79E3300BCEAB2 /* ConfigViewController.xib */; };
 		C08F6F6019B79E3300BCEAB2 /* StartupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F6F5919B79E3300BCEAB2 /* StartupViewController.swift */; };
 		C08F6F6119B79E3300BCEAB2 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F6F5A19B79E3300BCEAB2 /* TestViewController.swift */; };
-		C0C14A441A5DFD63002CC6F7 /* map_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = C0C14A411A5DFD63002CC6F7 /* map_pin.png */; };
-		C0C14A451A5DFD63002CC6F7 /* Smiley_Face_Avatar_by_PixelTwist.png in Resources */ = {isa = PBXBuildFile; fileRef = C0C14A421A5DFD63002CC6F7 /* Smiley_Face_Avatar_by_PixelTwist.png */; };
-		C0C14A461A5DFD63002CC6F7 /* Star.png in Resources */ = {isa = PBXBuildFile; fileRef = C0C14A431A5DFD63002CC6F7 /* Star.png */; };
 		C0DB297719BC806600ACB71E /* WeatherShader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DB297619BC806600ACB71E /* WeatherShader.swift */; };
-		DEFC06BBE337CE81A7EF4AEC /* libPods-WhirlyGlobeComponentTester.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE1434C0466E59AE1BF977F4 /* libPods-WhirlyGlobeComponentTester.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +31,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		C07DF4291C137A9D001890CB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		7E7132218EB39808997BDB65 /* Pods_WhirlyGlobeComponentTester.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhirlyGlobeComponentTester.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4B1575C8742941EEE7C83D6 /* Pods-WhirlyGlobeComponentTester.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhirlyGlobeComponentTester.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-WhirlyGlobeComponentTester/Pods-WhirlyGlobeComponentTester.debug.xcconfig"; sourceTree = "<group>"; };
-		BE1434C0466E59AE1BF977F4 /* libPods-WhirlyGlobeComponentTester.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WhirlyGlobeComponentTester.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C00120D019E47A3400868F90 /* WhirlyGlobeComponentTester-Bridging-Header.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WhirlyGlobeComponentTester-Bridging-Header.m"; sourceTree = "<group>"; };
 		C086A35E19BA14D500FC01DA /* WhirlyGlobe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = WhirlyGlobe.framework; path = "../WhirlyGlobe/build/Debug-iphoneos/WhirlyGlobe.framework"; sourceTree = "<group>"; };
 		C08F6F3319B79DBF00BCEAB2 /* WhirlyGlobeComponentTester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhirlyGlobeComponentTester.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,9 +63,6 @@
 		C08F6F5919B79E3300BCEAB2 /* StartupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartupViewController.swift; sourceTree = "<group>"; };
 		C08F6F5A19B79E3300BCEAB2 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		C08F6F6319B79E4300BCEAB2 /* WhirlyGlobeComponentTester-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WhirlyGlobeComponentTester-Bridging-Header.h"; sourceTree = "<group>"; };
-		C0C14A411A5DFD63002CC6F7 /* map_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_pin.png; sourceTree = "<group>"; };
-		C0C14A421A5DFD63002CC6F7 /* Smiley_Face_Avatar_by_PixelTwist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Smiley_Face_Avatar_by_PixelTwist.png; sourceTree = "<group>"; };
-		C0C14A431A5DFD63002CC6F7 /* Star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Star.png; sourceTree = "<group>"; };
 		C0DB296F19BA5C7500ACB71E /* WhirlyGlobe.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = WhirlyGlobe.playground; sourceTree = "<group>"; };
 		C0DB297619BC806600ACB71E /* WeatherShader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherShader.swift; sourceTree = "<group>"; };
 		C11BB96BF72FAECA3EADCBB1 /* Pods-WhirlyGlobeComponentTester.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhirlyGlobeComponentTester.release.xcconfig"; path = "../Pods/Target Support Files/Pods-WhirlyGlobeComponentTester/Pods-WhirlyGlobeComponentTester.release.xcconfig"; sourceTree = "<group>"; };
@@ -67,7 +74,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C086A35F19BA14D500FC01DA /* WhirlyGlobe.framework in Frameworks */,
-				DEFC06BBE337CE81A7EF4AEC /* libPods-WhirlyGlobeComponentTester.a in Frameworks */,
+				06A48554786F421662624F5B /* Pods_WhirlyGlobeComponentTester.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,7 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				C086A35E19BA14D500FC01DA /* WhirlyGlobe.framework */,
-				BE1434C0466E59AE1BF977F4 /* libPods-WhirlyGlobeComponentTester.a */,
+				7E7132218EB39808997BDB65 /* Pods_WhirlyGlobeComponentTester.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -134,7 +141,6 @@
 				C08F6F6319B79E4300BCEAB2 /* WhirlyGlobeComponentTester-Bridging-Header.h */,
 				C00120D019E47A3400868F90 /* WhirlyGlobeComponentTester-Bridging-Header.m */,
 				C08F6F3F19B79DBF00BCEAB2 /* Images.xcassets */,
-				C0C14A471A5DFD6A002CC6F7 /* Resources */,
 				C08F6F3619B79DBF00BCEAB2 /* Supporting Files */,
 			);
 			path = WhirlyGlobeComponentTester;
@@ -165,16 +171,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		C0C14A471A5DFD6A002CC6F7 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				C0C14A411A5DFD63002CC6F7 /* map_pin.png */,
-				C0C14A421A5DFD63002CC6F7 /* Smiley_Face_Avatar_by_PixelTwist.png */,
-				C0C14A431A5DFD63002CC6F7 /* Star.png */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -187,6 +183,8 @@
 				C08F6F3019B79DBF00BCEAB2 /* Frameworks */,
 				C08F6F3119B79DBF00BCEAB2 /* Resources */,
 				10E3D8AACC0547F09D6D3F0A /* Copy Pods Resources */,
+				C07DF4291C137A9D001890CB /* Embed Frameworks */,
+				827A5A45F038692793CF6BDC /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -221,7 +219,8 @@
 		C08F6F2B19B79DBF00BCEAB2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Moreira Consulting, Inc.";
 				TargetAttributes = {
 					C08F6F3219B79DBF00BCEAB2 = {
@@ -257,11 +256,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0C14A451A5DFD63002CC6F7 /* Smiley_Face_Avatar_by_PixelTwist.png in Resources */,
 				C08F6F5F19B79E3300BCEAB2 /* ConfigViewController.xib in Resources */,
-				C0C14A461A5DFD63002CC6F7 /* Star.png in Resources */,
 				C08F6F4019B79DBF00BCEAB2 /* Images.xcassets in Resources */,
-				C0C14A441A5DFD63002CC6F7 /* map_pin.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +284,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-WhirlyGlobeComponentTester/Pods-WhirlyGlobeComponentTester-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		827A5A45F038692793CF6BDC /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-WhirlyGlobeComponentTester/Pods-WhirlyGlobeComponentTester-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B33DE660A97946F78A06CEAA /* Check Pods Manifest.lock */ = {
@@ -317,8 +328,8 @@
 				C08F6F3919B79DBF00BCEAB2 /* AppDelegate.swift in Sources */,
 				C0DB297719BC806600ACB71E /* WeatherShader.swift in Sources */,
 				C08F6F5D19B79E3300BCEAB2 /* AnimatedSphere.swift in Sources */,
-				C00120D119E47A3400868F90 /* WhirlyGlobeComponentTester-Bridging-Header.m in Sources */,
 				C08F6F5E19B79E3300BCEAB2 /* ConfigViewController.swift in Sources */,
+				C07DF4301C13AE03001890CB /* WhirlyGlobeComponentTester-Bridging-Header.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +372,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -426,6 +438,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A4B1575C8742941EEE7C83D6 /* Pods-WhirlyGlobeComponentTester.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
@@ -438,8 +451,9 @@
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../Pods/Headers/WhirlyGlobe",
 					"$(SDKROOT)/usr/include/libxml2",
+					"$(PODS_ROOT)/Headers/Private/AFNetworking",
+					"$(PODS_ROOT)/Headers/Private/KissXML",
 				);
 				INFOPLIST_FILE = WhirlyGlobeComponentTester/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -447,10 +461,10 @@
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-isystem",
-					"${SRCROOT}/../Pods/Headers",
 				);
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.moreira.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "WhirlyGlobeComponentTester/WhirlyGlobeComponentTester-Bridging-Header.h";
@@ -462,6 +476,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C11BB96BF72FAECA3EADCBB1 /* Pods-WhirlyGlobeComponentTester.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
@@ -474,8 +489,9 @@
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../Pods/Headers/WhirlyGlobe",
 					"$(SDKROOT)/usr/include/libxml2",
+					"$(PODS_ROOT)/Headers/Private/AFNetworking",
+					"$(PODS_ROOT)/Headers/Private/KissXML",
 				);
 				INFOPLIST_FILE = WhirlyGlobeComponentTester/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -483,10 +499,10 @@
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-isystem",
-					"${SRCROOT}/../Pods/Headers",
 				);
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.moreira.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "WhirlyGlobeComponentTester/WhirlyGlobeComponentTester-Bridging-Header.h";
@@ -498,6 +514,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -509,6 +526,7 @@
 				);
 				INFOPLIST_FILE = WhirlyGlobeComponentTesterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.moreira.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WhirlyGlobeComponentTester.app/WhirlyGlobeComponentTester";
 			};
@@ -518,6 +536,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -525,6 +544,7 @@
 				);
 				INFOPLIST_FILE = WhirlyGlobeComponentTesterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.moreira.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WhirlyGlobeComponentTester.app/WhirlyGlobeComponentTester";
 			};

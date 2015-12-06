@@ -1,7 +1,8 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
-platform :ios, '7.1'
+platform :ios, '8.1'
 
+use_frameworks!
 inhibit_all_warnings!
 
 workspace 'WhirlyGlobeSwift'
