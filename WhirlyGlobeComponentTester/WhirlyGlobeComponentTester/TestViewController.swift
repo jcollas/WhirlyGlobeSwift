@@ -8,6 +8,7 @@
 
 import UIKit
 import WhirlyGlobe
+import Alamofire
 
 enum MapType: Int, CustomStringConvertible {
     case Globe, GlobeWithElevation, Map3D, Map2D, NumTypes
@@ -123,9 +124,9 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
     // The view we're using to track a selected object
     //    MaplyViewTracker *selectedViewTrack;
     
-    private var screenLabelDesc: [NSObject: AnyObject]?
-    private var labelDesc: [NSObject: AnyObject]?
-    private var vectorDesc: [NSObject: AnyObject]?
+    private var screenLabelDesc: [String: AnyObject]?
+    private var labelDesc: [String: AnyObject]?
+    private var vectorDesc: [String: AnyObject]?
 
     // If we're in 3D mode, how far the elevation goes
     private var zoomLimit: Int32 = 0
@@ -337,21 +338,20 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
         
         let capabilitiesURL = MaplyWMSCapabilities.CapabilitiesURLFor(baseURL)
         if let url = NSURL(string:capabilitiesURL) {
-            let operation = AFHTTPRequestOperation(request:NSURLRequest(URL:url))
-            
-            operation.responseSerializer = AFXMLParserResponseSerializer.sharedSerializer()
-            
-            operation.setCompletionBlockWithSuccess(
-                { (op: AFHTTPRequestOperation!, responseObject: AnyObject!) in
-                    self.startWMSLayer(baseURL, xml:responseObject as! DDXMLDocument, layerName:layerName, styleName:styleName, cacheDir:cacheDir, overlayName:overlayName)
-                    return
-                }, failure:{ (operation: AFHTTPRequestOperation!, error: NSError!) in
-                    // Sometimes this works anyway
-                    //        if (![self startWMSLayerBaseURL:baseURL xml:XMLDocument layer:layerName style:styleName cacheDir:thisCacheDir ovlName:ovlName])
-                    //            NSLog("Failed to get capabilities from WMS server: %",capabilitiesURL);
-            })
-            
-            operation.start()
+            Alamofire.request(NSURLRequest(URL:url))
+                .validate()
+                .responseXMLDocument { response in
+                    if response.result.isSuccess {
+                        if let doc = response.result.value {
+                            self.startWMSLayer(baseURL, xml: doc, layerName:layerName, styleName:styleName, cacheDir:cacheDir, overlayName:overlayName)
+                        }
+                    } else {
+                        // Sometimes this works anyway
+                        //        if (![self startWMSLayerBaseURL:baseURL xml:XMLDocument layer:layerName style:styleName cacheDir:thisCacheDir ovlName:ovlName])
+                        //            NSLog("Failed to get capabilities from WMS server: %",capabilitiesURL);
+                    }
+                    
+            }
         }
     }
     
@@ -802,12 +802,12 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
     
     // Set up the base layer depending on what they've picked.
     // Also tear down an old one
-    func setupBaseLayer(baseSettings: [NSObject: AnyObject]) {
+    func setupBaseLayer(baseSettings: [String: Bool]) {
         // Figure out which one we're supposed to display
         var newBaseLayerName: String? = nil
         for (key, value) in baseSettings {
-            if let boolValue = value as? Bool {
-                newBaseLayerName = key as? String
+            if value {
+                newBaseLayerName = key
                 break
             }
         }
@@ -1039,39 +1039,38 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             if let url = NSURL(string:jsonTileSpec!) {
                 let request = NSURLRequest(URL:url)
                 
-                let operation = AFHTTPRequestOperation(request:request)
-                operation.responseSerializer = AFJSONResponseSerializer.sharedSerializer()
-                
-                operation.setCompletionBlockWithSuccess(
-                    { ( op: AFHTTPRequestOperation!, responseObject: AnyObject!) in
-                        // Add a quad earth paging layer based on the tile spec we just fetched
-                        let tileSource = MaplyRemoteTileSource(tilespec:responseObject as! Dictionary)
-                        tileSource.cacheDir = thisCacheDir
-                        if (self.zoomLimit != 0 && self.zoomLimit < tileSource.maxZoom()) {
-                            tileSource.tileInfo.maxZoom = self.zoomLimit
+                Alamofire.request(request)
+                    .validate()
+                    .responseJSON { (response) in
+                        if response.result.isSuccess {
+                            let json = response.result.value as! [String: AnyObject]
+                            // Add a quad earth paging layer based on the tile spec we just fetched
+                            let tileSource = MaplyRemoteTileSource(tilespec:json)
+                            tileSource.cacheDir = thisCacheDir
+                            if (self.zoomLimit != 0 && self.zoomLimit < tileSource.maxZoom()) {
+                                tileSource.tileInfo.maxZoom = self.zoomLimit
+                            }
+                            let layer = MaplyQuadImageTilesLayer(coordSystem:tileSource.coordSys, tileSource:tileSource)
+                            layer.handleEdges = true
+                            layer.waitLoad = self.imageWaitLoad
+                            layer.requireElev = self.requireElev
+                            layer.maxTiles = self.maxLayerTiles
+                            if (self.startupMapType == .Map2D) {
+                                layer.singleLevelLoading = true
+                                layer.multilLevelLoads = [-4, -2]
+                            }
+                            self.baseViewC.addLayer(layer)
+                            layer.drawPriority = 0
+                            self.baseLayer = layer
+                            
+                            //                #ifdef RELOADTEST
+                            //                [self performSelector:@selector(reloadLayer:) withObject:nil afterDelay:10.0];
+                            //                #endif
+
+                        } else {
+                            NSLog("Failed to reach JSON tile spec at: \(jsonTileSpec!)")
                         }
-                        let layer = MaplyQuadImageTilesLayer(coordSystem:tileSource.coordSys, tileSource:tileSource)
-                        layer.handleEdges = true
-                        layer.waitLoad = self.imageWaitLoad
-                        layer.requireElev = self.requireElev
-                        layer.maxTiles = self.maxLayerTiles
-                        if (self.startupMapType == .Map2D) {
-                            layer.singleLevelLoading = true
-                            layer.multilLevelLoads = [-4, -2]
-                        }
-                        self.baseViewC.addLayer(layer)
-                        layer.drawPriority = 0
-                        self.baseLayer = layer
-                        
-                        //                #ifdef RELOADTEST
-                        //                [self performSelector:@selector(reloadLayer:) withObject:nil afterDelay:10.0];
-                        //                #endif
-                    },
-                    failure: { (operation: AFHTTPRequestOperation!, error: NSError!) in
-                        NSLog("Failed to reach JSON tile spec at: \(jsonTileSpec!)")
-                })
-                
-                operation.start()
+                }
             }
         }
         
@@ -1104,14 +1103,14 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
     }
     
     // Run through the overlays the user wants turned on
-    func setupOverlays(baseSettings:[NSObject: AnyObject]) {
+    func setupOverlays(baseSettings:[String: Bool]) {
         // For network paging layers, where we'll store temp files
         let cacheDir = NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true).first!
         var thisCacheDir: String? = nil
         
         for (layerNameObj, isOnObj) in baseSettings {
-            let layerName = layerNameObj as! String
-            let isOn = isOnObj as! Bool
+            let layerName = layerNameObj 
+            let isOn = isOnObj 
             var layer = ovlLayers[layerName]
             // Need to create the layer
             if (isOn && layer == nil) {

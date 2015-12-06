@@ -3,17 +3,4 @@
 //
 
 #import "ConfigViewController.h"
-#import "AFHTTPRequestOperation.h"
 #import "DDXML.h"
-
-@interface AFXMLParserResponseSerializer (CustomInit)
-
-+ (instancetype)sharedSerializer;
-
-@end
-
-@interface AFJSONResponseSerializer (CustomInit)
-
-+ (instancetype)sharedSerializer;
-
-@end

@@ -9,4 +9,4 @@ var l = 0.0
 
 var y = MaplyViewController()
 
-println(y)
+print(y)

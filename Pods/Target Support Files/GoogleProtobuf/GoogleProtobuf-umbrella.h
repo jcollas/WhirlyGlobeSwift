@@ -1,6 +1,5 @@
 #import <UIKit/UIKit.h>
 
-#import "config.h"
 #import "descriptor.h"
 #import "descriptor.pb.h"
 #import "descriptor_database.h"

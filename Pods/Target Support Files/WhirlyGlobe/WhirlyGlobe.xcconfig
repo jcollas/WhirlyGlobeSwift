@@ -1,6 +1,6 @@
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = __USE_SDL_GLES__ __IPHONEOS__ __USE_SDL_GLES__ __IPHONEOS__ __USE_SDL_GLES__ __IPHONEOS__ __USE_SDL_GLES__ __IPHONEOS__ __USE_SDL_GLES__ __IPHONEOS__
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/WhirlyGlobe" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/WhirlyGlobeResources" "${PODS_ROOT}/Headers/Public/boost" "${PODS_ROOT}/Headers/Public/eigen" "${PODS_ROOT}/boost" "${PODS_ROOT}/eigen" "${PODS_ROOT}/clipper" "$(SDKROOT)/usr/include/libxml2" "${PODS_ROOT}/boost" "${PODS_ROOT}/eigen" "${PODS_ROOT}/clipper" "$(SDKROOT)/usr/include/libxml2" "${PODS_ROOT}/boost" "${PODS_ROOT}/eigen" "${PODS_ROOT}/clipper" "$(SDKROOT)/usr/include/libxml2" "${PODS_ROOT}/boost" "${PODS_ROOT}/eigen" "${PODS_ROOT}/clipper" "$(SDKROOT)/usr/include/libxml2" "${PODS_ROOT}/boost" "${PODS_ROOT}/eigen" "${PODS_ROOT}/clipper" "$(SDKROOT)/usr/include/libxml2"
-OTHER_LDFLAGS = -l"c++" -l"sqlite3" -l"z" -framework "OpenGLES" -framework "UIKit"
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/WhirlyGlobe" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/WhirlyGlobeResources" "${PODS_ROOT}/Headers/Public/boost" "${PODS_ROOT}/Headers/Public/eigen" "${PODS_ROOT}/boost" "${PODS_ROOT}/eigen" "${PODS_ROOT}/clipper" "${PODS_ROOT}/glues/include" "$(SDKROOT)/usr/include/libxml2" "${PODS_ROOT}/GoogleProtobuf/src"
+OTHER_LDFLAGS = -l"c++" -l"sqlite3" -l"z" -framework "CoreLocation" -framework "OpenGLES" -framework "UIKit"
 PODS_ROOT = ${SRCROOT}
 SKIP_INSTALL = YES
