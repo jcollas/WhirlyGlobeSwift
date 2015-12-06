@@ -130,8 +130,8 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
 
     // If we're in 3D mode, how far the elevation goes
     private var zoomLimit: Int32 = 0
-    private var requireElev: Bool = false
-    private var imageWaitLoad: Bool = false
+    private var requireElev = false
+    private var imageWaitLoad = false
     private var maxLayerTiles: Int32 = 256
     
     // Label test
@@ -871,12 +871,10 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
 
         case .BlueMarble:
             title = "Blue Marble Single Res"
-            if (globeViewC != nil) {
+            if  let globeViewC = globeViewC {
                 // This is the static image set, included with the app, built with ImageChopper
-                globeViewC?.keepNorthUp
-                var layer = globeViewC!.addSphericalEarthLayerWithImageSet("lowres_wtb_info")
-                baseLayer = layer
-                layer.drawPriority = 0
+                baseLayer = globeViewC.addSphericalEarthLayerWithImageSet("lowres_wtb_info")
+                baseLayer?.drawPriority = 0
                 screenLabelColor = UIColor.whiteColor()
                 screenLabelBackColor = UIColor.whiteColor()
                 labelColor = UIColor.blackColor()
@@ -1135,7 +1133,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
                     // Collect up the various precipitation sources
                     var tileSources: [MaplyRemoteTileInfo] = []
                     for ii in 0...4 {
-                        let theURL: String = "http://a.tiles.mapbox.com/v3/mousebird.precip-example-layer\(ii)/"
+                        let theURL = "http://a.tiles.mapbox.com/v3/mousebird.precip-example-layer\(ii)/"
                         let precipTileSource = MaplyRemoteTileInfo(baseURL:theURL, ext:"png", minZoom:0, maxZoom:6)
                         precipTileSource.cacheDir = "\(cacheDir)/forecast_io_weather_layer\(ii)/"
                         tileSources.append(precipTileSource)
