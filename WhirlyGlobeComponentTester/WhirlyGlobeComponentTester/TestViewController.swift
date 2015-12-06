@@ -776,7 +776,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             let image = UIImage(named:"map_pin.png")!
             
             var markers: [MaplyScreenMarker] = []
-            for ii in 0..<self.NumMegaMarkers {
+            for _ in 0..<self.NumMegaMarkers {
                 let marker = MaplyScreenMarker()
                 marker.image = image
                 marker.size = CGSize(width:40, height:40)
@@ -1234,7 +1234,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
     // Look at the configuration controller and decide what to turn off or on
     func changeMapContents() {
 
-        imageWaitLoad = configViewC.valueForSection(kMaplyTestCategoryInternal, row:kMaplyTestWaitLoad)
+        imageWaitLoad = configViewC.valueForSection(.Internal, row:kMaplyTestWaitLoad)
         
         let baseSection = configViewC.values[0] as ConfigViewController.ConfigSection
         setupBaseLayer(baseSection.rows)
@@ -1243,7 +1243,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             setupOverlays(setupSection.rows)
         }
         
-        if (configViewC.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestLabel2D)) {
+        if (configViewC.valueForSection(.Objects, row:kMaplyTestLabel2D)) {
             if (screenLabelsObj == nil) {
                 addScreenLabels(locations, len:locations.count, strider:4, offset:0)
             }
@@ -1254,7 +1254,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             }
         }
         
-        if (configViewC.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestLabel3D)) {
+        if (configViewC.valueForSection(.Objects, row:kMaplyTestLabel3D)) {
             if (labelsObj == nil) {
                 addLabels(locations, len:locations.count, strider:4, offset:1)
             }
@@ -1265,7 +1265,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             }
         }
         
-        if (configViewC.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestMarker2D)) {
+        if (configViewC.valueForSection(.Objects, row:kMaplyTestMarker2D)) {
             if (screenMarkersObj == nil) {
                 addScreenMarkers(locations, len:locations.count, strider:4, offset:2)
             }
@@ -1276,7 +1276,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             }
         }
         
-        if (configViewC.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestMarker3D)) {
+        if (configViewC.valueForSection(.Objects, row:kMaplyTestMarker3D)) {
             if (markersObj == nil) {
                 addMarkers(locations, len:locations.count, strider:4, offset:3)
             }
@@ -1287,7 +1287,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             }
         }
         
-        if (configViewC.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestSticker)) {
+        if (configViewC.valueForSection(.Objects, row:kMaplyTestSticker)) {
             if (stickersObj == nil) {
                 addStickers(locations, len:locations.count, stride:4, offset:2, desc:[ kMaplyFade: 1.0 ])
             }
@@ -1298,7 +1298,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             }
         }
         
-        if (configViewC.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestShapeCylinder)) {
+        if (configViewC.valueForSection(.Objects, row:kMaplyTestShapeCylinder)) {
             if (shapeCylObj == nil) {
                 addShapeCylinders(locations, len:locations.count, strider:4, offset:0, desc:[ kMaplyColor: UIColor(red:0.0, green:0.0, blue:1.0, alpha:0.8), kMaplyFade: 1.0 ])
             }
@@ -1309,7 +1309,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             }
         }
         
-        if (configViewC.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestShapeSphere))
+        if (configViewC.valueForSection(.Objects, row:kMaplyTestShapeSphere))
         {
             if (shapeSphereObj == nil) {
                 addShapeSpheres(locations, len:locations.count, strider:4, offset:1, desc:[ kMaplyColor: UIColor(red:1.0, green:0.0, blue:0.0, alpha:0.8), kMaplyFade: 1.0 ])
@@ -1321,7 +1321,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             }
         }
         
-        if (configViewC.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestShapeGreatCircle)) {
+        if (configViewC.valueForSection(.Objects, row:kMaplyTestShapeGreatCircle)) {
             if (greatCircleObj == nil) {
                 addGreatCircles(locations, len:locations.count, strider:4, offset:2, desc:[ kMaplyColor: UIColor(red:1.0, green:0.1, blue:0.0, alpha:1.0), kMaplyFade: 1.0 ])
             }
@@ -1332,7 +1332,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             }
         }
         
-        if (configViewC.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestLatLon)) {
+        if (configViewC.valueForSection(.Objects, row:kMaplyTestLatLon)) {
             if (latLonObj == nil) {
                 addLines(20, latDelta:10, color:UIColor.blueColor())
             }
@@ -1343,7 +1343,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             }
         }
         
-        if (configViewC.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestRoads))
+        if (configViewC.valueForSection(.Objects, row:kMaplyTestRoads))
         {
             if (sfRoadsObjArray == nil)
             {
@@ -1363,7 +1363,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             }
         }
         
-        if (configViewC.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestCountry)) {
+        if (configViewC.valueForSection(.Objects, row:kMaplyTestCountry)) {
             // Countries we have geoJSON for
             let countryArray = [
                 "ABW", "AFG", "AGO", "AIA", "ALA", "ALB", "AND", "ARE", "ARG", "ARM", "ASM", "ATA", "ATF", "ATG", "AUS", "AUT",
@@ -1397,7 +1397,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             }
         }
         
-        if (configViewC.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestLoftedPoly)) {
+        if (configViewC.valueForSection(.Objects, row:kMaplyTestLoftedPoly)) {
         } else {
             if (loftPolyDict.count > 0) {
                 for value in loftPolyDict.values {
@@ -1407,7 +1407,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             }
         }
         
-        if (configViewC.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestMegaMarkers)) {
+        if (configViewC.valueForSection(.Objects, row:kMaplyTestMegaMarkers)) {
             if (megaMarkersObj == nil) {
                 addMegaMarkers()
             }
@@ -1418,7 +1418,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             }
         }
         
-        if (configViewC.valueForSection(kMaplyTestCategoryAnimation, row:kMaplyTestAnimateSphere)) {
+        if (configViewC.valueForSection(.Animation, row:kMaplyTestAnimateSphere)) {
             if (animSphere == nil) {
                 addAnimatedSphere()
             }
@@ -1429,22 +1429,22 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             }
         }
         
-        baseViewC.performanceOutput = configViewC.valueForSection(kMaplyTestCategoryInternal, row:kMaplyTestPerf)
+        baseViewC.performanceOutput = configViewC.valueForSection(.Internal, row:kMaplyTestPerf)
         
         if let viewC = globeViewC {
-            viewC.keepNorthUp = configViewC.valueForSection(kMaplyTestCategoryGestures, row:kMaplyTestNorthUp)
-            viewC.pinchGesture = configViewC.valueForSection(kMaplyTestCategoryGestures, row:kMaplyTestPinch)
-            viewC.rotateGesture = configViewC.valueForSection(kMaplyTestCategoryGestures, row:kMaplyTestRotate)
+            viewC.keepNorthUp = configViewC.valueForSection(.Gestures, row:kMaplyTestNorthUp)
+            viewC.pinchGesture = configViewC.valueForSection(.Gestures, row:kMaplyTestPinch)
+            viewC.rotateGesture = configViewC.valueForSection(.Gestures, row:kMaplyTestRotate)
         } else {
-            if(configViewC.valueForSection(kMaplyTestCategoryGestures, row:kMaplyTestNorthUp)) {
+            if(configViewC.valueForSection(.Gestures, row:kMaplyTestNorthUp)) {
                 mapViewC!.heading = 0.0
             }
-            mapViewC!.pinchGesture = configViewC.valueForSection(kMaplyTestCategoryGestures, row:kMaplyTestPinch)
-            mapViewC!.rotateGesture = configViewC.valueForSection(kMaplyTestCategoryGestures, row:kMaplyTestRotate)
+            mapViewC!.pinchGesture = configViewC.valueForSection(.Gestures, row:kMaplyTestPinch)
+            mapViewC!.rotateGesture = configViewC.valueForSection(.Gestures, row:kMaplyTestRotate)
         }
         
         // Update rendering hints
-        baseViewC.setHints([ kMaplyRenderHintCulling: configViewC.valueForSection(kMaplyTestCategoryInternal, row:kMaplyTestCulling) ])
+        baseViewC.setHints([ kMaplyRenderHintCulling: configViewC.valueForSection(.Internal, row:kMaplyTestCulling) ])
     }
     
     func showConfig() {
@@ -1541,7 +1541,7 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
                 let name: String = (vecObj.userObject as! String)
                 title = name
                 subTitle = "Vector"
-                if (configViewC.valueForSection(kMaplyTestCategoryObjects, row:kMaplyTestLoftedPoly)) {
+                if (configViewC.valueForSection(.Objects, row:kMaplyTestLoftedPoly)) {
                     // See if there already is one
                     if (loftPolyDict[name] == nil) {
                         let compObj = baseViewC.addLoftedPolys([vecObj], key:nil, cache:nil, desc:[ kMaplyColor: UIColor(red:1.0, green:0.0, blue:0.0, alpha:0.25), kMaplyLoftedPolyHeight: 0.05, kMaplyFade: 0.5 ])

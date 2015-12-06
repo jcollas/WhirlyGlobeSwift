@@ -19,8 +19,6 @@
  */
 
 // Base image layers
-#define kMaplyTestCategoryBaseLayers @"Base Layers"
-
 #define kMaplyTestBlank @"Blank"
 #define kMaplyTestGeographyClass @"Geography Class - Local"
 #define kMaplyTestBlueMarble @"NASA Blue Marble - Local"
@@ -34,8 +32,6 @@
 #define kMaplyTestQuadVectorTest @"Quad Vector Test Layer"
 
 // Overlay image layers
-#define kMaplyTestCategoryOverlayLayers @"Overlay layers"
-
 #define kMaplyTestUSGSOrtho @"USGS Ortho (WMS) - Remote"
 #define kMaplyTestOWM @"OpenWeatherMap - Remote"
 #define kMaplyTestForecastIO @"Forecast.IO Snapshot - Remote"
@@ -43,8 +39,6 @@
 #define kMaplyMapzenVectors @"Mapzen Vectors - Remote"
 
 // Objects we can display
-#define kMaplyTestCategoryObjects @"Maply Objects"
-
 #define kMaplyTestLabel2D @"Labels - 2D"
 #define kMaplyTestLabel3D @"Labels - 3D"
 #define kMaplyTestMarker2D @"Markers - 2D"
@@ -60,19 +54,14 @@
 #define kMaplyTestRoads @"SF Roads"
 
 // Animation
-#define kMaplyTestCategoryAnimation @"Animation"
-
 #define kMaplyTestAnimateSphere @"Animated Sphere"
 
 // Gestures
-#define kMaplyTestCategoryGestures @"Gestures"
-
 #define kMaplyTestNorthUp @"Keep North Up"
 #define kMaplyTestPinch @"Pinch Gesture"
 #define kMaplyTestRotate @"Rotate Gesture"
 
-// Low level
-#define kMaplyTestCategoryInternal @"Internals"
+// Low level Internal
 #define kMaplyTestCulling @"Culling Optimization"
 #define kMaplyTestPerf @"Performance Output"
 #define kMaplyTestWaitLoad @"Image waitLoad"

@@ -13,7 +13,7 @@ enum ConfigOptions : Int {
 }
 
 enum MaplyTestCategory : Int, CustomStringConvertible {
-    case BaseLayers, OverlayLayers, Objects, Animation, Gestures, Internals
+    case BaseLayers, OverlayLayers, Objects, Animation, Gestures, Internal
     
     var description: String {
         switch self {
@@ -27,7 +27,7 @@ enum MaplyTestCategory : Int, CustomStringConvertible {
             return "Animation"
         case Gestures:
             return "Gestures"
-        case Internals:
+        case Internal:
             return "Internals"
         }
     }
@@ -36,8 +36,12 @@ enum MaplyTestCategory : Int, CustomStringConvertible {
 class ConfigViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     class ConfigSection {
-        // Section name (as dispalyed to user)
-        var sectionName: String
+        // Section name (as displayed to user)
+        var section: MaplyTestCategory
+        
+        var sectionName: String {
+            return section.description
+        }
         
         // Entries (name,boolean) within the section
         var rows: [String: Bool]
@@ -45,8 +49,8 @@ class ConfigViewController : UIViewController, UITableViewDataSource, UITableVie
         // If set, user can only select one of the options
         var singleSelect: Bool
         
-        init(sectionName: String, rows: [String: Bool], singleSelect: Bool = false) {
-            self.sectionName = sectionName
+        init(section: MaplyTestCategory, rows: [String: Bool], singleSelect: Bool = false) {
+            self.section = section
             self.rows = rows
             self.singleSelect = singleSelect
         }
@@ -66,10 +70,10 @@ class ConfigViewController : UIViewController, UITableViewDataSource, UITableVie
         fatalError("init(coder:) has not been implemented")
     }
     
-    func valueForSection(section : String, row: String) -> Bool {
+    func valueForSection(section: MaplyTestCategory, row: String) -> Bool {
         
         for cs in values {
-            if (cs.sectionName == section) {
+            if (cs.sectionName == section.description) {
                 let csRow = cs.rows[row]
                 if (csRow != nil) {
                     return csRow!
@@ -87,7 +91,7 @@ class ConfigViewController : UIViewController, UITableViewDataSource, UITableVie
         var newValues: [ConfigSection] = []
         
         newValues.append(
-            ConfigSection(sectionName: kMaplyTestCategoryBaseLayers,
+            ConfigSection(section: .BaseLayers,
                 rows:
                 [ kMaplyTestBlank: false,
                     kMaplyTestGeographyClass: true,
@@ -107,14 +111,14 @@ class ConfigViewController : UIViewController, UITableViewDataSource, UITableVie
         switch (configOptions) {
         case .All:
             newValues.append(
-                ConfigSection(sectionName: kMaplyTestCategoryOverlayLayers, rows: [ kMaplyTestUSGSOrtho: false,
+                ConfigSection(section: .OverlayLayers, rows: [ kMaplyTestUSGSOrtho: false,
                     kMaplyTestOWM: false,
                     kMaplyTestForecastIO: false,
                     kMaplyTestMapboxStreets: false,
                     //                  kMaplyMapzenVectors: false
                     ]))
             newValues.append(
-                    ConfigSection(sectionName: kMaplyTestCategoryObjects, rows: [ kMaplyTestLabel2D: false,
+                ConfigSection(section: .Objects, rows: [ kMaplyTestLabel2D: false,
                         kMaplyTestLabel3D: false,
                         kMaplyTestMarker2D: false,
                         kMaplyTestMarker3D: false,
@@ -128,21 +132,21 @@ class ConfigViewController : UIViewController, UITableViewDataSource, UITableVie
                         kMaplyTestLatLon: false,
                         kMaplyTestRoads: false ]))
             newValues.append(
-                    ConfigSection(sectionName: kMaplyTestCategoryAnimation, rows: [ kMaplyTestAnimateSphere: false ]))
+                ConfigSection(section: .Animation, rows: [ kMaplyTestAnimateSphere: false ]))
             
         case .Terrain:
             true
             
         case .Flat:
             newValues.append(
-                ConfigSection(sectionName: kMaplyTestCategoryOverlayLayers, rows: [ kMaplyTestUSGSOrtho: false,
+                ConfigSection(section: .OverlayLayers, rows: [ kMaplyTestUSGSOrtho: false,
                     kMaplyTestOWM: false,
                     kMaplyTestForecastIO: false,
                     kMaplyTestMapboxStreets: false,
     //              kMaplyMapzenVectors: false
                     ]))
             newValues.append(
-                    ConfigSection(sectionName: kMaplyTestCategoryObjects, rows: [ kMaplyTestLabel2D: false,
+                ConfigSection(section: .Objects, rows: [ kMaplyTestLabel2D: false,
                         kMaplyTestLabel3D: false,
                         kMaplyTestMarker2D: false,
                         kMaplyTestMarker3D: false,
@@ -154,12 +158,12 @@ class ConfigViewController : UIViewController, UITableViewDataSource, UITableVie
         }
         
         newValues.append(
-            ConfigSection(sectionName: kMaplyTestCategoryGestures, rows: [ kMaplyTestNorthUp: false,
+            ConfigSection(section: .Gestures, rows: [ kMaplyTestNorthUp: false,
                 kMaplyTestPinch: true,
                 kMaplyTestRotate: true ]) )
         
         newValues.append(
-            ConfigSection(sectionName: kMaplyTestCategoryInternal, rows: [ kMaplyTestCulling: false,
+            ConfigSection(section: .Internal, rows: [ kMaplyTestCulling: false,
                 kMaplyTestPerf: false,
                 kMaplyTestWaitLoad: false ]) )
         
