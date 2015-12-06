@@ -295,7 +295,7 @@
 /** @brief An old style method to add a spherical earth layer.
     @details Image sets and this layer have been superceeded by MaplyQuadImageTilesLayer.  This is here for backwards compatibility.
   */
-- (WGViewControllerLayer *)addSphericalEarthLayerWithImageSet:(NSString *)name;
+- (MaplyViewControllerLayer *)addSphericalEarthLayerWithImageSet:(NSString *)name;
 
 /** @brief Return a location on the screen for a given geographic coordinate or false if it's not on the screen.
     @param geoCoord Point on the earth in lat/lon radians you want a screen position for.

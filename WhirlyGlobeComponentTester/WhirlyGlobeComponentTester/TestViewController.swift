@@ -873,10 +873,10 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
             title = "Blue Marble Single Res"
             if (globeViewC != nil) {
                 // This is the static image set, included with the app, built with ImageChopper
-                // TODO
-//                var layer = globeViewC?.addSphericalEarthLayerWithImageSetName("lowres_wtb_info")
-//                baseLayer = layer
-//                layer.drawPriority = 0
+                globeViewC?.keepNorthUp
+                var layer = globeViewC!.addSphericalEarthLayerWithImageSet("lowres_wtb_info")
+                baseLayer = layer
+                layer.drawPriority = 0
                 screenLabelColor = UIColor.whiteColor()
                 screenLabelBackColor = UIColor.whiteColor()
                 labelColor = UIColor.blackColor()
@@ -1035,8 +1035,9 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
         }
         
         // If we're fetching one of the JSON tile specs, kick that off
-        if (jsonTileSpec != nil) {
-            if let url = NSURL(string:jsonTileSpec!) {
+        if let
+            jsonTileSpec = jsonTileSpec,
+            url = NSURL(string:jsonTileSpec) {
                 let request = NSURLRequest(URL:url)
                 
                 Alamofire.request(request)
@@ -1066,12 +1067,11 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
                             //                #ifdef RELOADTEST
                             //                [self performSelector:@selector(reloadLayer:) withObject:nil afterDelay:10.0];
                             //                #endif
-
+                            
                         } else {
-                            NSLog("Failed to reach JSON tile spec at: \(jsonTileSpec!)")
+                            NSLog("Failed to reach JSON tile spec at: \(jsonTileSpec)")
                         }
                 }
-            }
         }
         
         // Set up some defaults for display
@@ -1236,10 +1236,10 @@ class TestViewController: UIViewController, WhirlyGlobeViewControllerDelegate, M
 
         imageWaitLoad = configViewC.valueForSection(.Internal, option: .WaitLoad)
         
-        let baseSection = configViewC.values[0] as ConfigViewController.Section
+        let baseSection = configViewC.values[0]
         setupBaseLayer(baseSection.rows)
         if (configViewC.values.count > 1) {
-            let setupSection = configViewC.values[1] as ConfigViewController.Section
+            let setupSection = configViewC.values[1]
             setupOverlays(setupSection.rows)
         }
         
