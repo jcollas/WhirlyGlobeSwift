@@ -61,7 +61,6 @@
 		C08F6F4A19B79DBF00BCEAB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C08F6F4B19B79DBF00BCEAB2 /* WhirlyGlobeComponentTesterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhirlyGlobeComponentTesterTests.swift; sourceTree = "<group>"; };
 		C08F6F5519B79E3300BCEAB2 /* AnimatedSphere.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedSphere.swift; sourceTree = "<group>"; };
-		C08F6F5619B79E3300BCEAB2 /* ConfigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigViewController.h; sourceTree = "<group>"; };
 		C08F6F5719B79E3300BCEAB2 /* ConfigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
 		C08F6F5819B79E3300BCEAB2 /* ConfigViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfigViewController.xib; sourceTree = "<group>"; };
 		C08F6F5919B79E3300BCEAB2 /* StartupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartupViewController.swift; sourceTree = "<group>"; };
@@ -137,7 +136,6 @@
 			isa = PBXGroup;
 			children = (
 				C08F6F3819B79DBF00BCEAB2 /* AppDelegate.swift */,
-				C08F6F5619B79E3300BCEAB2 /* ConfigViewController.h */,
 				C08F6F5719B79E3300BCEAB2 /* ConfigViewController.swift */,
 				C08F6F5819B79E3300BCEAB2 /* ConfigViewController.xib */,
 				C08F6F5919B79E3300BCEAB2 /* StartupViewController.swift */,
