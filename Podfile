@@ -9,5 +9,5 @@ workspace 'WhirlyGlobeSwift'
 xcodeproj 'WhirlyGlobeComponentTester/WhirlyGlobeComponentTester'
 
 pod 'Alamofire'
-pod 'WhirlyGlobe', '2.3'
+pod 'WhirlyGlobe', :path => '~/Developer/Maps/WhirlyGlobe'
 pod 'WhirlyGlobeResources'

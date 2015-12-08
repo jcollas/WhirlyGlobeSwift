@@ -4,11 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>WhirlyGlobe.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>21</integer>
-		</dict>
 		<key>WhirlyGlobeComponentTester.xcscheme</key>
 		<dict>
 			<key>orderHint</key>

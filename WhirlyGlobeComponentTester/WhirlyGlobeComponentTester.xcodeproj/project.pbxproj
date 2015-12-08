@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		06A48554786F421662624F5B /* Pods_WhirlyGlobeComponentTester.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E7132218EB39808997BDB65 /* Pods_WhirlyGlobeComponentTester.framework */; };
 		2AE95992E94D07DB1C91C344 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55CE207B4C54409650EE01E4 /* Pods.framework */; };
-		C06042871C13F298002447D5 /* Pods.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C06042851C13F298002447D5 /* Pods.debug.xcconfig */; };
-		C06042881C13F298002447D5 /* Pods.release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C06042861C13F298002447D5 /* Pods.release.xcconfig */; };
 		C086A35F19BA14D500FC01DA /* WhirlyGlobe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C086A35E19BA14D500FC01DA /* WhirlyGlobe.framework */; };
 		C08F6F3919B79DBF00BCEAB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F6F3819B79DBF00BCEAB2 /* AppDelegate.swift */; };
 		C08F6F4019B79DBF00BCEAB2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C08F6F3F19B79DBF00BCEAB2 /* Images.xcassets */; };
@@ -20,6 +18,9 @@
 		C08F6F5F19B79E3300BCEAB2 /* ConfigViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C08F6F5819B79E3300BCEAB2 /* ConfigViewController.xib */; };
 		C08F6F6019B79E3300BCEAB2 /* StartupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F6F5919B79E3300BCEAB2 /* StartupViewController.swift */; };
 		C08F6F6119B79E3300BCEAB2 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F6F5A19B79E3300BCEAB2 /* TestViewController.swift */; };
+		C0D6739D1C1669B40072C8A8 /* PagingTestDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D6739C1C1669B40072C8A8 /* PagingTestDelegate.swift */; };
+		C0D673A21C166CE70072C8A8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0D6739E1C166CE70072C8A8 /* LaunchScreen.xib */; };
+		C0D673A31C166CE70072C8A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0D673A01C166CE70072C8A8 /* Main.storyboard */; };
 		C0DB297719BC806600ACB71E /* WeatherShader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DB297619BC806600ACB71E /* WeatherShader.swift */; };
 		C0F91F461C14922200E12243 /* Alamofire+XML.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F91F451C14922200E12243 /* Alamofire+XML.swift */; };
 /* End PBXBuildFile section */
@@ -66,6 +67,9 @@
 		C08F6F5919B79E3300BCEAB2 /* StartupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartupViewController.swift; sourceTree = "<group>"; };
 		C08F6F5A19B79E3300BCEAB2 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		C08F6F6319B79E4300BCEAB2 /* WhirlyGlobeComponentTester-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WhirlyGlobeComponentTester-Bridging-Header.h"; sourceTree = "<group>"; };
+		C0D6739C1C1669B40072C8A8 /* PagingTestDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingTestDelegate.swift; sourceTree = "<group>"; };
+		C0D6739F1C166CE70072C8A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		C0D673A11C166CE70072C8A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C0DB296F19BA5C7500ACB71E /* WhirlyGlobe.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = WhirlyGlobe.playground; sourceTree = "<group>"; };
 		C0DB297619BC806600ACB71E /* WeatherShader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherShader.swift; sourceTree = "<group>"; };
 		C0F91F451C14922200E12243 /* Alamofire+XML.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire+XML.swift"; sourceTree = "<group>"; };
@@ -137,11 +141,14 @@
 			children = (
 				C08F6F3819B79DBF00BCEAB2 /* AppDelegate.swift */,
 				C08F6F5719B79E3300BCEAB2 /* ConfigViewController.swift */,
+				C0D6739E1C166CE70072C8A8 /* LaunchScreen.xib */,
+				C0D673A01C166CE70072C8A8 /* Main.storyboard */,
 				C08F6F5819B79E3300BCEAB2 /* ConfigViewController.xib */,
 				C08F6F5919B79E3300BCEAB2 /* StartupViewController.swift */,
 				C08F6F5519B79E3300BCEAB2 /* AnimatedSphere.swift */,
 				C0DB297619BC806600ACB71E /* WeatherShader.swift */,
 				C08F6F5A19B79E3300BCEAB2 /* TestViewController.swift */,
+				C0D6739C1C1669B40072C8A8 /* PagingTestDelegate.swift */,
 				C0F91F451C14922200E12243 /* Alamofire+XML.swift */,
 				C08F6F3F19B79DBF00BCEAB2 /* Images.xcassets */,
 				C08F6F3619B79DBF00BCEAB2 /* Supporting Files */,
@@ -260,10 +267,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C06042871C13F298002447D5 /* Pods.debug.xcconfig in Resources */,
-				C06042881C13F298002447D5 /* Pods.release.xcconfig in Resources */,
 				C08F6F5F19B79E3300BCEAB2 /* ConfigViewController.xib in Resources */,
+				C0D673A21C166CE70072C8A8 /* LaunchScreen.xib in Resources */,
 				C08F6F4019B79DBF00BCEAB2 /* Images.xcassets in Resources */,
+				C0D673A31C166CE70072C8A8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +340,7 @@
 				C08F6F6019B79E3300BCEAB2 /* StartupViewController.swift in Sources */,
 				C0F91F461C14922200E12243 /* Alamofire+XML.swift in Sources */,
 				C08F6F3919B79DBF00BCEAB2 /* AppDelegate.swift in Sources */,
+				C0D6739D1C1669B40072C8A8 /* PagingTestDelegate.swift in Sources */,
 				C0DB297719BC806600ACB71E /* WeatherShader.swift in Sources */,
 				C08F6F5D19B79E3300BCEAB2 /* AnimatedSphere.swift in Sources */,
 				C08F6F5E19B79E3300BCEAB2 /* ConfigViewController.swift in Sources */,
@@ -357,11 +365,30 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		C0D6739E1C166CE70072C8A8 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C0D6739F1C166CE70072C8A8 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		C0D673A01C166CE70072C8A8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C0D673A11C166CE70072C8A8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		C08F6F4D19B79DBF00BCEAB2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = "$(inherited)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -406,7 +433,7 @@
 		C08F6F4E19B79DBF00BCEAB2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = "$(inherited)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -444,7 +471,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C06042851C13F298002447D5 /* Pods.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
+				ALWAYS_SEARCH_USER_PATHS = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
@@ -460,6 +487,7 @@
 					"$(SDKROOT)/usr/include/libxml2",
 					"$(PODS_ROOT)/Headers/Private/AFNetworking",
 					"$(PODS_ROOT)/Headers/Private/KissXML",
+					"$(PODS_ROOT)/Headers/Private/WhirlyGlobe",
 				);
 				INFOPLIST_FILE = WhirlyGlobeComponentTester/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
@@ -482,7 +510,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C06042861C13F298002447D5 /* Pods.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
+				ALWAYS_SEARCH_USER_PATHS = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
@@ -498,6 +526,7 @@
 					"$(SDKROOT)/usr/include/libxml2",
 					"$(PODS_ROOT)/Headers/Private/AFNetworking",
 					"$(PODS_ROOT)/Headers/Private/KissXML",
+					"$(PODS_ROOT)/Headers/Private/WhirlyGlobe",
 				);
 				INFOPLIST_FILE = WhirlyGlobeComponentTester/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;

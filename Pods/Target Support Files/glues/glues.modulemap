@@ -1,6 +1,0 @@
-framework module glues {
-  umbrella header "glues-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -21,13 +21,15 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - Alamofire (3.1.3)
-  - boost/math-includes (1.51.0a)
-  - boost/numeric-includes (1.51.0a)
-  - boost/pointer_cast-includes (1.51.0a)
-  - boost/preprocessor-includes (1.51.0a)
-  - boost/shared_ptr-includes (1.51.0a)
-  - clipper (6.2.0)
-  - eigen (3.1.2):
+  - boost/graph-includes (1.51.0)
+  - boost/math-includes (1.51.0)
+  - boost/numeric-includes (1.51.0)
+  - boost/pointer_cast-includes (1.51.0)
+  - boost/preprocessor-includes (1.51.0)
+  - boost/shared_ptr-includes (1.51.0)
+  - boost/string_algorithms-includes (1.51.0)
+  - clipper (6.1.3a)
+  - eigen (3.2.5):
     - boost/numeric-includes
     - boost/preprocessor-includes
   - FMDB (2.5):
@@ -35,62 +37,66 @@ PODS:
   - FMDB/common (2.5)
   - FMDB/standard (2.5):
     - FMDB/common
-  - glues (1.5)
-  - GoogleProtobuf (2.5.0)
-  - KissXML (5.0)
   - libjson (7.6.1)
   - proj4 (4.8.0)
-  - shapelib (1.3)
   - SMCalloutView (2.1.2)
   - tinyxml (2.1.0)
-  - WhirlyGlobe (2.3):
-    - WhirlyGlobe/MaplyComponent (= 2.3)
-  - WhirlyGlobe/Lib (2.3):
-    - clipper
-    - glues
+  - WhirlyGlobe (2.4):
+    - WhirlyGlobe/MaplyComponent (= 2.4)
+  - WhirlyGlobe/aaplus (2.4)
+  - WhirlyGlobe/glues-wg (2.4)
+  - WhirlyGlobe/kissxml (2.4)
+  - WhirlyGlobe/Lib (2.4):
+    - clipper (~> 6.1.3a)
     - libjson
     - proj4
-    - shapelib
     - tinyxml
     - WhirlyGlobe/Lib-Headers
-  - WhirlyGlobe/Lib-Headers (2.3):
-    - boost/math-includes (= 1.51.0a)
-    - boost/pointer_cast-includes (= 1.51.0a)
-    - boost/shared_ptr-includes (= 1.51.0a)
-    - eigen (= 3.1.2)
-  - WhirlyGlobe/MaplyComponent (2.3):
+  - WhirlyGlobe/Lib-Headers (2.4):
+    - boost/graph-includes (<= 1.51.0)
+    - boost/math-includes (<= 1.51.0)
+    - boost/pointer_cast-includes (<= 1.51.0)
+    - boost/shared_ptr-includes (<= 1.51.0)
+    - boost/string_algorithms-includes (<= 1.51.0)
+    - eigen (~> 3.2.4)
+  - WhirlyGlobe/MaplyComponent (2.4):
     - AFNetworking
     - FMDB
-    - GoogleProtobuf (= 2.5.0)
-    - KissXML
     - SMCalloutView
+    - WhirlyGlobe/aaplus
+    - WhirlyGlobe/glues-wg
+    - WhirlyGlobe/kissxml
     - WhirlyGlobe/Lib
     - WhirlyGlobe/MaplyComponent-Headers
-  - WhirlyGlobe/MaplyComponent-Headers (2.3):
+    - WhirlyGlobe/octencoding
+    - WhirlyGlobe/shapefile
+  - WhirlyGlobe/MaplyComponent-Headers (2.4):
     - WhirlyGlobe/Lib-Headers
+  - WhirlyGlobe/octencoding (2.4)
+  - WhirlyGlobe/shapefile (2.4)
   - WhirlyGlobeResources (2.3)
 
 DEPENDENCIES:
   - Alamofire
-  - WhirlyGlobe (= 2.3)
+  - WhirlyGlobe (from `~/Developer/Maps/WhirlyGlobe`)
   - WhirlyGlobeResources
+
+EXTERNAL SOURCES:
+  WhirlyGlobe:
+    :path: "~/Developer/Maps/WhirlyGlobe"
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   Alamofire: 9f93b56389e48def9220dd57d1f44b1927229a5a
-  boost: a2cf67afefef2716c8603b6abe5c5d7a4a15c3da
-  clipper: ca385b11c8330a3333bab3f88446005cde57d29d
-  eigen: 44671ef1a4635614c068c2c8ce6722782b389d77
+  boost: 6c5c8d8daef26ac83c1e1c00ad14de62b80161d7
+  clipper: b009ea56c501e756299e6999e2c73eef6e1ed218
+  eigen: f44cbe83c3d11ff9efc2333914dc090b827f8176
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
-  glues: c0514aa381067a9b19d875dd79e9609e88ca37e8
-  GoogleProtobuf: 7e444f743fd3b482add70bb1bdcaabe08cad944b
-  KissXML: ce643413d618ad69886d0d43c3792b7dedfe476e
   libjson: 1a065ca64704a5d1b51c3754268998942d57ac6f
   proj4: 234525105d05a33b2ae9a90a6fe3935f7a246f7e
-  shapelib: 9da56b1f1d738ca2b3544ac761a7ae83a1c7dde1
   SMCalloutView: 4078d89b847731e514b1a919fed33b383a24a106
   tinyxml: 41d718babd106ac5d39d4e98b43c835d3b9080d8
-  WhirlyGlobe: c11c65f73d7beeef7c6fc2561961d65aaa1aefd7
+  WhirlyGlobe: 5fe299686fa4d283379c4c4a7a8471bc2ebafb5b
   WhirlyGlobeResources: d7b3e929e828f958a8477ff6797f962fdb165472
 
 COCOAPODS: 0.39.0

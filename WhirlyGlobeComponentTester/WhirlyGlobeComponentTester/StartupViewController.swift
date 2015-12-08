@@ -1,71 +1,52 @@
 //
 //  StartupViewController.swift
-//  SwiftTest
+//  WhirlyGlobeSwiftTester
 //
-//  Created by Juan J. Collas on 8/27/2014.
-//  Copyright (c) 2014 mousebird consulting. All rights reserved.
+//  Created by jmnavarro on 14/09/15.
+//  Copyright (c) 2015 Mousebird. All rights reserved.
 //
 
 import UIKit
 
-class StartupViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
-    var tableView : UITableView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        self.tableView = UITableView(frame: self.view.bounds)
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.tableView.backgroundColor = UIColor.grayColor()
-        self.tableView.separatorColor = UIColor.whiteColor()
-        self.tableView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-        self.view.addSubview(tableView)
-        self.view.autoresizesSubviews = true
-    }
+class StartupViewController: UITableViewController {
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        self.tableView.reloadData()
-    }
-    
-    // MARK: UITableViewDataSource delegate methods
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
+	private let supportedTypes: [Int:MapType] = [
+		0: MapType.MaplyGlobe(elevation: false),
+		1: MapType.MaplyGlobe(elevation: true),
+		2: MapType.Maply3DMap,
+		3: MapType.Maply2DMap]
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let nums : MapType = .NumTypes
-        
-        return nums.rawValue
-    }
-    
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return nil
-    }
-    
-    // MARK: UITableViewDelegate methods
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .Default, reuseIdentifier: nil)
-        let mapType = MapType(rawValue:indexPath.row)!
-        
-        cell.textLabel!.text = mapType.description
-        cell.textLabel!.textColor = UIColor.whiteColor()
-        cell.backgroundColor = UIColor.grayColor()
-        
-        return cell
-    }
+	override func tableView(tableView: UITableView,
+		numberOfRowsInSection section: Int) -> Int {
 
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let viewC = TestViewController(mapType: MapType(rawValue: indexPath.row)!)
-        self.navigationController!.pushViewController(viewC, animated: true)
-    }
+		return MapType.numTypes()
+	}
+
+	override func tableView(tableView: UITableView,
+		cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+
+		let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! UITableViewCell
+
+		cell.textLabel?.text = supportedTypes[indexPath.row]?.name
+
+		return cell
+	}
+
+	override func tableView(tableView: UITableView,
+		didSelectRowAtIndexPath indexPath: NSIndexPath) {
+
+		self.performSegueWithIdentifier("tester", sender: indexPath.row)
+	}
+
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		let destination = segue.destinationViewController as! TestViewController
+		let row = sender as! Int
+		destination.mapType = supportedTypes[row]!
+	}
+
+	
+
+
+
 }
-

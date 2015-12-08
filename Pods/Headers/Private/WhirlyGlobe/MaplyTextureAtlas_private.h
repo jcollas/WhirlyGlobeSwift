@@ -1,0 +1,1 @@
+../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/private/MaplyTextureAtlas_private.h

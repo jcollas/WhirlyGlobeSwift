@@ -16,7 +16,7 @@ class AnimatedSphere : MaplyActiveObject {
     var startPt : MaplyCoordinate?
     var sphereObj : MaplyComponentObject?
     
-    init(period: Float, radius: Float, color: UIColor, viewC: MaplyBaseViewController?) {
+    init(period: Float, radius: Float, color: UIColor, viewC: MaplyBaseViewController) {
     
         self.period = period
         self.radius = radius
@@ -34,7 +34,7 @@ class AnimatedSphere : MaplyActiveObject {
     func updateForFrame(frameInfo : AnyObject) {
         
         if (sphereObj != nil) {
-            self.viewC?.removeObjects([sphereObj!], mode:MaplyThreadCurrent)
+            self.viewC?.removeObjects([sphereObj!], mode: .Current)
             sphereObj = nil
         }
 
@@ -48,12 +48,12 @@ class AnimatedSphere : MaplyActiveObject {
         sphere.center = center
         
         // Here's the trick, we must use MaplyThreadCurrent to make this happen right now
-        sphereObj = self.viewC?.addShapes([sphere], desc:[ kMaplyColor: color ], mode:MaplyThreadCurrent)
+        sphereObj = self.viewC?.addShapes([sphere], desc:[ kMaplyColor: color ], mode: .Current)
     }
 
     func shutdown() {
         if (sphereObj != nil) {
-            self.viewC?.removeObjects([sphereObj!], mode:MaplyThreadCurrent)
+            self.viewC?.removeObjects([sphereObj!], mode: .Current)
             sphereObj = nil;
         }
     }

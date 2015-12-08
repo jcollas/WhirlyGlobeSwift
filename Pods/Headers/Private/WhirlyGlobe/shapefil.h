@@ -1,0 +1,1 @@
+../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/shapefile/shapefil.h
