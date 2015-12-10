@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/GlobeMath.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/GlobeMath.h

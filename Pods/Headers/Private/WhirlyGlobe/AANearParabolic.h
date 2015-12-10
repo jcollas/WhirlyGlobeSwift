@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AANearParabolic.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AANearParabolic.h

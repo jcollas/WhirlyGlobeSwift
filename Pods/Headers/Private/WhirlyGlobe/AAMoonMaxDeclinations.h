@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AAMoonMaxDeclinations.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AAMoonMaxDeclinations.h

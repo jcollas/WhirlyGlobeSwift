@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/SphericalEarthQuadLayer.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/SphericalEarthQuadLayer.h

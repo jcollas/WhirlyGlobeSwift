@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AAEaster.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AAEaster.h

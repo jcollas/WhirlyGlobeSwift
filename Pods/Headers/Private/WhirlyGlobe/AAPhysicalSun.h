@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AAPhysicalSun.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AAPhysicalSun.h

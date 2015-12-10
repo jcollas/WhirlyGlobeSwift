@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/LabelRenderer.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/LabelRenderer.h

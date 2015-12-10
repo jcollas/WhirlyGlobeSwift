@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/PanDelegate.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/PanDelegate.h

@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/SelectionManager.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/SelectionManager.h

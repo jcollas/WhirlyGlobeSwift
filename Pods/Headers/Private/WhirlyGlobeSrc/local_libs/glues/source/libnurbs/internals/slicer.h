@@ -1,1 +1,1 @@
-../../../../../../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/glues/source/libnurbs/internals/slicer.h
+../../../../../../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/glues/source/libnurbs/internals/slicer.h

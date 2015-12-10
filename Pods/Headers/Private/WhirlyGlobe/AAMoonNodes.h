@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AAMoonNodes.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AAMoonNodes.h

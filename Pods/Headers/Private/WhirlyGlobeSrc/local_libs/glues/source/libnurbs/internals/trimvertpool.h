@@ -1,1 +1,1 @@
-../../../../../../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/glues/source/libnurbs/internals/trimvertpool.h
+../../../../../../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/glues/source/libnurbs/internals/trimvertpool.h

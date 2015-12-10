@@ -1,1 +1,1 @@
-../../../../../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/glues/source/libtess/render.h
+../../../../../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/glues/source/libtess/render.h

@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/SceneRendererES2.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/SceneRendererES2.h

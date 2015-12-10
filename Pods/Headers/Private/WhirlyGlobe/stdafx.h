@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/stdafx.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/stdafx.h

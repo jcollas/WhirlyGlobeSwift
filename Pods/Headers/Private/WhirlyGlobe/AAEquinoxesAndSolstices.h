@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AAEquinoxesAndSolstices.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AAEquinoxesAndSolstices.h

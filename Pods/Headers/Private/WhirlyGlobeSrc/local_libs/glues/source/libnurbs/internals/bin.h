@@ -1,1 +1,1 @@
-../../../../../../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/glues/source/libnurbs/internals/bin.h
+../../../../../../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/glues/source/libnurbs/internals/bin.h

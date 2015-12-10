@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/WideVectorDrawable.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/WideVectorDrawable.h

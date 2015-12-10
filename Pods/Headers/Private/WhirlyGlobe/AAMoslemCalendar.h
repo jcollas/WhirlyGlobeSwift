@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AAMoslemCalendar.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AAMoslemCalendar.h

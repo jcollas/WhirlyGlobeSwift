@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AAPrecession.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AAPrecession.h

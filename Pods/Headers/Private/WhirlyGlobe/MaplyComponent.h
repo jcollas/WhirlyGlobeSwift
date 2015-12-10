@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyComponent.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/MaplyComponent.h

@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AAPhysicalJupiter.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AAPhysicalJupiter.h

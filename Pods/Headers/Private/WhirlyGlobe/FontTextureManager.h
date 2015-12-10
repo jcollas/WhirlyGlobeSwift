@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/FontTextureManager.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/FontTextureManager.h

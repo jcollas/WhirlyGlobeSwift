@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AACoordinateTransformation.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AACoordinateTransformation.h

@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/ElevationCesiumChunk.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/ElevationCesiumChunk.h

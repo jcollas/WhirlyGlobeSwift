@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AAElementsPlanetaryOrbit.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AAElementsPlanetaryOrbit.h

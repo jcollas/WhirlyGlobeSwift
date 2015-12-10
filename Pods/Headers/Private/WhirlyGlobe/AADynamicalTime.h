@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AADynamicalTime.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AADynamicalTime.h

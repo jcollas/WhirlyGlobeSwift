@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AAElliptical.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AAElliptical.h

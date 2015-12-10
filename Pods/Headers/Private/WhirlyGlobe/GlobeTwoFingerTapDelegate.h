@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/GlobeTwoFingerTapDelegate.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/GlobeTwoFingerTapDelegate.h

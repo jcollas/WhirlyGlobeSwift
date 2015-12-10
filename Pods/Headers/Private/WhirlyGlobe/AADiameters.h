@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AADiameters.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AADiameters.h

@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/PerformanceTimer.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/PerformanceTimer.h

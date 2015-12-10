@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AAPlanetaryPhenomena.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AAPlanetaryPhenomena.h

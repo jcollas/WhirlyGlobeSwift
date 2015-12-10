@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AAPlanetPerihelionAphelion.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AAPlanetPerihelionAphelion.h

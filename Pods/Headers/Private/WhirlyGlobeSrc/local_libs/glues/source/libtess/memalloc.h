@@ -1,1 +1,1 @@
-../../../../../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/glues/source/libtess/memalloc.h
+../../../../../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/glues/source/libtess/memalloc.h

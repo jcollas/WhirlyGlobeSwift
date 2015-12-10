@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/OverlapHelper.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/OverlapHelper.h

@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/NSDictionary+Stuff.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/NSDictionary+Stuff.h

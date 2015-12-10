@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AAMoonPhases.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AAMoonPhases.h

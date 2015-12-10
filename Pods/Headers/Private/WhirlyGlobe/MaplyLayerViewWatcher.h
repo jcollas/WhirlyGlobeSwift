@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/MaplyLayerViewWatcher.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/MaplyLayerViewWatcher.h

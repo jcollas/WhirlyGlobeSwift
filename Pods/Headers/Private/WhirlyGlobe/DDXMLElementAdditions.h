@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/KissXML/Additions/DDXMLElementAdditions.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/KissXML/Additions/DDXMLElementAdditions.h

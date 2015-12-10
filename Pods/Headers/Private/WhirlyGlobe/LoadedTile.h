@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/LoadedTile.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/LoadedTile.h

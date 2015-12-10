@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/ScreenSpaceBuilder.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/ScreenSpaceBuilder.h

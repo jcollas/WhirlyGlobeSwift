@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/TileQuadLoader.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/TileQuadLoader.h

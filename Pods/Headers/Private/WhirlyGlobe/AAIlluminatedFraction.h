@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AAIlluminatedFraction.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AAIlluminatedFraction.h

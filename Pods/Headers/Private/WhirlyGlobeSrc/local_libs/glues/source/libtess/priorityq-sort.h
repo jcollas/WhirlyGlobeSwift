@@ -1,1 +1,1 @@
-../../../../../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/glues/source/libtess/priorityq-sort.h
+../../../../../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/glues/source/libtess/priorityq-sort.h

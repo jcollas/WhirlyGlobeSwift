@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/octencoding/LatLongD.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/octencoding/LatLongD.h

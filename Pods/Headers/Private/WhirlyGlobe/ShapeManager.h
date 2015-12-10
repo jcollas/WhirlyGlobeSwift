@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/ShapeManager.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/ShapeManager.h

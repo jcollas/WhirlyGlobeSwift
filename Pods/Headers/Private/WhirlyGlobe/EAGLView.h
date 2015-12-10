@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/EAGLView.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/EAGLView.h

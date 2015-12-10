@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/WhirlyOctEncoding.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/WhirlyOctEncoding.h

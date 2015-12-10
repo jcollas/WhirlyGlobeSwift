@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/AnimateViewMomentum.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/AnimateViewMomentum.h

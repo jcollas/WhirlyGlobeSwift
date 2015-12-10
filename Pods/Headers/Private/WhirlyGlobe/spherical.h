@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/octencoding/spherical.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/octencoding/spherical.h

@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/BufferBuilder.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/BufferBuilder.h

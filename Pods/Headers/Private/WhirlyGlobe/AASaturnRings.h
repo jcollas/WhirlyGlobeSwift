@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AASaturnRings.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AASaturnRings.h

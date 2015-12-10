@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/octencoding/oct.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/octencoding/oct.h

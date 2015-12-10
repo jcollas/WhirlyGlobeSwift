@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/Texture.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/Texture.h

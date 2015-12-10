@@ -41,25 +41,25 @@ PODS:
   - proj4 (4.8.0)
   - SMCalloutView (2.1.2)
   - tinyxml (2.1.0)
-  - WhirlyGlobe (2.4):
-    - WhirlyGlobe/MaplyComponent (= 2.4)
-  - WhirlyGlobe/aaplus (2.4)
-  - WhirlyGlobe/glues-wg (2.4)
-  - WhirlyGlobe/kissxml (2.4)
-  - WhirlyGlobe/Lib (2.4):
+  - WhirlyGlobe (2.4.1):
+    - WhirlyGlobe/MaplyComponent (= 2.4.1)
+  - WhirlyGlobe/aaplus (2.4.1)
+  - WhirlyGlobe/glues-wg (2.4.1)
+  - WhirlyGlobe/kissxml (2.4.1)
+  - WhirlyGlobe/Lib (2.4.1):
     - clipper (~> 6.1.3a)
     - libjson
     - proj4
     - tinyxml
     - WhirlyGlobe/Lib-Headers
-  - WhirlyGlobe/Lib-Headers (2.4):
+  - WhirlyGlobe/Lib-Headers (2.4.1):
     - boost/graph-includes (<= 1.51.0)
     - boost/math-includes (<= 1.51.0)
     - boost/pointer_cast-includes (<= 1.51.0)
     - boost/shared_ptr-includes (<= 1.51.0)
     - boost/string_algorithms-includes (<= 1.51.0)
     - eigen (~> 3.2.4)
-  - WhirlyGlobe/MaplyComponent (2.4):
+  - WhirlyGlobe/MaplyComponent (2.4.1):
     - AFNetworking
     - FMDB
     - SMCalloutView
@@ -70,20 +70,26 @@ PODS:
     - WhirlyGlobe/MaplyComponent-Headers
     - WhirlyGlobe/octencoding
     - WhirlyGlobe/shapefile
-  - WhirlyGlobe/MaplyComponent-Headers (2.4):
+  - WhirlyGlobe/MaplyComponent-Headers (2.4.1):
     - WhirlyGlobe/Lib-Headers
-  - WhirlyGlobe/octencoding (2.4)
-  - WhirlyGlobe/shapefile (2.4)
+  - WhirlyGlobe/octencoding (2.4.1)
+  - WhirlyGlobe/shapefile (2.4.1)
   - WhirlyGlobeResources (2.3)
 
 DEPENDENCIES:
   - Alamofire
-  - WhirlyGlobe (from `~/Developer/Maps/WhirlyGlobe`)
+  - WhirlyGlobe (from `http://github.com/mousebird/WhirlyGlobe.git`, branch `develop_2_4_1`)
   - WhirlyGlobeResources
 
 EXTERNAL SOURCES:
   WhirlyGlobe:
-    :path: "~/Developer/Maps/WhirlyGlobe"
+    :branch: develop_2_4_1
+    :git: http://github.com/mousebird/WhirlyGlobe.git
+
+CHECKOUT OPTIONS:
+  WhirlyGlobe:
+    :commit: 115f37781cf454cde56191f258a49f47a8d0f62e
+    :git: http://github.com/mousebird/WhirlyGlobe.git
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
@@ -96,7 +102,7 @@ SPEC CHECKSUMS:
   proj4: 234525105d05a33b2ae9a90a6fe3935f7a246f7e
   SMCalloutView: 4078d89b847731e514b1a919fed33b383a24a106
   tinyxml: 41d718babd106ac5d39d4e98b43c835d3b9080d8
-  WhirlyGlobe: 5fe299686fa4d283379c4c4a7a8471bc2ebafb5b
+  WhirlyGlobe: 13947bb55b2561ee3c9539bb97d09d50a99528de
   WhirlyGlobeResources: d7b3e929e828f958a8477ff6797f962fdb165472
 
 COCOAPODS: 0.39.0

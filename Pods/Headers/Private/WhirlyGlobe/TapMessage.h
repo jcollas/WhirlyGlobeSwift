@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/TapMessage.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/TapMessage.h

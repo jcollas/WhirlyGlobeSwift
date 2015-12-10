@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AA+.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AA+.h

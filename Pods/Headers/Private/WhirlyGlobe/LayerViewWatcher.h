@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/LayerViewWatcher.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/LayerViewWatcher.h

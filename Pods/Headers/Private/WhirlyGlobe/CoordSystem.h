@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/CoordSystem.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/CoordSystem.h

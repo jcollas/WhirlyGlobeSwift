@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/sqlhelpers.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/sqlhelpers.h

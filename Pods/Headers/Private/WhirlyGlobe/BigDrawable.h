@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/BigDrawable.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/BigDrawable.h

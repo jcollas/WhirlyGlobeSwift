@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AAInterpolate.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AAInterpolate.h

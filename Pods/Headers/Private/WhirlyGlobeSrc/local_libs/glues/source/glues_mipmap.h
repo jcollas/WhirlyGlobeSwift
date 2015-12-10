@@ -1,1 +1,1 @@
-../../../../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/glues/source/glues_mipmap.h
+../../../../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/glues/source/glues_mipmap.h

@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AASidereal.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AASidereal.h

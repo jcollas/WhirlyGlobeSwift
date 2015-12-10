@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/UIImage+Stuff.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/UIImage+Stuff.h

@@ -1,6 +1,6 @@
 {
   "name": "WhirlyGlobe",
-  "version": "2.4",
+  "version": "2.4.1",
   "summary": "WhirlyGlobe-Maply: Geospatial visualization for iOS and Android.",
   "description": "WhirlyGlobe-Maply is a high performance geospatial display toolkit for iOS and Android.\nThe iOS version supports big, complex apps like Dark Sky and National Geographic World Atlas,\namong others.  Even so, it's easy to get started on your own project.",
   "homepage": "https://github.com/mousebird/WhirlyGlobe",

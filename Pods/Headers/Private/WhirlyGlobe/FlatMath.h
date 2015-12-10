@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/FlatMath.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/WhirlyGlobeLib/include/FlatMath.h

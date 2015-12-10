@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AAGalileanMoons.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AAGalileanMoons.h

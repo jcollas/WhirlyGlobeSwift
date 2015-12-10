@@ -1,1 +1,1 @@
-../../../../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/glues/source/glues_quad.h
+../../../../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/glues/source/glues_quad.h

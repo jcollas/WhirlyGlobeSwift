@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/octencoding/eqarea.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/octencoding/eqarea.h

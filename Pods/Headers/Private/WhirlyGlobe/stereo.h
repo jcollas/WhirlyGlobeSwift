@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/octencoding/stereo.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/octencoding/stereo.h

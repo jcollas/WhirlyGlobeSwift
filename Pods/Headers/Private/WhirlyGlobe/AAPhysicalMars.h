@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AAPhysicalMars.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AAPhysicalMars.h

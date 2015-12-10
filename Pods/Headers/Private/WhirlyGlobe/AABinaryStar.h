@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AABinaryStar.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AABinaryStar.h

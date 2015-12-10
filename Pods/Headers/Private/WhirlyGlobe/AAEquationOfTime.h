@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AAEquationOfTime.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AAEquationOfTime.h

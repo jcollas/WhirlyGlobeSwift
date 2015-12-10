@@ -1,1 +1,1 @@
-../../../../../Maps/WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AAAngularSeparation.h
+../../../WhirlyGlobe/WhirlyGlobeSrc/local_libs/aaplus/AAAngularSeparation.h
